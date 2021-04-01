@@ -1,8 +1,8 @@
-import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Navigation } from "./components/Navigation";
 import { Homepage } from "./components/Homepage";
 import { Images } from "./components/Images";
+import { Image } from "./components/Image";
 
 function App() {
   return (
@@ -17,6 +17,8 @@ function App() {
           <Route path="/images">
             <Images />
           </Route>
+
+          <Route path="/images/:id" component={Image} />
         </Switch>
       </Router>
     </div>
