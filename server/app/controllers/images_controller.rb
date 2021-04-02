@@ -5,6 +5,17 @@ class ImagesController < ApplicationController
     end
     # handles get requests to /images
 
+    def create
+        new_image_name = params[:newImageName]
+        new_image_url = params[:newImageUrl]
+        new_image = Image.create(name: new_image_name, url: new_image_url)
+        # render json: {new_image: new_image}
+        # can I send it like this {new_image}
+        # render json: {message: "New Image Created"}
+        render json: {:message => "New Image Created"}
+    end
+    # handles post requests to /images
+
     def show
         id = params[:id]
         # does this automatically get the id from the url
@@ -16,4 +27,5 @@ class ImagesController < ApplicationController
         render json: {image: current_image}
     end
     # handles get requests to /images/:id
+
 end

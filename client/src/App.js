@@ -1,15 +1,17 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import "./App.css";
 import { Navigation } from "./components/Navigation";
 import { Homepage } from "./components/Homepage";
 import { Images } from "./components/Images";
 import { Image } from "./components/Image";
-import "./App.css";
+import { NewImageForm} from "./components/NewImageForm";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Navigation />
+        <Link to="new-image-form">Add new image</Link>
         <Switch>
           <Route exact path="/">
             <Homepage />
@@ -20,6 +22,8 @@ function App() {
           </Route>
 
           <Route exact path="/images/:id" component={Image}/>
+
+          <Route exact path="/new-image-form" component={NewImageForm}/>
         </Switch>
       </Router>
     </div>

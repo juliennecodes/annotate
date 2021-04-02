@@ -1,0 +1,9 @@
+.form {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: flex-start;
+}
+
+.form label, .form button{
+    margin-top: 12px;
+}

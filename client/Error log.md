@@ -169,4 +169,12 @@
     - ah! I was using id in the image component when the customizable parameter was x
     - I was interpolating id but the customizable paramater was x
 
+#I added the ability to post an image. However, I'm not sure if it's being handled properly.
+    - so the post request directed to /images and is being handled by the images controller using the action create
+    - it creates a new record in the database using the information posted by the client
+    - however, when it comes to send a response back to the client, it seems that it is not reaching it?
+    - I had the client configured to console log the message but there are no console logs
+    - I thought fetch requests always have to be handled, which is why there are chained then calls
+    - I don't know what the protocol is for action create
 
+#After I submit the form, there is a question mark in the address bar, what is that?
