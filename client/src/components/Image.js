@@ -12,10 +12,6 @@ export function Image({ match, history }) {
       .then((res) => res.json())
       .then((x) => setImage(x.image));
   }, [id]);
-  // }, [id, image]);
-  // I added image in the dependency array so the ui will be updated when the image is deleted
-  // however, I'm not sure
-  // is it fine because there are a lot of calls made to the server to get the image
 
   return image ? <CurrentImage image={image} history={history} /> : <Loading />;
 }
@@ -37,30 +33,6 @@ function DeleteButton({ image, history }) {
   );
 }
 
-// function deleteImage(id) {
-//   fetch(`images/${id}`, {
-//     method: "DELETE",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({x: id}),
-//   })
-//     .then((res) => res.json())
-//     .then((x) => console.log(x));
-// }
-
-// function deleteImage(id) {
-//   fetch(`images/8`, {
-//     method: "DELETE",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({x: 8}),
-//   })
-//     .then((res) => res.json())
-//     .then((x) => console.log(x));
-// }
-
 function deleteImage(id, history) {
   fetch(`/delete-images`, {
     method: "DELETE",
@@ -70,8 +42,6 @@ function deleteImage(id, history) {
     body: JSON.stringify({ x: id }),
   })
     .then((res) => res.json())
-    // .then((x) => console.log(x.message));
-    // .then((x) => history.push("/images"));
     .then((x) => {
       console.log(x.message);
       history.push("/images");
