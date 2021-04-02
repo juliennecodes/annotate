@@ -17,3 +17,5 @@
     - maybe there is a method that takes care of it
     - maybe if a get request is made to a particular entrypoint, the controller will return a smaller version of that image?
     - how does that work? can rails resize images for you?
+
+#how to validate that the link is an image

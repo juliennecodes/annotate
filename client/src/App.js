@@ -14,11 +14,11 @@ function App() {
             <Homepage />
           </Route>
 
-          <Route path="/images">
+          <Route exact path="/images">
             <Images />
           </Route>
 
-          <Route path="/images/:id" component={Image} />
+          <Route exact path="/images/:id" component={Image}/>
         </Switch>
       </Router>
     </div>

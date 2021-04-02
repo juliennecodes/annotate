@@ -64,3 +64,109 @@
     - in the example, the route is using children attribute
     - I just had component attribute
 
+#Ok, so what do I want to happen
+    - homepage component is rendered when url is /
+    - images component is rendered when url is /images
+    - image component is rendered when url is /images/:id
+    - how do I go about doing that?
+    
+#Actually, I wonder if not using api/v1 is causing problems
+    - Is making a fetch request to "/images/:id" (BE) conflicting with Link to "/images/:id (FE)
+    - it shouldn't right? one is making a request to port 8000, one is just checking the url in the address bar
+    - hmmm
+
+#Okay, so I hardcoded to see if route is working
+    - this works
+    - <Route path="/x" component={Image}></Route>
+    - when the url is /x, Image component is rendered
+
+    - this works, so, two slashes is fine
+    - <Route path="/strawberry/milk" component={Image}></Route>
+    - when the url is /strawberry/milk, Image component is rendered
+
+    - this works too, so, you can customize parameters can make general components into specific component
+    - <Route path="/:x" component={Image}></Route>
+    - it works in conjunction with the Image component like so
+    -   export function Image({ match }) {
+            const x = match.params.x;
+            return (
+                <div>
+                <h1>Image page</h1>
+                <p>{x}</p>
+                </div>
+            );
+        }
+    - so in route path :x is customizable
+    - :x can be anything, it can be strawberry, it can be caramel
+    - /:x matches strawberry, render Image component
+    - /:x matches caramel, render Image component
+    - so, when route renders image component, it passes the image component a match object
+    - match object contains params, whose property x, captures the value of :x
+    - /:x in /strawberry - x is strawberry
+    - /:x in /caramel - x is caramel
+    - so in this case, demonstration, the mechanism of passing in a value from routes to the image component does work
+    - match is given to the image component
+    - image component can use that information
+    - here, I've used it in the p element
+
+    - this one works too, I tried two slashes with customizables
+    - <Route path="/strawberry/:x" component={Image}></Route>
+    - when I typed in /strawberry/milk, the Image component rendered milk, because :x becomes milk, and image component is rendering x, which becomes milk
+
+    - I tried it with /strawberry/1 and image component rendered 1
+    - oh, I wonder if type has anything to do with it. Is 1 in params a string and maybe the server wants a number?
+    - Ah!
+    - I tried to render this       <p>{x + 100}</p>
+    - if 1 is a number, the output would be 101
+    - however, the output was 1100
+    - this is because it is adding "1" and turns the number 100 to "100" to make sense of the addition
+    - ok, cool
+    - mystery solved
+    - turn the params into a number?
+
+    - nevermind, I just looked at the code again and fetch is making a request to a string path so it shouldn't matter because the value gets converted into a string anyways
+
+#Ok, so I hardcoded where the fetch request is directed
+    - fetch(`/images/1`)
+    - this one renders the image component with Image.first because the server sends Image.find_by(id: 1)
+    - so the server sends the right object back
+    - the client renders the image using the information received from the server
+    - I guess the problem is in configuring where the request is being sent?
+    - Ah, I solved it! 
+    - the problem was I didn't put exact
+    - so I had two routes, one is /images and one is /images/:x
+    - because /images comes first, whenever I type images/1, the route /images renders its component because it matches enough
+    - if I specify that it has to match exactly, then images/1 won't match /images
+    - therefore, it would move on and be able to see the route for /images/:x
+    - images/:x matches images/1
+    - x becomes 1, image component gets rendered and it gets the information 1, which it uses for its fetch request
+
+#hm, this is odd
+    - okay, so here are the moving parts in route parameters
+    - route parameter gets a specified value
+    - route parameter renders a component
+    - route parameter passes in the specified value to the rendered component
+    - rendered component can use the specified value
+    - so why can't I use it for the fetch request?
+    - ok, I'm going to go through these steps one by one
+    - so I went through them it did work
+    -   export function Image({ match }) {
+        const x = match.params.x;
+            console.log(`x is ${x} and type of x is ${typeof(x)}`);
+
+            return (
+                <div>
+                <h1>Image page</h1>
+                <p>{x + 100}</p>
+                </div>
+            );
+        }
+    - in images/100, route parameter gets 100, a specified value, image page is rendered as the Image page heading shows, the specified value, 100, is passed to the rendered component as the console log, x is 100 and type of x is string, shows. The information can also be used by the rendered component as the p element shows.
+    
+    - so is the problem in the fetch request?
+    - images/1 returns the right image
+    - I guess I wrote something wrong when I'm interpolating?
+    - ah! I was using id in the image component when the customizable parameter was x
+    - I was interpolating id but the customizable paramater was x
+
+
