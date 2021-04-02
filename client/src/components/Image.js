@@ -21,6 +21,7 @@ function CurrentImage({ image, history }) {
     <div className="image-page">
       <h1>Image Page</h1>
       <img className="image" src={image.url} alt={image.name}></img>
+      <p className="image-name">{image.name}</p>
       <DeleteButton image={image} history={history} />
       <Link to="/images">Back to images</Link>
     </div>

@@ -4,3 +4,7 @@
     justify-items: flex-start;
     gap: 12px;
 }
+
+.image-name {
+    text-transform: capitalize;
+}
