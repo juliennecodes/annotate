@@ -1,0 +1,6 @@
+.image-page {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: flex-start;
+    gap: 12px;
+}

@@ -35,6 +35,4 @@ function submitForm(newImageName, newImageUrl) {
   })
     .then((res) => res.json())
     .then(x => console.log(x.message));
-
-
 }

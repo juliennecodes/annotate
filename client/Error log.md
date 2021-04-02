@@ -178,3 +178,59 @@
     - I don't know what the protocol is for action create
 
 #After I submit the form, there is a question mark in the address bar, what is that?
+
+#Okay, so problem with delete
+    - {status: 404, error: "Not Found", exception: "#<ActionController::RoutingError: No route matches [DELETE] "/images/images/9">", traces: {…}}
+    - when it does params[:id], the way I configured it currently, rails gets the url information
+    - I think I have to post the id
+    - can a delete method have a body?
+    - ok, so I added a body to the delete method so I can give the server information
+    - however, I'm getting the error
+    - I think it is maybe because I'm using id as the name of the property
+    - maybe when rails sees id, it goes by convention which is the url
+
+    - hm, so in rails
+    - Started DELETE "/images/images/9"
+    - ActionController::RoutingError (No route matches [DELETE] "/images/images/9")
+    - what does this mean? does this mean that the delete request is directed to images/images/9 or does it mean that rails got the id of images/9
+
+    - ok, I'm going to hardcode
+    - so I hardcoded the client side and it shows the same behaviour
+    - the delete request couldn't have been directed at images/images/9 because I specifically put images/9
+
+    - I'm going to hardcode the server side now
+    - I hardcoded the server to delete image 9 when the button is pressed
+    - however, I still got the same error
+    - In case the code was faulty, I typed the code in directly to rails console
+    - that deleted the image
+
+    - so maybe it is the button that is the issue?
+    - I'm so confused
+
+    - I typed in the fetch request in the chrome console and got this error
+    - NoMethodError (undefined method `destroy' for nil:NilClass)
+    - however, I typed in the code in the rails console and it worked
+    - so the fetch request is faulty
+    - if rails is being asked to destroy something nil, then that means that rails isn't able to find the image by id, which means that the id supplied by the fetch request isn't being given properly
+    - oh, nevermind, rails was being asked to destroy an already deleted image, I hardcoded the server earlier
+
+    - I typed in hardcoded information in the chrome console and that deleted the image
+    - I'm using proper code in the server
+    - so the server is working
+    - the problem is in the fetch request
+
+    - ok, so the problem is I'm deleting from the image page
+    - writing the delete request in the console from the images page deletes the image
+    - writing the delete request in the console from the actual image page errors out
+    - writing the delete request in the console from a different image page errors out
+    
+    - I guess I can kind of see why but not really
+    - I need to think about this more
+    - for now, I'm just going to create a new route
+    - I think maybe because destroy method has some conventions that I'm not meeting
+    - I'll get back to this
+
+#think about params
+    - when is it url
+    - when is it request body
+
