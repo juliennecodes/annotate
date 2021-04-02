@@ -234,3 +234,21 @@
     - when is it url
     - when is it request body
 
+#what is good practice in terms of the adding something in the dependency array
+    - I added image in the dependency array so the ui will be updated when that image is deleted. However, as a result, react ends up making a lot of get requests to the server. Is that fine? Is that bad practice?
+
+#should I redirect after image is deleted or just display image is deleted?
+    - I think I should redirect
+    - how though?
+
+    - history object is passed down by prop
+    - history object can control the history of the browser
+    - so I added history.push("/images) to redirect the user after an image is deleted
+    - it works but I had to pass down history through a lot of components
+    - have to do something about that
+
+#make passing down history object neater
+    - also maybe give a little indication that image is deleted somehow?
+    - for now, console log is fine
+
+

@@ -3,7 +3,7 @@ import "./Image.css";
 import { Link } from "react-router-dom";
 import { Loading } from "./Loading";
 
-export function Image({ match }) {
+export function Image({ match, history }) {
   const [image, setImage] = useState(null);
   const id = match.params.id;
 
@@ -11,27 +11,30 @@ export function Image({ match }) {
     fetch(`/images/${id}`)
       .then((res) => res.json())
       .then((x) => setImage(x.image));
-  }, [id, image]);
+  }, [id]);
+  // }, [id, image]);
   // I added image in the dependency array so the ui will be updated when the image is deleted
   // however, I'm not sure
   // is it fine because there are a lot of calls made to the server to get the image
 
-  return image ? <CurrentImage image={image} /> : <Loading />;
+  return image ? <CurrentImage image={image} history={history} /> : <Loading />;
 }
 
-function CurrentImage({ image }) {
+function CurrentImage({ image, history }) {
   return (
     <div className="image-page">
       <h1>Image Page</h1>
       <img className="image" src={image.url} alt={image.name}></img>
-      <DeleteButton image={image} />
+      <DeleteButton image={image} history={history} />
       <Link to="/images">Back to images</Link>
     </div>
   );
 }
 
-function DeleteButton({ image }) {
-  return <button onClick={() => deleteImage(image.id)}>Delete Image</button>;
+function DeleteButton({ image, history }) {
+  return (
+    <button onClick={() => deleteImage(image.id, history)}>Delete Image</button>
+  );
 }
 
 // function deleteImage(id) {
@@ -58,14 +61,19 @@ function DeleteButton({ image }) {
 //     .then((x) => console.log(x));
 // }
 
-function deleteImage(id) {
+function deleteImage(id, history) {
   fetch(`/delete-images`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({x: id}),
+    body: JSON.stringify({ x: id }),
   })
     .then((res) => res.json())
-    .then((x) => console.log(x.message));
+    // .then((x) => console.log(x.message));
+    // .then((x) => history.push("/images"));
+    .then((x) => {
+      console.log(x.message);
+      history.push("/images");
+    });
 }
