@@ -1,9 +1,21 @@
+body, h1, h2, h3, ul, li, a, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 ul {
     list-style-type: none;
 }
 
 img {
     display: block;
+}
+
+body {
+    width: 500px;
+    margin: 0 auto;
+    padding: 24px 36px;
 }
 
 .image-thumbnail {
@@ -18,4 +30,21 @@ img {
     display: grid;
     grid-template-columns: repeat(3, 100px);
     gap: 12px;
+}
+
+.App {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+    "navigation addImage"
+    "content content" ;
+}
+
+.navigation {
+    grid-area: navigation;
+}
+
+.add-image {
+    grid-area: addImage;
+    justify-self: flex-end;
 }

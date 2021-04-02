@@ -251,4 +251,29 @@
     - also maybe give a little indication that image is deleted somehow?
     - for now, console log is fine
 
+#Problem with relative paths
+    - when I'm on image page, when I'm trying to add a new image, the url is redirected to /images/new-image-form
+    - I guess this is why I've been getting errors when trying to delete from the image page?
+    - the paths are relative so when I'm on image page and I'm making a delete request to /images/10, the path evaluates relative to the current url so the delete request gets directed to /images/images/10?
 
+    - notes on paths
+    - absolute path is always appended to the domain
+    - i.e to="/images" means x.com/images
+    - Link to is always treated as an absolute path 
+
+    - to use relative paths, use match.url
+    - i.e to=`${match.url} + /images`
+    - match.url is the page you are currently on
+    - adding a path to it creates a relative path
+
+    - hm, why is my path behaving relative then? isn't it supposed to behave like an absolute path?
+
+    - oh, I didn't write the / in front
+    - I guess if you don't, the path becomes relative?
+    - if you do, the path becomes absolute?
+
+    - I just checked my delete request, it didn't have / in the front
+    - is that why the paths were evaluating as /images/images/10?
+
+    - I added the / and tried it
+    - it works now!

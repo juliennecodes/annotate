@@ -33,13 +33,29 @@ function DeleteButton({ image, history }) {
   );
 }
 
+// function deleteImage(id, history) {
+//   fetch(`/delete-images`, {
+//     method: "DELETE",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({ x: id }),
+//   })
+//     .then((res) => res.json())
+//     .then((x) => {
+//       console.log(x.message);
+//       history.push("/images");
+//     });
+// }
+
+// Testing paths
 function deleteImage(id, history) {
-  fetch(`/delete-images`, {
+  fetch(`/images/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ x: id }),
+    body: JSON.stringify({x: id}),
   })
     .then((res) => res.json())
     .then((x) => {

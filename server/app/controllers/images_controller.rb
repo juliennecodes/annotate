@@ -40,12 +40,21 @@ class ImagesController < ApplicationController
     # end
     # #handles delete requests to images/:id
 
-    def delete_image
-        id = params[:x] #using :image_id instead of :id just for precaution
+    # def delete_image
+    #     id = params[:x] #using :image_id instead of :id just for precaution
+    #     current_image = Image.find_by(id: id)
+    #     current_image.destroy
+    #     render json: {:message => "Image deleted"}
+    # end
+
+    # Testing paths
+        def destroy
+        id = params[:x]
         current_image = Image.find_by(id: id)
         current_image.destroy
         render json: {:message => "Image deleted"}
     end
+    #handles delete requests to images/:id
 
 
 end

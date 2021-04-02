@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Router>
         <Navigation />
-        <Link to="new-image-form">Add new image</Link>
+        <Link className="add-image" to="/new-image-form">Add new image</Link>
         <Switch>
           <Route exact path="/">
             <Homepage />

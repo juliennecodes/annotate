@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # get "/images/:image_id", controller: "images", action: "delete_image"
   # this handles get request
 
-  delete "/delete-images", controller: "images", action: "delete_image"
+  # delete "/delete-images", controller: "images", action: "delete_image"
 
   get "/x", controller: "home", action:"x"
 end
