@@ -27,6 +27,5 @@ class ImagesController < ApplicationController
         render json: {:message => "Image deleted"}
     end
     #handles delete requests to images/:id
-
 end
 

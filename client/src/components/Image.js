@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./Image.css";
 import { Link } from "react-router-dom";
 import { Loading } from "./Loading";
+import {Annotations} from "./Annotations";
 
 export function Image({ match, history }) {
   const [image, setImage] = useState(null);
@@ -22,6 +23,7 @@ function CurrentImage({ image, history }) {
       <h1>Image Page</h1>
       <img className="image" src={image.url} alt={image.name}></img>
       <p className="image-name">{image.name}</p>
+      <Annotations image={image}/>
       <DeleteButton image={image} history={history} />
       <Link to="/images">Back to images</Link>
     </div>

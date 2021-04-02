@@ -247,10 +247,6 @@
     - it works but I had to pass down history through a lot of components
     - have to do something about that
 
-#make passing down history object neater
-    - also maybe give a little indication that image is deleted somehow?
-    - for now, console log is fine
-
 #Problem with relative paths
     - when I'm on image page, when I'm trying to add a new image, the url is redirected to /images/new-image-form
     - I guess this is why I've been getting errors when trying to delete from the image page?
@@ -277,3 +273,4 @@
 
     - I added the / and tried it
     - it works now!
+
