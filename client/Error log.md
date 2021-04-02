@@ -274,3 +274,10 @@
     - I added the / and tried it
     - it works now!
 
+#Should I add annotations in the dependency array? 
+    - I was hesitant because it makes a lot of calls to the server
+    - however, I'm not redirecting after deleting annotations
+    - I have to refresh manually to see the changes
+    - I guess I'll add it for now
+    - I removed it
+    - I think another solution would just be refreshing the page for the user using the history object again

@@ -30,6 +30,20 @@ function Annotation({ annotation }) {
   return (
     <li className="annotation">
       <p>{annotation.body}</p>
+      <button onClick={() => deleteAnnotation(annotation)}>
+        Delete Annotation
+      </button>
     </li>
   );
+}
+
+function deleteAnnotation(annotation) {
+  fetch(`/images/${annotation.image_id}/annotations/${annotation.id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((x) => console.log(x.message));
 }
