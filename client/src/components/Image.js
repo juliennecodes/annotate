@@ -3,6 +3,7 @@ import "./Image.css";
 import { Link } from "react-router-dom";
 import { Loading } from "./Loading";
 import {Annotations} from "./Annotations";
+import {NewAnnotationForm} from "./NewAnnotationForm";
 
 export function Image({ match, history }) {
   const [image, setImage] = useState(null);
@@ -24,6 +25,7 @@ function CurrentImage({ image, history }) {
       <img className="image" src={image.url} alt={image.name}></img>
       <p className="image-name">{image.name}</p>
       <Annotations image={image}/>
+      <NewAnnotationForm image={image}/>
       <DeleteButton image={image} history={history} />
       <Link to="/images">Back to images</Link>
     </div>

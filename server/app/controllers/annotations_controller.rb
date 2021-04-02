@@ -28,4 +28,24 @@ class AnnotationsController < ApplicationController
         # is only concerned with the annotations
     end
     # handles get requests to /images/:image_id/annotations
+
+    def create
+        image_id = params[:image_id]
+        # this is the url
+        # in /images/:image_id/annotations and /images/25/annotations
+        # 25 gets mapped to :image_id
+        # you can use that information to query for a specific image
+        # that specific image gets a new annotation when you create a new annotation
+        image = Image.find_by(id: image_id)
+
+        new_annotation = params[:newAnnotation]
+        # move this line after image_id, I'm keeping it here for now because I was writing my train of thoughts
+        # and if I insert it where I think this line should rightfully go, it will interrupt what I wrote
+        # I'm still not sure how to format things when going back and forth between javascript and rails
+        # the request body is in javascript but when it reaches rails, do I keep camel case
+        # if I change it to snake case, will rails understand that newAnnotation is new_annotation?
+
+        image.annotations.create(body: new_annotation)
+    end
+    # handles post requests to /images/:image_id/annotations
 end
