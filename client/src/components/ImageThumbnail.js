@@ -6,7 +6,7 @@ export function ImageThumbnail({image}){
     return(
         <li>
             <Link to={`/images/${id}`}>
-                <img src={url} alt={image.name}></img>
+                <img className="image-thumbnail" src={url} alt={image.name}></img>
             </Link>
         </li>
     );

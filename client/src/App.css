@@ -1,0 +1,20 @@
+ul {
+    list-style-type: none;
+}
+
+img {
+    display: block;
+}
+
+.image-thumbnail {
+    width: 100px;
+}
+
+.image {
+    height: 50vh;
+}
+
+.images {
+    display: grid;
+    grid-template-columns: repeat(3, 125px);
+}

@@ -16,6 +16,7 @@ export function Images() {
 function ImageThumbnails({ images }) {
   return (
     <div>
+      <h1>Images Page</h1>
       <ul className="images">
         {images.map((image, index)=> <ImageThumbnail image={image} key={index}/>)}
       </ul>

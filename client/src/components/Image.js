@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import {Link} from "react-router-dom";
 import { Loading } from "./Loading";
 
 export function Image({ match }) {
@@ -18,7 +19,8 @@ function CurrentImage({ image }) {
   return (
     <div>
       <h1>Image Page</h1>
-      <img src={image.url} alt={image.name}></img>
+      <img className="image" src={image.url} alt={image.name}></img>
+      <Link to="/images" >Back to images</Link>
     </div>
   );
 }

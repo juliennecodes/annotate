@@ -3,6 +3,7 @@ import { Navigation } from "./components/Navigation";
 import { Homepage } from "./components/Homepage";
 import { Images } from "./components/Images";
 import { Image } from "./components/Image";
+import "./App.css";
 
 function App() {
   return (
