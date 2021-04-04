@@ -1,97 +1,3 @@
-// import { render, screen, waitFor } from "@testing-library/react";
-// import App from "./App";
-// import userEvent from "@testing-library/user-event";
-// import "@testing-library/jest-dom/extend-expect";
-// import { server } from "./mocks/mock-server";
-
-// beforeAll(() => server.listen());
-// afterEach(() => {
-//   resetServer();
-//   server.resetHandlers();
-// });
-// afterAll(() => server.close());
-
-// test("user clicks on homepage and goes to homepage", async () => {
-//   render(<App />);
-//   const linkToHomepage = screen.getByRole("link", { name: "Homepage" });
-
-//   userEvent.click(linkToHomepage);
-
-//   expect(screen.getByRole("heading", { name: "Homepage" })).toBeInTheDocument();
-// });
-
-// test("user clicks on images link and goes to images page", async () => {
-//   render(<App />);
-//   const linkToImages = screen.getByRole("link", { name: "Images" });
-
-//   userEvent.click(linkToImages);
-//   await waitFor(() => screen.findByText("Images Page"));
-
-//   expect(screen.getByText("Images Page")).toBeInTheDocument();
-// });
-
-// test("user clicks on add new image and sees the form for adding new image", async () => {
-//   render(<App />);
-//   const linkToAddNewImage = screen.getByRole("link", { name: "Add new image" });
-
-//   userEvent.click(linkToAddNewImage);
-//   await waitFor(() => screen.findByText("Form For New Image"));
-
-//   expect(screen.getByText(/form for new image/i)).toBeInTheDocument();
-// });
-
-// test("user adds a new image and image is added", async () => {
-//   render(<App />);
-//   const linkToImages = screen.getByRole("link", { name: "Images" });
-
-//   userEvent.click(linkToImages);
-//   await waitFor(() => screen.findByText("Images Page"));
-
-//   expect(screen.queryByAltText("Fry")).not.toBeInTheDocument();
-
-//   const linkToAddNewImage = screen.getByRole("link", { name: "Add new image" });
-
-//   userEvent.click(linkToAddNewImage);
-//   await waitFor(() => screen.findByText(/form for new image/i));
-
-//   // const nameInputField = screen.getByRole("textbox", { name: "name" });
-//   // const urlInputField = screen.getByRole("textbox", { name: "url" });
-//   // const submitButton = screen.getByRole("button", { name: "Submit" });
-
-//   const nameInputField = screen.getByLabelText("name-input");
-//   const urlInputField = screen.getByLabelText("url-input");
-//   const submitButton = screen.getByRole("button", { name: "Submit" });
-
-//   userEvent.type(nameInputField, "Fry");
-//   userEvent.type(urlInputField, "image-url");
-//   userEvent.click(submitButton);
-
-//   userEvent.click(linkToImages);
-//   await waitFor(() => screen.findByText("Images Page"));
-//   await waitFor(() => screen.findByAltText("Fry"));
-
-//   expect(screen.getByAltText("Fry")).toBeInTheDocument();
-// });
-
-// test("user clicks on image thumbnail and goes to image page", async () => {
-//   render(<App />);
-
-//   //   add new image here
-
-//   const linkToImages = screen.getByRole("link", { name: "Images" });
-
-//   userEvent.click(linkToImages);
-//   await waitFor(() => screen.findByAltText("Fry"));
-
-//   const image = screen.getByAltText("Fry");
-//   userEvent.click(image);
-//   await waitFor(() => screen.findByAltText("Fry"));
-
-//   expect(screen.getByAltText("Fry")).toBeInTheDocument();
-// });
-// I'm just keeping this for prosperity
-// the better version is having helper functions so you can just read what is happening
-
 import {
   render,
   screen,
@@ -104,9 +10,9 @@ import "@testing-library/jest-dom/extend-expect";
 import { server } from "./mocks/mock-server";
 
 beforeAll(() => {
-  // jest.spyOn(HTMLFormElement.prototype, "submit").mockImplementation(() => {});
   server.listen();
 });
+
 afterEach(() => {
   resetServer();
   server.resetHandlers();
