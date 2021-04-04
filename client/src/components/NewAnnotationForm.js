@@ -13,11 +13,14 @@ function Form({image}) {
   const [newAnnotation, setNewAnnotation] = useState(null);
   const imageId = image.id
   return (
-    <form className="form">
+    <form className="form"
+      aria-label="add-annotation-form"
+      onSubmit={() => submitForm(newAnnotation, imageId)}
+    >
       <label htmlFor="annotation">Write New Annotation</label>
 
       <input aria-label="annotation-input" onChange={(e) => setNewAnnotation(e.target.value)} />
-      <button onClick={() => submitForm(newAnnotation, imageId)}>Submit</button>
+      <button >Submit</button>
     </form>
   );
 }

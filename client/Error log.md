@@ -302,3 +302,21 @@
     - I tried this
     - jest.spyOn(HTMLFormElement.prototype, "submit").mockImplementation(() => {});
     - it didn't work
+    - so the problem is html form wants to submit on its own. However, javascript is the one submitting
+    - so, to prevent html form from submitting, write e.preventDefault();
+    - I decided to use another solution, which was using fireEvent.submit(formElement)
+
+#I needed to get a reference to the form element but didn't want to use test id
+    - I tried to getByRole("form")
+    - the test was unable to find an accesible element with the role form
+    - I searched it and I guess that is by design?
+    - Although the form does already have the role form, it isn't accessible if it doesn't have a label
+    - so to get a reference to the form when testing, add aria-label, which you will use to query for the element
+    - so I did, getByRole("form", {name: "form-name"})
+    - that worked
+    - however, this also works, getByRole("form")
+    - when I read you have to add aria-label, I thought it meant that you need it to select the form
+    - perhaps, that is also the case where a page has multiple forms
+    - however, it seems the aria labels are there more for the test to recognize the form
+    - getByRole("form") by itself gets the element provided it has an aria label
+    - getByRole("form") without the aria label does not return the element
