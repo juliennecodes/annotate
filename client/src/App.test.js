@@ -10,10 +10,7 @@ import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 import { server } from "./mocks/mock-server";
 
-beforeAll(() => {
-  // jest.spyOn(HTMLFormElement.prototype, "submit").mockImplementation((e) => {e.preventDefault();});
-  server.listen();
-});
+beforeAll(() => server.listen());
 
 afterEach(() => {
   resetServer();
@@ -153,20 +150,11 @@ async function addNewImage() {
   await openAddNewImageForm();
   const nameInputField = screen.getByLabelText("name-input");
   const urlInputField = screen.getByLabelText("url-input");
-  // const submitButton = screen.getByRole("button", { name: "Submit" });
-
   const formElement = screen.getByRole("form");
-  // const formElement = screen.getByRole("form", {name: "add-image-form"});
-  // const formElement = screen.getByLabelText("add-image-form");
-  // const formElement = document.querySelector(".form");
-  // use data test id because querySelectors return something similar but not the same
-  // that may cause problems
 
   userEvent.type(nameInputField, "Fry");
   userEvent.type(urlInputField, "image-url");
-  // userEvent.click(submitButton);
   fireEvent.submit(formElement);
-  // another possible solution
 }
 
 async function goToImagePage() {
@@ -187,13 +175,10 @@ async function openNewAnnotationForm() {
 
 async function writeNewAnnotation() {
   const annotationInputField = screen.getByLabelText("annotation-input");
-  // const submitAnnotationButton = screen.getByRole("button", { name: "Submit" });
   const formElement = screen.getByRole("form");
 
   userEvent.type(annotationInputField, "Shut up and take my money");
-  // userEvent.click(submitAnnotationButton);
   fireEvent.submit(formElement);
-
   // should have an indicator that form is completed
 }
 
