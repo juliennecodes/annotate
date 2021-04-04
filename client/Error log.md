@@ -281,3 +281,24 @@
     - I guess I'll add it for now
     - I removed it
     - I think another solution would just be refreshing the page for the user using the history object again
+
+#when writing tests, keep to what the user sees
+    - i.e user adds a new image and image is added -> then just prove that
+    - I started writing out the test by typing user fills out form and was thinking what should happen when that action is taken. I was thinking how can I prove that the data is submitted, should I have the mock server send back an object that has the new added image
+    - however, that didn't seem right
+    - it became clearer when I typed that I should keep it simple, and just test what the user sees
+    - the user doesn't need to concern themselves with what the server is sending
+    - the user is only concerned with what is tangible on the page
+
+#I had a problem with the mock server
+    - I was returning objects that I think would be returned if a request is made to that endpoint
+    - however, I was simulating user interaction and I had conflicts where I was trying to add a new image but the get endpoint to all images always returns the same object regardless of what action happened to other endpoints.
+    - so I had to rewrite the mock server in a way that behaves like the actual server
+
+#To select input fields, give them aria labels
+    - then in tests, to find the input elements, use getByLabelText
+
+#Error: Not implemented: HTMLFormElement.prototype.submit
+    - I tried this
+    - jest.spyOn(HTMLFormElement.prototype, "submit").mockImplementation(() => {});
+    - it didn't work

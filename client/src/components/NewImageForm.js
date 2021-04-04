@@ -15,10 +15,20 @@ function Form() {
   const [newImageUrl, setNewImageUrl] = useState(null);
   return (
     <form className="form">
-      <label for="name">Name</label>
-      <input type="text" onChange={(e) => setNewImageName(e.target.value)} />
-      <label for="url">Url</label>
-      <input type="text" onChange={(e) => setNewImageUrl(e.target.value)} />
+      <label htmlFor="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        aria-label="name-input"
+        onChange={(e) => setNewImageName(e.target.value)}
+      />
+      <label htmlFor="url">Url</label>
+      <input
+        type="text"
+        name="url"
+        aria-label="url-input"
+        onChange={(e) => setNewImageUrl(e.target.value)}
+      />
       <button onClick={() => submitForm(newImageName, newImageUrl)}>
         Submit
       </button>
@@ -34,5 +44,5 @@ function submitForm(newImageName, newImageUrl) {
     body: JSON.stringify({ newImageName, newImageUrl }),
   })
     .then((res) => res.json())
-    .then(x => console.log(x.message));
+    .then((x) => console.log(x.message));
 }
