@@ -66,52 +66,7 @@ test("user clicks on image thumbnail and goes to image page", async () => {
   expect(screen.getByAltText("Fry")).toBeInTheDocument();
 });
 
-test("user clicks on annotate, form for annotation appears", async () => {
-  render(<App />);
-  await openAddNewImageForm();
-  await addNewImage();
-  await goToImagesPage();
-  await goToImagePage();
-  await openNewAnnotationForm();
-
-  expect(screen.getByText("Annotation Form")).toBeInTheDocument();
-});
-
-test("user adds annotation, new annotation is added", async () => {
-  render(<App />);
-  await addNewImage();
-  await goToImagesPage();
-  await goToImagePage();
-  await openNewAnnotationForm();
-  await writeNewAnnotation();
-  await goToImagesPage();
-  await goToImagePage();
-  await showAnnotations();
-
-  expect(screen.getByText("Shut up and take my money")).toBeInTheDocument();
-});
-
-test("user deletes annotation, annotation is deleted", async () => {
-  render(<App />);
-  await addNewImage();
-  await goToImagesPage();
-  await goToImagePage();
-  await openNewAnnotationForm();
-  await writeNewAnnotation();
-  await goToImagesPage();
-  await goToImagePage();
-  await showAnnotations();
-
-  expect(screen.getByText("Shut up and take my money")).toBeInTheDocument();
-
-  await deleteAnnotation();
-
-  expect(
-    screen.queryByText("Shut up and take my money")
-  ).not.toBeInTheDocument();
-});
-
-test("user deletes image, image is deleted", async () => {
+test.skip("user deletes image, image is deleted", async () => {
   render(<App />);
   await openAddNewImageForm();
   await addNewImage();
@@ -122,6 +77,52 @@ test("user deletes image, image is deleted", async () => {
   await goToImagesPage();
   expect(screen.queryByAltText("Fry")).not.toBeInTheDocument();
 });
+
+
+test("user clicks on annotate, form for annotation appears", async () => {
+  render(<App />);
+  // add new image
+  // go to image page
+  // decide to annotate
+  // expect pencil icon to be in the document
+  // expect canvas to be in the document
+  // expect annotation form to be in the document
+});
+
+
+test("user adds annotation, new annotation is added", async () => {
+  render(<App />);
+  // add new image
+  // go to image page
+  // annotate
+  // show annotations
+  // expect drawing to be on the image
+  // expect annotation to be in the document
+});
+
+test("user deletes annotation, annotation is deleted", async () => {
+  render(<App />);
+  // add new image
+  // annotate
+  // show annotations
+  // prove that annotation is in the document
+  // delete annotation
+  // prove that annotation is not in the document
+});
+
+test("user clicks display annotation, list of annotations are displayed", ()=>{
+  // write new annotations
+  // show annotations
+  // prove that annotations are displayed
+});
+
+test("user closes display annotation, list of annotations are not displayed", ()=>{
+  // write new annotation
+  // show annotations
+  // prove that annotations are displayed
+  // click to close annotations
+  // prove that annotations are not displayed
+})
 // ----------------------------------------------------------------------------------------------------
 function resetServer() {
   fetch("/resetServer")

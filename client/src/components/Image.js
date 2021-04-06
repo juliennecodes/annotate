@@ -1,54 +1,55 @@
 import { useEffect, useState } from "react";
 import "./Image.css";
-import { Link } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { Loading } from "./Loading";
-import {Annotations} from "./Annotations";
-import {NewAnnotationForm} from "./NewAnnotationForm";
+import { Annotations } from "./Annotations";
+import { NewAnnotationForm } from "./NewAnnotationForm";
 
-export function Image({ match, history }) {
+export function Image() {
   const [image, setImage] = useState(null);
-  const id = match.params.id;
+  const { id } = useParams();
+  // const id = match.params.id;
 
   useEffect(() => {
     fetch(`/images/${id}`)
       .then((res) => res.json())
-      .then((x) => setImage(x.image));
+      .then((serverResponse) => setImage(serverResponse.image));
   }, [id]);
 
-  return image ? <CurrentImage image={image} history={history} /> : <Loading />;
+  return image ? <CurrentImage image={image} /> : <Loading />;
 }
 
-function CurrentImage({ image, history }) {
+function CurrentImage({ image }) {
   return (
     <div className="image-page">
       <h1>Image Page</h1>
       <img className="image" src={image.url} alt={image.name}></img>
       <p className="image-name">{image.name}</p>
-      <Annotations image={image}/>
-      <NewAnnotationForm image={image}/>
-      <DeleteButton image={image} history={history} />
-      <Link to="/images">Back to images</Link>
+      <Annotations image={image} />
+      <NewAnnotationForm image={image} />
+      <DeleteButton image={image} />
     </div>
   );
 }
 
-function DeleteButton({ image, history }) {
-  return (
-    <button onClick={() => deleteImage(image.id, history)}>Delete Image</button>
-  );
-}
+function DeleteButton({ image }) {
+  let history = useHistory();
 
-function deleteImage(id, history) {
-  fetch(`/images/${id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({x: id}),
-  })
-    .then((res) => res.json())
-    .then((x) => {
-      console.log(x.message);
-      history.push("/images");
-    });
+  const deleteImage = (id) => {
+    fetch(`/images/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // body: JSON.stringify({ x: id }),
+      // I don't need the body, I don't think
+      // rails can get the image id number through the parameter
+      // id gets mapped to the :id parameter
+      // rails will use this to find which image to delete
+    })
+      .then((res) => res.json())
+      .then((serverResponse) => history.push("/images"));
+  };
+
+  return <button onClick={() => deleteImage(image.id)}>Delete Image</button>;
 }

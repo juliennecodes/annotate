@@ -35,6 +35,35 @@ user clicks delete image ->
 user is on images page
 deleted image is not there
 
+----------------------------------------------------------------------------------------------------
+user clicks annotate ->
+canvas opens up
+area outside of the canvas is greyed out
+tools for drawing on the image appear
+input form form annotations opens up
 
+user clicks on the brush ->
+cursor for the mouse becomes a pencil when hovering in the canvas area
 
+user draws on the canvas ->
+drawings appear on the canvas where the mouse had been
+
+user writes an annotation and submits ->
+loading screen appears and says annotating
+after a few seconds, the user is on the image page
+
+user clicks display annotations ->
+a list of annotations appear on the right hand side
+the annotations are blobs
+
+user clicks on an annotation ->
+an overlay of the drawing appears on top of the image
+text annotation is displayed under the image
+
+user clicks delete annotation ->
+user is on the image page
+when the user clicks display annotation, the deleted annotation is not there
+
+user closes display annotation ->
+user sees the image page
 

@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { Loading } from "./Loading";
+import {Annotation} from "./Annotation";
 
 export function Annotations({ image }) {
   const [annotations, setAnnotations] = useState(null);
-  const id = image.id;
 
   useEffect(() => {
-    fetch(`/images/${id}/annotations`)
+    fetch(`/images/${image.id}/annotations`)
       .then((res) => res.json())
-      .then((x) => setAnnotations(x.annotations));
-  }, [id]);
+      .then((serverResponse) => setAnnotations(serverResponse.annotations));
+  }, [image]);
 
   return annotations ? (
     <div>
@@ -26,24 +26,3 @@ export function Annotations({ image }) {
 }
 // so, here, fetch the annotations given an image
 
-function Annotation({ annotation }) {
-  return (
-    <li className="annotation">
-      <p>{annotation.body}</p>
-      <button onClick={() => deleteAnnotation(annotation)}>
-        Delete Annotation
-      </button>
-    </li>
-  );
-}
-
-function deleteAnnotation(annotation) {
-  fetch(`/images/${annotation.image_id}/annotations/${annotation.id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((x) => console.log(x.message));
-}

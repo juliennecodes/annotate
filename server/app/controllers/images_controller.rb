@@ -21,7 +21,7 @@ class ImagesController < ApplicationController
     # handles get requests to /images/:id
 
     def destroy
-        id = params[:x]
+        id = params[:id]
         current_image = Image.find_by(id: id)
         current_image.destroy
         render json: {:message => "Image deleted"}
