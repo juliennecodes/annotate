@@ -24,5 +24,4 @@ export function Annotations({ image }) {
     <Loading />
   );
 }
-// so, here, fetch the annotations given an image
 

@@ -8,7 +8,6 @@ import { NewAnnotationForm } from "./NewAnnotationForm";
 export function Image() {
   const [image, setImage] = useState(null);
   const { id } = useParams();
-  // const id = match.params.id;
 
   useEffect(() => {
     fetch(`/images/${id}`)
