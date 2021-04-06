@@ -41,11 +41,6 @@ function DeleteButton({ image }) {
       headers: {
         "Content-Type": "application/json",
       },
-      // body: JSON.stringify({ x: id }),
-      // I don't need the body, I don't think
-      // rails can get the image id number through the parameter
-      // id gets mapped to the :id parameter
-      // rails will use this to find which image to delete
     })
       .then((res) => res.json())
       .then((serverResponse) => history.push("/images"));

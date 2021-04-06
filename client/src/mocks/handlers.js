@@ -34,9 +34,5 @@ export const handlers = [
     images = [];
 
     return res(ctx.status(200), ctx.json({}));
-    // since this was just a server reset and I didn't really need to send an object to the app,
-    // I originally left out ctx.json()
-    // however, I got an error about unexpected end of json input
-    // so I guess it is necessary?
   }),
 ];

@@ -12,6 +12,7 @@ function App() {
       <Router>
         <Navigation />
         <Link className="add-image" to="/new-image-form">Add new image</Link>
+
         <Switch>
           <Route exact path="/">
             <Homepage />
@@ -25,6 +26,7 @@ function App() {
 
           <Route exact path="/new-image-form" component={NewImageForm}/>
         </Switch>
+        
       </Router>
     </div>
   );

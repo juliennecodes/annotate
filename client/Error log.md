@@ -320,3 +320,13 @@
     - however, it seems the aria labels are there more for the test to recognize the form
     - getByRole("form") by itself gets the element provided it has an aria label
     - getByRole("form") without the aria label does not return the element
+
+#I'm cleaning up code and should move this here, it's more on what the server is sending. I actually don't know if this is just mock server thing or an actual server thing
+    - since this was just a server reset and I didn't really need to send an object to the app,
+    - I originally left out ctx.json()
+    - however, I got an error about unexpected end of json input
+    - so I guess it is necessary?
+    - this was on the mock server
+
+#I still have to find out how to just send status code responses
+    - for methods like create and destroy, the server doesn't really need to send objects back to the client
