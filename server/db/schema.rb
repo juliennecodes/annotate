@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_02_204008) do
+ActiveRecord::Schema.define(version: 2021_04_08_192408) do
 
   create_table "annotations", force: :cascade do |t|
-    t.string "body"
+    t.string "written"
     t.integer "image_id"
+    t.string "visual"
   end
 
   create_table "images", force: :cascade do |t|

@@ -15,7 +15,14 @@ export function Image() {
       .then((serverResponse) => setImage(serverResponse.image));
   }, [id]);
 
-  return image ? <CurrentImage image={image} /> : <Loading />;
+  return image ? (
+    <div>
+      <CurrentImage image={image} />
+      <Annotations image={image} />
+      <NewAnnotationForm image={image} />
+      <DeleteButton image={image} />
+    </div>
+  ) : <Loading />;
 }
 
 function CurrentImage({ image }) {
@@ -24,9 +31,6 @@ function CurrentImage({ image }) {
       <h1>Image Page</h1>
       <img className="image" src={image.url} alt={image.name}></img>
       <p className="image-name">{image.name}</p>
-      <Annotations image={image} />
-      <NewAnnotationForm image={image} />
-      <DeleteButton image={image} />
     </div>
   );
 }

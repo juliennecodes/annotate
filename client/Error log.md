@@ -330,3 +330,65 @@
 
 #I still have to find out how to just send status code responses
     - for methods like create and destroy, the server doesn't really need to send objects back to the client
+
+#So, I think the front end is working fine. I'm capturing the information and keeping them in a state.
+    - I have a state that keeps track of what the user wrote in
+    - I have a state that keeps track of what is drawn on the canvas
+    - however, I'm getting an error when posting to the server
+    - I console logged the image annotation and text annotation, it seems to be right
+    - however, when I query for the latest annotation, the annotation doesn't get created
+    - I did create an annotation with just the text and that works
+    - however, when I add the string information of what was drawn on the canvas, the annotation doesn't get created
+    - I did get an error message though
+    - ActiveRecord::AssociationTypeMismatch (Image(#18300) expected, got "data:image/png;base64,iVBORw...BS3+LTpAAAAAAElFTkSuQmCC" which is an instance of String(#2640)):
+    - what does - Image(#18300) expected - mean?
+    - does that mean that rails knows data:image is an image and it is raising an error because I configured the annotations table to have image as :string?
+    - should I have image as :image?
+    - I thought it should be string because canvas.toDataURL() returns a string
+    - is there even an :image type?
+    - so I tried creating the annotation directly in the rails console, I got the same error
+    - so post request isn't the issue, it's actually creating a record in the database that is the issue
+
+#ActiveRecord::AssociationTypeMismatch
+    - so I looked it up
+    - raised when an object assigned to an association has an incorrect type
+    - so is it complaining because of images has many annotations?
+    - or is the error about annotations model?
+    - okay, so I tried to create annotation directly on the rails console
+    - instead of using the canvas.toDataURL(), I used a working link
+    - however, that produced an error too
+    - so, it isn't the canvas.toDataURL() that is the problem
+    - I mean it might be an error, but it isn't the one causing the mismatch error
+    - so I created an annotation directly in rails console, this time, I left out writing the image annotation, it worked
+    - so adding image annotation raises an error
+    - so why?
+    - I looked at the schema and the annotations model has image annotation
+    -   create_table "annotations", force: :cascade do |t|
+            t.string "text"
+            t.integer "image_id"
+            t.string "image"
+        end
+    - I don't understand
+    - what does image expected mean?
+
+#So I updated the column directly and gave it a string
+    - that worked
+    - however, when I tried to create an annotation with the same values, I got the same error
+
+#So I guess the error was because image column is already taken
+    - I thought the extent of association between annotations and image was just through image id
+    - however, it seems that I can refer to the image the annotation belongs to through annotation.image
+    - as such, the image column I created to house the information drawn on the canvas is conflicting with an implied column?
+    - annotation, through rails, has a pseudo column containing the information about the image it belongs to
+    - I thought the extent of this was image_id, I didn't know it had access to the whole image
+    - okay, time to rename the columns
+
+#I tested whether the canvas information is transparent or not. It is.
+    - I gave body the background colour pink
+    - if canvas information was not transparent, a white box would have appeared
+    - if it was transparent, the background colour would show through
+    - the background colour showed through
+    - yay
+
+
+

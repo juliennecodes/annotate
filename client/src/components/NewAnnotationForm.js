@@ -1,18 +1,24 @@
 import { useState } from "react";
+import { Canvas } from "./Canvas";
 
 export function NewAnnotationForm({ image }) {
-  const [newAnnotation, setNewAnnotation] = useState(null);
+  const [writtenAnnotation, setWrittenAnnotation] = useState(null);
+  const [visualAnnotation, setVisualAnnotation] = useState(null);
 
-  const submitForm = (newAnnotation) => {
+  const submitForm = (visualAnnotation, writtenAnnotation) => {
+    console.log(`image annotation is ${visualAnnotation}`);
+    console.log(`type of image annotation is ${typeof(visualAnnotation)}`);
+    console.log(`text annotation is ${writtenAnnotation}`);
+    console.log(`image id is ${image.id}`);
     fetch(`/images/${image.id}/annotations`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ newAnnotation }),
+      body: JSON.stringify({ visualAnnotation, writtenAnnotation }),
     })
       .then((res) => res.json())
-      .then((x) => window.location.reload());
+      .then((serverResponse) => window.location.reload());
   };
   return (
     <div>
@@ -20,7 +26,7 @@ export function NewAnnotationForm({ image }) {
       <form
         className="form"
         aria-label="add-annotation-form"
-        onSubmit={() => submitForm(newAnnotation)}
+        onSubmit={() => submitForm(visualAnnotation, writtenAnnotation)}
       >
         <label htmlFor="annotation">Write New Annotation</label>
 
@@ -28,10 +34,12 @@ export function NewAnnotationForm({ image }) {
           type="text"
           name="annotation"
           aria-label="annotation-input"
-          onChange={(e) => setNewAnnotation(e.target.value)}
+          onChange={(e) => setWrittenAnnotation(e.target.value)}
         />
+
         <button>Submit</button>
       </form>
+      <Canvas visualAnnotation={visualAnnotation} setVisualAnnotation={setVisualAnnotation}/>
     </div>
   );
 }
