@@ -6,10 +6,6 @@ export function NewAnnotationForm({ image }) {
   const [visualAnnotation, setVisualAnnotation] = useState(null);
 
   const submitForm = (visualAnnotation, writtenAnnotation) => {
-    console.log(`image annotation is ${visualAnnotation}`);
-    console.log(`type of image annotation is ${typeof(visualAnnotation)}`);
-    console.log(`text annotation is ${writtenAnnotation}`);
-    console.log(`image id is ${image.id}`);
     fetch(`/images/${image.id}/annotations`, {
       method: "POST",
       headers: {
@@ -39,7 +35,10 @@ export function NewAnnotationForm({ image }) {
 
         <button>Submit</button>
       </form>
-      <Canvas visualAnnotation={visualAnnotation} setVisualAnnotation={setVisualAnnotation}/>
+      <Canvas
+        visualAnnotation={visualAnnotation}
+        setVisualAnnotation={setVisualAnnotation}
+      />
     </div>
   );
 }

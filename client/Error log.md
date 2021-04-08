@@ -389,6 +389,3 @@
     - if it was transparent, the background colour would show through
     - the background colour showed through
     - yay
-
-
-

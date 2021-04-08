@@ -22,7 +22,9 @@ export function Image() {
       <NewAnnotationForm image={image} />
       <DeleteButton image={image} />
     </div>
-  ) : <Loading />;
+  ) : (
+    <Loading />
+  );
 }
 
 function CurrentImage({ image }) {
