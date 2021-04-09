@@ -389,3 +389,30 @@
     - if it was transparent, the background colour would show through
     - the background colour showed through
     - yay
+
+#add event listeners directly in the elements in react
+    - from react docs - when using React, you generally don’t need to call addEventListener to add listeners to a DOM element after it is created. Instead, just provide a listener when the element is initially rendered
+
+#how do you set up multiple event listeners in one element?
+    - oh? you can have multiple onEvent listeners in one element?
+    - has that been the case always?
+    - why did I think you can have only one onClick
+    - I thought html elements can only have one onEvent listeners
+    - actually, what I want to do is if it is mousedown, and it is mousemove, draw
+    - how do you pass mousemove to mousedown
+    - set a state?
+
+#I had a problem with mouse move event handler
+    - mouse move event handler had to be aware of mouse down event
+    - however, the event passed to mouse move event handler concerns the mouse moving not the mouse down event
+    - the answer was to keep the mouse down event information in a state
+    - in this case, mouse move needed to know whether the mouse button was pressed
+    - if pressed, continue to draw
+    - it released, stop drawing
+    - since the mouse move was only aware of the mouse move event, mouse down event had to be kept in a state
+    - that way, mouse move can have the mouse down event information
+    - an event listener was added to the canvas, if the user clicked on the canvas, the state of whether the mouse button was down was set to true
+    - another event listener was added to the canvas, if the user released the mouse button, the state of whether the mouse button was down was set to false
+    - that way, mouse move handler had access to whether the mouse button was down or not
+    - if down, draw continuously
+    - if up, stop drawing

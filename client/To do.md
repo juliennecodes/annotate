@@ -17,6 +17,8 @@
 
 #I need to set the canvas size according to image size
 
+#look into useCallback for updating the annotations without making continuous get requests to the server
+
 ----------------------------------------------------------------------------------------------------
 #Okay, so next steps. What are my next steps
 - make it so the user can draw on the canvas
