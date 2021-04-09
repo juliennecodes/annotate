@@ -50,5 +50,7 @@ ok, to dos after implementing draw on canvas
 - add erase feature
 - add clear canvas feature
 - change cursor to paintbrush when on canvas
+- changing colour
+- if the cursor goes past the canvas, draw mode off
 
 ----------------------------------------------------------------------------------------------------

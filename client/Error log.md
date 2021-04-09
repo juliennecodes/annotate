@@ -416,3 +416,10 @@
     - that way, mouse move handler had access to whether the mouse button was down or not
     - if down, draw continuously
     - if up, stop drawing
+
+#look into new image form, I'm not sure if the server response is registering
+    - I mean it creates a new image record but I had a console log to handle the promises and the console isn't logging
+    - I'm also not sure about what's happening in the address bar
+    - are the parameters supposed to remain there?
+    - this is what the console says
+    - [HMR] Waiting for update signal from WDS...

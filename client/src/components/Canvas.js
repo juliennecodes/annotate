@@ -23,6 +23,7 @@ export function Canvas({ setVisualAnnotation }) {
   return (
     <div>
       <h1>Canvas</h1>
+      <p>{`drawMode is ${drawMode}`}</p>
       <Brush drawMode={drawMode} setDrawMode={setDrawMode} />
       <ClearCanvasButton />
       <canvas
@@ -42,7 +43,6 @@ export function Canvas({ setVisualAnnotation }) {
       >
         Set Image Annotation
       </button>
-      <p>{`drawMode is ${drawMode}`}</p>
     </div>
   );
 }
