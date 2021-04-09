@@ -17,23 +17,8 @@ export function Canvas({ setVisualAnnotation }) {
   };
 
   const mouseMoveHandler = (e) => {
-    // if(drawMode && isMouseDown) draw(e);
-    // is this redundant?
-    // is there a case where isDrawMode is false but isMouseDown is true
-    // but isMouseDown can only be set to true when drawMode is true
-    // so it might just be redundant
     if (isMouseDown) draw(e);
   };
-
-  // ok, so the situation is, if I click on the canvas while in draw mode, set isMouseDown to true
-  // if isMouseDown is true and I move the mouse, draw on the canvas continuously
-  // if I release the mouse button, isMouseDown is set to false, 
-  // this means that when I move the mouse, it can no longer draw on the canvas
-  // I think I need to add drawing a dot when it is in draw mode and I clicked on the canvas
-
-  // ok, so mouseDown on canvas while in drawMode, draw
-  // mouseMove and mouseDown while in drawMode, draw
-  // mouseUp on canvas while in draw mode, don't draw
 
   return (
     <div>
@@ -81,8 +66,6 @@ function drawDot(x, y) {
   const ctx = canvas.getContext("2d");
   ctx.fillRect(x, y, 5, 5);
 }
-
-// check if drawMode is true, then call drawDot
 
 function getCoordinates(e) {
   const viewportXCoordinate = e.clientX;
