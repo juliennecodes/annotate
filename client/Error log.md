@@ -423,3 +423,10 @@
     - are the parameters supposed to remain there?
     - this is what the console says
     - [HMR] Waiting for update signal from WDS...
+
+#I changed the server response from render json to head :no_content and it seems that the server response is not being handled
+    - it seems like the server is doing its own thing
+    - however, I guess because there is no body, there is nothing to extract from the server response?
+    - so maybe that is why it is not reaching the reload code?
+    - so I moved the reload to where I normally do res.json(), however, I still have to click the button twice to get the page to reload
+    - maybe I'll revert to the old version for now, where I'm sending a json object back to the client even if that json object goes unused
