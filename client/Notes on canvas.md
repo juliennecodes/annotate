@@ -45,3 +45,10 @@ Okay, so I wrote a function called drawDot
 Okay, so I was able to draw dot. Next step is drawing dot continuously.
 - onmousemove?
 
+----------------------------------------------------------------------------------------------------
+ok, to dos after implementing draw on canvas
+- add erase feature
+- add clear canvas feature
+- change cursor to paintbrush when on canvas
+
+----------------------------------------------------------------------------------------------------

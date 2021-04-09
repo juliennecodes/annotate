@@ -408,7 +408,7 @@
     - the answer was to keep the mouse down event information in a state
     - in this case, mouse move needed to know whether the mouse button was pressed
     - if pressed, continue to draw
-    - it released, stop drawing
+    - if released, stop drawing
     - since the mouse move was only aware of the mouse move event, mouse down event had to be kept in a state
     - that way, mouse move can have the mouse down event information
     - an event listener was added to the canvas, if the user clicked on the canvas, the state of whether the mouse button was down was set to true
