@@ -26,7 +26,10 @@ export function NewAnnotationForm({ image }) {
       <form
         className="form"
         aria-label="add-annotation-form"
-        onSubmit={() => submitForm(visualAnnotation, writtenAnnotation)}
+        onSubmit={(e) => {
+          e.preventDefault();
+          submitForm(visualAnnotation, writtenAnnotation);
+        }}
       >
         <label htmlFor="annotation">Write New Annotation</label>
 
@@ -39,7 +42,6 @@ export function NewAnnotationForm({ image }) {
 
         <button>Submit</button>
       </form>
-      
     </div>
   );
 }

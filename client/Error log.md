@@ -430,3 +430,7 @@
     - so maybe that is why it is not reaching the reload code?
     - so I moved the reload to where I normally do res.json(), however, I still have to click the button twice to get the page to reload
     - maybe I'll revert to the old version for now, where I'm sending a json object back to the client even if that json object goes unused
+
+#I'm getting this error when adding a new image
+    - Proxy error: Could not proxy request /images from localhost:3000 to http://localhost:8000.
+    - maybe it has to do with the html form submitting? I'll add e prevent default for now

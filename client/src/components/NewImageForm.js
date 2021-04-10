@@ -14,7 +14,9 @@ export function NewImageForm() {
       body: JSON.stringify({ name, url }),
     })
       .then((res) => res.json())
-      .then((serverResponse) => console.log(serverResponse.message));
+      // .then((serverResponse) => console.log(serverResponse.message));
+      .then((serverResponse)=> window.location.reload());
+
   };
 
   return (
@@ -23,7 +25,13 @@ export function NewImageForm() {
       <form
         className="form"
         aria-label="add-image-form"
-        onSubmit={() => submitForm(newImageName, newImageUrl)}
+        onSubmit={(e) => {
+          e.preventDefault();
+          submitForm(newImageName, newImageUrl);
+          // window.location.reload();
+          // I moved the reload to submitForm
+          // I think it didn't work before because of html form default behaviour
+        }}
       >
 
         <label htmlFor="name">Name</label>
