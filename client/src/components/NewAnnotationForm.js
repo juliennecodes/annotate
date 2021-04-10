@@ -5,13 +5,13 @@ export function NewAnnotationForm({ image }) {
   const [writtenAnnotation, setWrittenAnnotation] = useState(null);
   const [visualAnnotation, setVisualAnnotation] = useState(null);
 
-  const submitForm = (visualAnnotation, writtenAnnotation) => {
+  const submitForm = (visual, written) => {
     fetch(`/images/${image.id}/annotations`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ visualAnnotation, writtenAnnotation }),
+      body: JSON.stringify({ visual, written }),
     })
       .then((res) => res.json())
       .then((serverResponse) => window.location.reload());
@@ -19,6 +19,10 @@ export function NewAnnotationForm({ image }) {
   return (
     <div>
       <h2>New Annotation Form</h2>
+      <Canvas
+        visualAnnotation={visualAnnotation}
+        setVisualAnnotation={setVisualAnnotation}
+      />
       <form
         className="form"
         aria-label="add-annotation-form"
@@ -35,10 +39,7 @@ export function NewAnnotationForm({ image }) {
 
         <button>Submit</button>
       </form>
-      <Canvas
-        visualAnnotation={visualAnnotation}
-        setVisualAnnotation={setVisualAnnotation}
-      />
+      
     </div>
   );
 }

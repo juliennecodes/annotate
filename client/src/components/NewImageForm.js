@@ -5,13 +5,13 @@ export function NewImageForm() {
   const [newImageName, setNewImageName] = useState(null);
   const [newImageUrl, setNewImageUrl] = useState(null);
 
-  const submitForm = (newImageName, newImageUrl) => {
+  const submitForm = (name, url) => {
     fetch("/images", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ newImageName, newImageUrl }),
+      body: JSON.stringify({ name, url }),
     })
       .then((res) => res.json())
       .then((serverResponse) => console.log(serverResponse.message));
