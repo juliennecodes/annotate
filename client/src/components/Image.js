@@ -55,8 +55,8 @@ export function Image() {
         <h1>{`Image Page - ${image.name}`}</h1>
         <img className="image" src={image.url} alt={image.name}></img>
         <NewAnnotationForm image={image} />
-        <button className="close-annotation" onClick={() => setState("viewing image")}>
-          Close annotations
+        <button className="close-annotate" onClick={() => setState("viewing image")}>
+          Close annotate
         </button>
       </div>
     );

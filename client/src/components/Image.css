@@ -74,7 +74,8 @@
 
 .c {
   grid-template-areas:
-    "left heading closeAnnotation"
+    "left heading right"
+    "closeAnnotate image form"
     "canvasIcons image form"
     "space setVisualAnnotation form";
 }
@@ -83,8 +84,9 @@
   grid-area: image;
 }
 
-.close-annotation {
-  grid-area: closeAnnotation;
+.close-annotate {
+  grid-area: closeAnnotate;
+  align-self: flex-start;
 }
 
 .set-visual-annotation {
