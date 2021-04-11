@@ -15,9 +15,7 @@ export function Annotation({ annotation }) {
       <div>
         <VisualAnnotation visualAnnotation={annotation.visual} />
         <WrittenAnnotation writtenAnnotation={annotation.written} />
-        <button onClick={() => deleteAnnotation(annotation)}>
-          Delete Annotation
-        </button>
+        <button onClick={() => deleteAnnotation(annotation)}>Delete Annotation</button>
       </div>
     </li>
   );
@@ -25,12 +23,14 @@ export function Annotation({ annotation }) {
 
 function VisualAnnotation({ visualAnnotation }) {
   return (
-    <div>
-      <img src={visualAnnotation} alt="visual annotation"></img>
-    </div>
+    <img
+      className="visual-annotation"
+      src={visualAnnotation}
+      alt="visual annotation"
+    ></img>
   );
 }
 
 function WrittenAnnotation({ writtenAnnotation }) {
-  return <p>{writtenAnnotation}</p>;
+  return <p className="written-annotation">{writtenAnnotation}</p>;
 }

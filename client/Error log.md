@@ -434,3 +434,9 @@
 #I'm getting this error when adding a new image
     - Proxy error: Could not proxy request /images from localhost:3000 to http://localhost:8000.
     - maybe it has to do with the html form submitting? I'll add e prevent default for now
+
+#I had three states for the image page. However, if statements don't work in the return statements
+    - I tried ternary operator inside ternary operator and it worked
+    - ternary operator only has two choices, which posed a problem since I had three states to choose from
+    - what I did was have one ternary operator for one of the choices
+    - so the choices were A : B or C

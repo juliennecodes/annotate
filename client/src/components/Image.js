@@ -6,6 +6,7 @@ import { Annotations } from "./Annotations";
 import { NewAnnotationForm } from "./NewAnnotationForm";
 
 export function Image() {
+  const [state, setState] = useState("viewingImage");
   const [image, setImage] = useState(null);
   const { id } = useParams();
 
@@ -17,10 +18,32 @@ export function Image() {
 
   return image ? (
     <div>
-      <CurrentImage image={image} />
-      <Annotations image={image} />
-      <NewAnnotationForm image={image} />
-      <DeleteButton image={image} />
+      {state === "viewingImage" ? (
+        <>
+          <CurrentImage image={image} />
+          <button onClick={() => setState("viewingAnnotations")}>
+            View Annotations
+          </button>
+          <button onClick={() => setState("annotateMode")}>Annotate</button>
+          <DeleteButton image={image} />
+        </>
+      ) : state === "viewingAnnotations" ? (
+        <>
+          <CurrentImage image={image} />
+          <Annotations image={image} />
+          <button onClick={() => setState("viewingImage")}>
+            Close view annotations
+          </button>
+        </>
+      ) : (
+        <>
+          <CurrentImage image={image} />
+          <NewAnnotationForm image={image} />
+          <button onClick={() => setState("viewingImage")}>
+            Close annotations
+          </button>
+        </>
+      )}
     </div>
   ) : (
     <Loading />
