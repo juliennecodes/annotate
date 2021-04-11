@@ -5,30 +5,15 @@ export function NewImageForm() {
   const [newImageName, setNewImageName] = useState(null);
   const [newImageUrl, setNewImageUrl] = useState(null);
 
-  // const submitForm = (name, url) => {
-  //   fetch("/images", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ name, url }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((serverResponse)=> window.location.reload());
-
   const submitForm = (name, url) => {
-    const image = {name: name, url: url}
-    // const x = {image: image};
+    const image = { name: name, url: url };
     fetch("/images", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({image}),
-    })
-      // .then((res) => res.json())
-      // .then((serverResponse)=> window.location.reload());
-      .then((res) => window.location.reload());
+      body: JSON.stringify({ image }),
+    }).then((res) => window.location.reload());
   };
 
   return (
@@ -42,7 +27,6 @@ export function NewImageForm() {
           submitForm(newImageName, newImageUrl);
         }}
       >
-
         <label htmlFor="name">Name</label>
         <input
           type="text"

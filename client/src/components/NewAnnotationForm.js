@@ -5,18 +5,6 @@ export function NewAnnotationForm({ image }) {
   const [writtenAnnotation, setWrittenAnnotation] = useState(null);
   const [visualAnnotation, setVisualAnnotation] = useState(null);
 
-  // const submitForm = (visual, written) => {
-  //   fetch(`/images/${image.id}/annotations`, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ visual, written }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((serverResponse) => window.location.reload());
-  // };
-
   const submitForm = (visual, written) => {
     const annotation = { visual, written };
     fetch(`/images/${image.id}/annotations`, {
@@ -25,10 +13,7 @@ export function NewAnnotationForm({ image }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ annotation }),
-    })
-      // .then((res) => res.json())
-      // .then((serverResponse) => window.location.reload());
-      .then((res) => window.location.reload());
+    }).then((res) => window.location.reload());
   };
   return (
     <>

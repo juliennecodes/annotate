@@ -7,10 +7,7 @@ export function AnnotationListItem({ annotation, setCurrentAnnotation }) {
       headers: {
         "Content-Type": "application/json",
       },
-    })
-      // .then((res) => res.json())
-      // .then((serverResponse) => window.location.reload());
-      .then((res) => window.location.reload())
+    }).then((res) => window.location.reload());
   };
 
   return (
