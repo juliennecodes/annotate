@@ -19,6 +19,8 @@
 
 #look into useCallback for updating the annotations without making continuous get requests to the server
 
+#set image annotation without having to press set image annotation
+
 ----------------------------------------------------------------------------------------------------
 #Okay, so next steps. What are my next steps
 - make it so the user can draw on the canvas
@@ -55,4 +57,3 @@
     - if false, button will be annotate, the form will be hidden, the canvas over the image will be hidden
     - a button that says annotate should toggle between annotate mode true or false
 ----------------------------------------------------------------------------------------------------
-

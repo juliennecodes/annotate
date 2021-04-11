@@ -1,69 +1,109 @@
 #Usage Notes
 
 user opens app ->
-user is in homepage
+user is on homepage
+homepage shows annotate
+homepage shows get started
 
-user clicks on homepage link ->
-user is in homepage
+user clicks on get started ->
+user sees images page
 
-user clicks on images ->
+<!-- images = 0 -->
+user sees images page ->
+page says there are no images, add one?
+
+user clicks add new image ->
+form pops up
+form field for name is on the page
+form field for url is on the page
+cancel button is on the page
+there is also a x icon that cancels adding a new image
+add new image button is on the page
+
+user clicks cancel button ->
+form closes
+
+user clicks x ->
+form closes
+
+user clicks add new image button after typing in information ->
+form submitted
+form fields are cleared
+
+<!-- images > 0 -->
+user sees images page ->
 all images are displayed
+
+            <!-- images state -->
+            images = null   - loading
+            images = 0      - no images
+            images > 0      - images
 
 user clicks on image thumbnail ->
 user is on image page
+image page shows links to images
+image page shows button for adding new image
 image page shows image
-user sees button to add new annotation
-user sees display annotations
-image page shows button to delete image
+image page shows image name
+image page shows annotate button
+image page shows view annotations
+image page shows delete image
 
-user clicks on button to write new annotation ->
-form pops up
+            <!-- image state -->
+            viewing image
+            annotate mode
+            viewing annotations
 
-user fills out form and submits ->
-form submitted message pops up briefly
-user is on image page
-
-user clicks on display annotation ->
-annotations on the image are displayed on the page
-button to display annotations changes to close annotations
-button to delete annotations is beside the comment
-
-user clicks delete annotation button ->
+<!-- viewing image state-->
 user is on image page
 
 user clicks delete image ->
 user is on images page
 deleted image is not there
 
-----------------------------------------------------------------------------------------------------
-user clicks annotate ->
-canvas opens up
-area outside of the canvas is greyed out
-tools for drawing on the image appear
-input form form annotations opens up
+user clicks link to images ->
+user is on images page
 
-user clicks on the brush ->
-cursor for the mouse becomes a pencil when hovering in the canvas area
+<!-- annotating state -->
+user is on image page
 
-user draws on the canvas ->
-drawings appear on the canvas where the mouse had been
+user clicks add new annotation ->
+canvas with dotted border overlays the image
+brush icon is on the page
+clear canvas icon is on the page
+form for writing annotation pops up
+button for annotate is on the page
+button for cancelling is on the page
 
-user writes an annotation and submits ->
-loading screen appears and says annotating
-after a few seconds, the user is on the image page
+user clicks on brush ->
+brush icon is selected
+whenever mouse is on the canvas, the cursor is the brush icon
 
-user clicks display annotations ->
-a list of annotations appear on the right hand side
-the annotations are blobs
+user clicks on the canvas with the brush icon selected ->
+marks are made on the canvas
+
+user clicks on the canvas with the brush icon not selected ->
+no change on the canvas
+
+user clicks on the clear canvas icon ->
+canvas is cleared
+
+user draws on the canvas, types in the textbox, and clicks annotate ->
+user is on image page
+
+<!-- viewing annotations state-->
+user clicks view annotations ->
+user sees a list of annotations
 
 user clicks on an annotation ->
-an overlay of the drawing appears on top of the image
-text annotation is displayed under the image
+visual annotation overlays the image
+written annotation is below the image
+other annotations are on the side
+annotation selected is bold
 
-user clicks delete annotation ->
-user is on the image page
-when the user clicks display annotation, the deleted annotation is not there
+            <!-- annotation state -->
+            on display
+            not on display
 
-user closes display annotation ->
-user sees the image page
-
+user clicks close annotations ->
+user is on image page
