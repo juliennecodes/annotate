@@ -1,27 +1,15 @@
-export function Annotation({ annotation }) {
-  const deleteAnnotation = (annotation) => {
-    fetch(`/images/${annotation.image_id}/annotations/${annotation.id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((serverResponse) => window.location.reload());
-  };
+// export function Annotation({ annotation }) {
+//   return annotation ? (
+//     <div className="annotation">
+//       <VisualAnnotation visualAnnotation={annotation.visual} />
+//       <WrittenAnnotation writtenAnnotation={annotation.written} />
+//     </div>
+//   ) : (
+//     <></>
+//   );
+// }
 
-  return (
-    <li className="annotation">
-      <div>
-        <VisualAnnotation visualAnnotation={annotation.visual} />
-        <WrittenAnnotation writtenAnnotation={annotation.written} />
-        <button onClick={() => deleteAnnotation(annotation)}>Delete Annotation</button>
-      </div>
-    </li>
-  );
-}
-
-function VisualAnnotation({ visualAnnotation }) {
+export function VisualAnnotation({ visualAnnotation }) {
   return (
     <img
       className="visual-annotation"
@@ -31,6 +19,6 @@ function VisualAnnotation({ visualAnnotation }) {
   );
 }
 
-function WrittenAnnotation({ writtenAnnotation }) {
+export function WrittenAnnotation({ writtenAnnotation }) {
   return <p className="written-annotation">{writtenAnnotation}</p>;
 }

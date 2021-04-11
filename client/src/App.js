@@ -4,29 +4,30 @@ import { Navigation } from "./components/Navigation";
 import { Homepage } from "./components/Homepage";
 import { Images } from "./components/Images";
 import { Image } from "./components/Image";
-import { NewImageForm} from "./components/NewImageForm";
+import { NewImageForm } from "./components/NewImageForm";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Navigation />
-        <Link className="add-image" to="/new-image-form">Add new image</Link>
+        <header className="header">
+          <Navigation />
+          <Link className="add-image" to="/new-image-form">
+            Add new image
+          </Link>
+        </header>
 
         <Switch>
-          <Route exact path="/">
-            <Homepage />
-          </Route>
+          <main className="main">
+            <Route exact path="/" component={Homepage}/>
 
-          <Route exact path="/images">
-            <Images />
-          </Route>
+            <Route exact path="/images" component={Images}/>
 
-          <Route exact path="/images/:id" component={Image}/>
+            <Route exact path="/images/:id" component={Image} />
 
-          <Route exact path="/new-image-form" component={NewImageForm}/>
+            <Route exact path="/new-image-form" component={NewImageForm} />
+          </main>
         </Switch>
-        
       </Router>
     </div>
   );

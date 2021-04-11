@@ -1,10 +1,104 @@
-.image-page {
+/* .image-page {
     display: grid;
     grid-template-columns: 1fr;
     justify-items: flex-start;
     gap: 12px;
-}
+} */
 
 .image-name {
-    text-transform: capitalize;
+  text-transform: capitalize;
+}
+
+/* .image-page {
+    display: grid;
+    grid-template-areas:
+        "image"
+    ;
+}
+
+.image, .canvas, .visual-annotation {
+    grid-area: image;
+} */
+
+.image-page {
+  display: grid;
+  grid-template-columns: 200px 800px 200px;
+  grid-template-areas:
+    "left heading right"
+    "control image right";
+}
+
+.a {
+  grid-template-areas:
+    "left heading right"
+    "controls image right";
+}
+
+.controls {
+  grid-area: controls;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-page h1 {
+  grid-area: heading;
+}
+
+.image {
+  grid-area: image;
+}
+
+.b {
+  grid-template-areas:
+    "left heading right"
+    "closeViewAnnotations image annotationsList"
+    "spaceLeft writtenAnnotation spaceRight";
+}
+
+.visual-annotation {
+  grid-area: image;
+}
+
+.close-view-annotations {
+  grid-area: closeViewAnnotations;
+  align-self: flex-start;
+}
+
+.annotations-list {
+  grid-area: annotationsList;
+}
+
+.written-annotation {
+  grid-area: writtenAnnotation;
+}
+
+.c {
+  grid-template-areas:
+    "left heading closeAnnotation"
+    "canvasIcons image form"
+    "space setVisualAnnotation form";
+}
+
+.canvas {
+  grid-area: image;
+}
+
+.close-annotation {
+  grid-area: closeAnnotation;
+}
+
+.set-visual-annotation {
+  grid-area: setVisualAnnotation;
+  justify-self: flex-start;
+}
+
+.canvas-icons {
+  grid-area: canvasIcons;
+  justify-self: flex-end;
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  grid-area: form;
 }

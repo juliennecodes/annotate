@@ -440,3 +440,19 @@
     - ternary operator only has two choices, which posed a problem since I had three states to choose from
     - what I did was have one ternary operator for one of the choices
     - so the choices were A : B or C
+
+#The code inside the ternary operator was getting a bit too messy and I wanted to tidy it up. 
+    - however, I wasn't sure whether creating new components outside of the function and having to pass it objects was any better.
+    - I tried creating bindings within the component itself so that the information needed would  be in scope
+    - it worked
+
+#I was setting the canvas size according to the image size. However, the canvas is 10px bigger than the image, presumably because the border is 5px
+    - I expected it to be the same size because I set box-sizing to border-box
+    - for now, I manually subtracted the 10px so it would align with the image but I'll investigate more later
+
+#My idea with the displayed annotations is that the visual annotation would line up with the image
+    - however, the markup right now makes that very difficult since the image and the visual annotations are not on the same level.
+    - they don't share a grid, therefore, they can't occupy the same grid-area
+    - I think, I have to change the markup
+    - either I create a new configuration for viewing annotations component or I make it so that the visual annotations and image are on the same level
+    - that's not even touching on how to implement being able to select which annotation to display 

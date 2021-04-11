@@ -17,8 +17,7 @@ export function NewAnnotationForm({ image }) {
       .then((serverResponse) => window.location.reload());
   };
   return (
-    <div>
-      <h2>New Annotation Form</h2>
+    <>
       <Canvas
         visualAnnotation={visualAnnotation}
         setVisualAnnotation={setVisualAnnotation}
@@ -42,6 +41,6 @@ export function NewAnnotationForm({ image }) {
 
         <button>Submit</button>
       </form>
-    </div>
+    </>
   );
 }

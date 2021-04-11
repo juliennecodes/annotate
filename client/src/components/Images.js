@@ -12,14 +12,14 @@ export function Images() {
   }, []);
   
   return images ? (
-    <div>
+    <>
       <h1>Images Page</h1>
-      <ul className="images">
+      <ul className="image-thumbnails">
         {images.map((image, index) => (
           <ImageThumbnail image={image} key={index} />
         ))}
       </ul>
-    </div>
+    </>
   ) : (
     <Loading />
   );

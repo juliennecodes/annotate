@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Loading } from "./Loading";
-import {Annotation} from "./Annotation";
+import { VisualAnnotation, WrittenAnnotation } from "./Annotation";
+import { AnnotationListItem } from "./AnnotationListItem";
 
 export function Annotations({ image }) {
   const [annotations, setAnnotations] = useState(null);
+  const [currentAnnotation, setCurrentAnnotation] = useState(null);
 
   useEffect(() => {
     fetch(`/images/${image.id}/annotations`)
@@ -12,16 +14,24 @@ export function Annotations({ image }) {
   }, [image]);
 
   return annotations ? (
-    <div>
-      <h2>Annotations</h2>
-      <ul className="annotations">
+    <>
+      {currentAnnotation?
+      <>
+        <VisualAnnotation visualAnnotation={currentAnnotation.visual} />
+        <WrittenAnnotation writtenAnnotation={currentAnnotation.written} />
+      </>
+      :<></>}
+      <ul className="annotations-list">
         {annotations.map((annotation, index) => (
-          <Annotation annotation={annotation} key={index} />
+          <AnnotationListItem
+            annotation={annotation}
+            setCurrentAnnotation={setCurrentAnnotation}
+            key={index}
+          />
         ))}
       </ul>
-    </div>
+    </>
   ) : (
     <Loading />
   );
 }
-
