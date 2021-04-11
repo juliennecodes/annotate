@@ -10,8 +10,19 @@ export function DeleteImageButton({ image }) {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => res.json())
-      .then((serverResponse) => history.push("/images"));
+      // .then((res) => res.json())
+      // handles header response - 204
+      // res.json() errors out because 204 has no content to unpack
+      // therefore, subsequent code doesn't execute
+      // page doesn't reload
+      // subsequent click of delete button sends delete request, which returns 500 
+      // because image is already deleted, therefore, rails can't find it
+      // 500 error is sent to client
+      // 500 error can be unpacked in res.json()
+      // subsequent code executes
+      // .then((serverResponse) => history.push("/images"));
+      // handles 500 error, then it reloads
+      .then((res) => history.push("/images"))
   };
 
   return <button onClick={() => deleteImage(image.id)}>Delete Image</button>;

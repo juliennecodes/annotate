@@ -5,16 +5,30 @@ export function NewImageForm() {
   const [newImageName, setNewImageName] = useState(null);
   const [newImageUrl, setNewImageUrl] = useState(null);
 
+  // const submitForm = (name, url) => {
+  //   fetch("/images", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ name, url }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((serverResponse)=> window.location.reload());
+
   const submitForm = (name, url) => {
+    const image = {name: name, url: url}
+    // const x = {image: image};
     fetch("/images", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, url }),
+      body: JSON.stringify({image}),
     })
-      .then((res) => res.json())
-      .then((serverResponse)=> window.location.reload());
+      // .then((res) => res.json())
+      // .then((serverResponse)=> window.location.reload());
+      .then((res) => window.location.reload());
   };
 
   return (

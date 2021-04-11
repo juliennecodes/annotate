@@ -8,8 +8,9 @@ export function AnnotationListItem({ annotation, setCurrentAnnotation }) {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => res.json())
-      .then((serverResponse) => window.location.reload());
+      // .then((res) => res.json())
+      // .then((serverResponse) => window.location.reload());
+      .then((res) => window.location.reload())
   };
 
   return (
