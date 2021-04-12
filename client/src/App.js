@@ -16,18 +16,17 @@ function App() {
             Add new image
           </Link>
         </header>
+        <main className="main">
+          <Switch>
+            <Route exact path="/" component={Homepage} />
 
-        <Switch>
-          <main className="main">
-            <Route exact path="/" component={Homepage}/>
-
-            <Route exact path="/images" component={Images}/>
+            <Route exact path="/images" component={Images} />
 
             <Route exact path="/images/:id" component={Image} />
 
             <Route exact path="/new-image-form" component={NewImageForm} />
-          </main>
-        </Switch>
+          </Switch>
+        </main>
       </Router>
     </div>
   );

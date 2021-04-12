@@ -12,5 +12,5 @@ export function DeleteImageButton({ image }) {
     }).then((res) => history.push("/images"));
   };
 
-  return <button onClick={() => deleteImage(image.id)}>Delete Image</button>;
+  return <button className="delete-image-button" onClick={() => deleteImage(image.id)}>Delete Image</button>;
 }

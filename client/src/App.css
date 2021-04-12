@@ -1,27 +1,3 @@
-body, h1, h2, h3, ul, li, a, p {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-ul {
-    list-style-type: none;
-}
-
-img {
-    display: block;
-}
-
-.image-thumbnail {
-    width: 100px;
-}
-
-.image-thumbnails {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    gap: 12px;
-}
-
 .App {
     display: grid;
     grid-template-columns: 1fr;
@@ -36,4 +12,6 @@ img {
 
 .main {
     grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr;
 }

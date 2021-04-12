@@ -31,7 +31,7 @@ export function NewAnnotationForm({ image }) {
       >
         <label htmlFor="annotation">Write New Annotation</label>
 
-        <input
+        <textarea
           type="text"
           name="annotation"
           aria-label="annotation-input"

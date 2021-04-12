@@ -1,58 +1,59 @@
-/* .image-page {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: flex-start;
-    gap: 12px;
-} */
-
 .image-name {
   text-transform: capitalize;
 }
 
-/* .image-page {
-    display: grid;
-    grid-template-areas:
-        "image"
-    ;
-}
-
-.image, .canvas, .visual-annotation {
-    grid-area: image;
-} */
-
 .image-page {
   display: grid;
   grid-template-columns: 200px 800px 200px;
-  grid-template-areas:
-    "left heading right"
-    "control image right";
+  grid-template-rows: 50px 150px 1fr;
 }
 
 .a {
   grid-template-areas:
-    "left heading right"
-    "controls image right";
+    "leftA heading rightA"
+    "leftB image rightB"
+    "leftC image rightC";
 }
 
-.controls {
-  grid-area: controls;
-  display: flex;
-  flex-direction: column;
+.view-annotations-button {
+  grid-area: leftB;
+  align-self: flex-start;
+}
+.annotate-button {
+  grid-area: leftB;
+  align-self: flex-start;
+  position: relative;
+  top: 50px;
 }
 
+.delete-image-button {
+  grid-area: leftB;
+  align-self: flex-start;
+  position: relative;
+  top: 100px; 
+}
 .image-page h1 {
   grid-area: heading;
+  font-size: 12px;
+  align-self: flex-end;
+  padding-bottom: 12px;
 }
 
 .image {
   grid-area: image;
 }
 
+.image, .visual-annotation, .canvas {
+  justify-self: center;
+  align-self: center;
+}
+
 .b {
   grid-template-areas:
-    "left heading right"
-    "closeViewAnnotations image annotationsList"
-    "spaceLeft writtenAnnotation spaceRight";
+  "leftA heading rightA"
+  "leftB image rightB"
+  "leftC image rightC"
+  "leftD bottom rightD";
 }
 
 .visual-annotation {
@@ -60,24 +61,24 @@
 }
 
 .close-view-annotations {
-  grid-area: closeViewAnnotations;
+  grid-area: leftB;
   align-self: flex-start;
 }
 
 .annotations-list {
-  grid-area: annotationsList;
+  grid-area: rightB;
 }
 
 .written-annotation {
-  grid-area: writtenAnnotation;
+  grid-area: bottom;
 }
 
 .c {
   grid-template-areas:
-    "left heading right"
-    "closeAnnotate image form"
-    "canvasIcons image form"
-    "space setVisualAnnotation form";
+  "leftA heading rightA"
+  "leftB image rightB"
+  "leftC image rightC"
+  "leftD bottom rightD";
 }
 
 .canvas {
@@ -85,22 +86,41 @@
 }
 
 .close-annotate {
-  grid-area: closeAnnotate;
+  grid-area: leftB;
   align-self: flex-start;
 }
 
 .set-visual-annotation {
-  grid-area: setVisualAnnotation;
+  grid-area: rightB;
   justify-self: flex-start;
+  align-self: flex-start;
+  position: relative;
+  top: 48px;
 }
 
 .canvas-icons {
-  grid-area: canvasIcons;
-  justify-self: flex-end;
-  display: flex;
-  flex-direction: column;
+  grid-area: rightB;
+  justify-self: flex-start;
+  display: grid;
+  grid-template-columns: 36px 36px;
+  grid-template-rows: 36px;
+  justify-items: center;
+  align-items: center;
 }
 
 .form {
-  grid-area: form;
+  grid-area: rightC;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 36px 150px 36px;
 }
+
+.form label {
+  font-size: 15px;
+}
+
+.resized-image {
+  max-width: 500px;
+  max-height: 500px;
+}
+

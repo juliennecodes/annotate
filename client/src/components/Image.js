@@ -22,13 +22,9 @@ export function Image() {
       <div className="image-page a">
         <h1>{`Image Page - ${image.name}`}</h1>
         <img className="image" src={image.url} alt={image.name}></img>
-        <div className="controls">
-          <button onClick={() => setState("viewing annotations")}>
-            View Annotations
-          </button>
-          <button onClick={() => setState("annotate mode")}>Annotate</button>
-          <DeleteImageButton image={image} />
-        </div>
+        <button className="view-annotations-button" onClick={() => setState("viewing annotations")}>View Annotations</button>
+        <button className="annotate-button" onClick={() => setState("annotate mode")}>Annotate</button>
+        <DeleteImageButton image={image} />
       </div>
     );
   };
@@ -55,7 +51,10 @@ export function Image() {
         <h1>{`Image Page - ${image.name}`}</h1>
         <img className="image" src={image.url} alt={image.name}></img>
         <NewAnnotationForm image={image} />
-        <button className="close-annotate" onClick={() => setState("viewing image")}>
+        <button
+          className="close-annotate"
+          onClick={() => setState("viewing image")}
+        >
           Close annotate
         </button>
       </div>

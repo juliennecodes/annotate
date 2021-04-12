@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Loading } from "./Loading";
+import "./Images.css";
 
 export function Images() {
   const [images, setImages] = useState(null);

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Loading } from "./Loading";
-import { VisualAnnotation, WrittenAnnotation } from "./Annotation";
+import {VisualAnnotation} from "./VisualAnnotation";
+import {WrittenAnnotation} from "./WrittenAnnotation";
 import { AnnotationListItem } from "./AnnotationListItem";
 
 export function Annotations({ image }) {

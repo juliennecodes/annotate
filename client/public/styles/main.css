@@ -1,0 +1,44 @@
+/* Reset */
+body,
+h1,
+h2,
+h3,
+ul,
+li,
+a,
+p,
+canvas {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+  display: block;
+}
+
+button {
+    background-color: hsl(0, 0%, 80%);
+    color: hsl(0, 0%, 10%);
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
+/*  Typography */
+body {
+  font-family: "Varela Round", sans-serif;
+}
+
+/* Colour */
+body {
+    background-color: hsl(0, 0%, 75%);
+}

@@ -29,6 +29,7 @@ export function BrushIcon({ drawMode, setDrawMode }) {
 export function ClearCanvasIcon() {
   return (
     <svg
+      className="clear-canvas"
       onClick={() => clearCanvas()}
       xmlns="http://www.w3.org/2000/svg"
       height="24"

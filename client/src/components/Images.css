@@ -1,0 +1,9 @@
+.image-thumbnail {
+    width: 100px;
+}
+
+.image-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 12px;
+}
