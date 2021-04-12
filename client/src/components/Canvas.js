@@ -5,10 +5,10 @@ import { BrushIcon, ClearCanvasIcon } from "./CanvasIcons";
 export function Canvas({ setVisualAnnotation }) {
   const [drawMode, setDrawMode] = useState(false);
   const [isMouseDown, setIsMouseDown] = useState(false);
+  const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
   const imageInfo = document.querySelector(".image").getBoundingClientRect();
   const canvasWidth = imageInfo.width;
   const canvasHeight = imageInfo.height;
-  const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
 
   const getCoordinates = (e) => {
     const viewportXCoordinate = e.clientX;

@@ -10,3 +10,7 @@
     position: relative;
     top: 28vh;
 }
+
+.homepage-get-started:hover {
+    font-size: 17px;
+}
