@@ -1,0 +1,62 @@
+/* .modal {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.modal-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+} */
+
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: 1fr 500px 1fr;
+    grid-template-areas:
+    "left center right";
+    align-items: center;
+    background-color: hsla(0, 0%, 0%, .3);
+    z-index: 1;
+}
+
+.modal-card {
+    grid-area: center;
+    background-color: white;
+    height: 67%;
+    align-self: center;
+    border-radius: 6px;
+    box-shadow: 0 15px 35px hsla(0, 0%, 0%, .3);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "content" ;
+}
+
+.new-image-form {
+    grid-area: content;
+    padding: 24px 36px;
+}
+
+.close-modal-button {
+    grid-area: content;
+    cursor: pointer;
+    justify-self: flex-end;
+    align-self: flex-start;
+    position: relative;
+    top: -24px;
+    left: 24px;
+}

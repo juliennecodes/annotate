@@ -17,10 +17,10 @@ export function NewImageForm() {
   };
 
   return (
-    <div>
-      <h1>Form For New Image</h1>
+    <div className="new-image-form">
+      <h1>Add New Image</h1>
       <form
-        className="form"
+        className="add-image-form"
         aria-label="add-image-form"
         onSubmit={(e) => {
           e.preventDefault();
@@ -32,6 +32,7 @@ export function NewImageForm() {
           type="text"
           name="name"
           aria-label="name-input"
+          placeholder="Name..."
           onChange={(e) => setNewImageName(e.target.value)}
         />
 
@@ -40,6 +41,7 @@ export function NewImageForm() {
           type="text"
           name="url"
           aria-label="url-input"
+          placeholder="Url..."
           onChange={(e) => setNewImageUrl(e.target.value)}
         />
 

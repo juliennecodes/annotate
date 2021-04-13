@@ -33,6 +33,10 @@ button {
     padding: 8px;
     cursor: pointer;
 }
+
+button, input, div {
+  border-radius: 3px;
+}
 /*  Typography */
 body {
   font-family: "Varela Round", sans-serif;

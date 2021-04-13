@@ -456,3 +456,13 @@
     - I think, I have to change the markup
     - either I create a new configuration for viewing annotations component or I make it so that the visual annotations and image are on the same level
     - that's not even touching on how to implement being able to select which annotation to display 
+
+#{isToggled && <Modal />}
+    - I've seen this code before but I haven't really had the occasion to use it myself so the reason why the code should be used didn't really stick to me
+    - I was just wondering how I could render modal if isToggled is true
+    - my first solution was ternary operator since I had been using it a lot when fetching resources
+    - render the component if the resource is there, render loading if it is not there
+    - render the component if the condition is true, render loading if the condition is false
+    - however, in this case, I didn't really need to render anything if the condition is false
+    - this code works
+    - if isToggled is true and Modal is true, the whole expression evaluates to true and Modal is rendered?

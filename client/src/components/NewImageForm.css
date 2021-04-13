@@ -1,9 +1,22 @@
-.form {
+.add-image-form {
     display: grid;
     grid-template-columns: 1fr;
-    justify-items: flex-start;
+    grid-template-rows: repeat(6, 1fr);
 }
 
-.form label, .form button{
-    margin-top: 12px;
+.add-image-form label {
+    align-self: flex-end;
+}
+
+.add-image-form input {
+    border: none;
+    background-color: hsl(0, 0%, 95%);
+    padding: 4px 8px;
+}
+
+.add-image-form button {
+    justify-self: flex-end;
+    border-radius: 3px;
+    padding: 8px;
+    margin-top: 16px;
 }
