@@ -46,3 +46,7 @@ body {
 body {
     background-color: hsl(0, 0%, 75%);
 }
+
+.image {
+  max-height: 80vh;
+}

@@ -466,3 +466,12 @@
     - however, in this case, I didn't really need to render anything if the condition is false
     - this code works
     - if isToggled is true and Modal is true, the whole expression evaluates to true and Modal is rendered?
+
+#I was styling the canvas dynamically by positioning it according to the image's position. However, it wasn't working
+    - the error was me not writing the px
+    - style={{top: `${imageInfo.y}`, left: `${imageInfo.x}`}}
+    - style={{top: `${imageInfo.y}px`, left: `${imageInfo.x}px`}}
+    - oh, this didn't work, well this particular thing did but the bigger picture didn't work
+    - I set the position to fixed and when it scrolled, it maintained the position. Since the image scrolled and the canvas position was fixed, the canvas and image were no longer aligned.
+    - I changed the image size to have a max-height so I don't have to scroll. I also didn't like overly large images.
+
