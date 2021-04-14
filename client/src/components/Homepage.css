@@ -1,16 +1,27 @@
+.homepage-div {
+  background-color: pink;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 500px 1fr;
+  grid-template-rows: 55vh;
+  grid-template-areas:
+    "left heading right"
+    "left getStarted right";
+}
+
 .homepage-heading {
-    justify-self: center;
-    position: relative;
-    top: 28vh;
-    font-size: 100px;
+  grid-area: heading;
+  justify-self: center;
+  align-self: flex-end;
+  font-size: 100px;
 }
 
 .homepage-get-started {
-    justify-self: center;
-    position: relative;
-    top: 28vh;
+  grid-area: getStarted;
+  justify-self: center;
+  align-self: flex-start;
 }
 
 .homepage-get-started:hover {
-    font-size: 17px;
+  font-size: 17px;
 }

@@ -1,16 +1,4 @@
-.App {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-template-areas:
-    "header main";
-}
-
-.header {
-    grid-area: header;
-}
-
 .main {
-    grid-area: main;
     display: grid;
     grid-template-columns: 1fr;
 }

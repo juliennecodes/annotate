@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Loading } from "./Loading";
 import "./ImagesPage.css";
+import { Navigation } from "./Navigation";
+import { NewImageModalWrapper } from "./NewImageModal";
 
 export function ImagesPage() {
   const [images, setImages] = useState(null);
@@ -11,15 +13,24 @@ export function ImagesPage() {
       .then((res) => res.json())
       .then((serverResponse) => setImages(serverResponse.images));
   }, []);
-  
+
   return images ? (
-    <div className="images-page">
-      <ul className="image-thumbnails">
-        {images.map((image, index) => (
-          <ImageThumbnail image={image} key={index} />
-        ))}
-      </ul>
-    </div>
+    <>
+      <header className="header">
+        <Navigation />
+        <NewImageModalWrapper />
+      </header>
+
+      <main>
+        <div className="images-page">
+          <ul className="image-thumbnails">
+            {images.map((image, index) => (
+              <ImageThumbnail image={image} key={index} />
+            ))}
+          </ul>
+        </div>
+      </main>
+    </>
   ) : (
     <Loading />
   );

@@ -3,9 +3,9 @@ import "./Homepage.css";
 
 export function Homepage() {
   return (
-    <>
+    <div className="homepage-div">
       <h1 className="homepage-heading">Annotate</h1>
       <Link className="homepage-get-started" to="/images">get started...</Link>
-    </>
+    </div>
   );
 }
