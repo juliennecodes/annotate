@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Canvas } from "./Canvas";
+import "./Annotate.css";
 
 export function NewAnnotationForm({ image }) {
   const [writtenAnnotation, setWrittenAnnotation] = useState(null);
@@ -7,6 +8,7 @@ export function NewAnnotationForm({ image }) {
 
   const submitForm = (visual, written) => {
     const annotation = { visual, written };
+
     fetch(`/images/${image.id}/annotations`, {
       method: "POST",
       headers: {
@@ -15,15 +17,25 @@ export function NewAnnotationForm({ image }) {
       body: JSON.stringify({ annotation }),
     }).then((res) => window.location.reload());
   };
+
   return (
     <>
-      <Canvas
-        visualAnnotation={visualAnnotation}
-        setVisualAnnotation={setVisualAnnotation}
-      />
+      <Canvas/>
+
+      <button
+        className="set-visual-annotation"
+        onClick={() => {
+          const canvas = document.querySelector(".canvas");
+          const currentCanvasState = canvas.toDataURL();
+          setVisualAnnotation(currentCanvasState);
+        }}
+      >
+        Set Image Annotation
+      </button>
+
       <form
-        className="form"
-        aria-label="add-annotation-form"
+        className="annotate-form"
+        aria-label="annotate-form"
         onSubmit={(e) => {
           e.preventDefault();
           submitForm(visualAnnotation, writtenAnnotation);
@@ -33,7 +45,7 @@ export function NewAnnotationForm({ image }) {
 
         <textarea
           type="text"
-          name="annotation"
+          id="annotation"
           aria-label="annotation-input"
           onChange={(e) => setWrittenAnnotation(e.target.value)}
         />

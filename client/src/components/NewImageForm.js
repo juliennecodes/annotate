@@ -30,7 +30,7 @@ export function NewImageForm() {
         <label htmlFor="name">Name</label>
         <input
           type="text"
-          name="name"
+          id="name"
           aria-label="name-input"
           placeholder="Name..."
           onChange={(e) => setNewImageName(e.target.value)}
@@ -39,7 +39,7 @@ export function NewImageForm() {
         <label htmlFor="url">Url</label>
         <input
           type="text"
-          name="url"
+          id="url"
           aria-label="url-input"
           placeholder="Url..."
           onChange={(e) => setNewImageUrl(e.target.value)}

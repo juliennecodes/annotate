@@ -1,9 +1,15 @@
 .image-thumbnail {
     width: 100px;
+    height: 100px;
+    object-fit: cover;
 }
 
 .image-thumbnails {
     display: grid;
     grid-template-columns: repeat(3, 100px);
     gap: 12px;
+}
+
+.images-page {
+    justify-self: center;
 }

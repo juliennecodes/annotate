@@ -1,0 +1,45 @@
+.c {
+    grid-template-areas:
+    "leftA heading rightA"
+    "leftB image rightB"
+    "leftC image rightC"
+    "leftD bottom rightD";
+  }
+  
+  .canvas {
+    grid-area: image;
+  }
+  
+  .close-annotate {
+    grid-area: leftB;
+    align-self: flex-start;
+  }
+  
+  .set-visual-annotation {
+    grid-area: rightB;
+    justify-self: flex-start;
+    align-self: flex-start;
+    position: relative;
+    top: 48px;
+  }
+  
+  .canvas-tools {
+    grid-area: rightB;
+    justify-self: flex-start;
+    display: grid;
+    grid-template-columns: 36px 36px;
+    grid-template-rows: 36px;
+    justify-items: center;
+    align-items: center;
+  }
+  
+  .annotate-form {
+    grid-area: rightC;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 36px 150px 36px;
+  }
+  
+  .annotate-form label {
+    font-size: 15px;
+  }

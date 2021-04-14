@@ -1,0 +1,28 @@
+.b {
+  grid-template-areas:
+    "leftA heading rightA"
+    "leftB image rightB"
+    "leftC image rightC"
+    "leftD bottom rightD";
+}
+
+.visual-annotation {
+  grid-area: image;
+}
+
+.close-view-annotations {
+  grid-area: leftB;
+  align-self: flex-start;
+}
+
+.annotations-list {
+  grid-area: rightB;
+}
+
+.written-annotation {
+  grid-area: bottom;
+}
+
+.annotation-list-item {
+  display: flex;
+}

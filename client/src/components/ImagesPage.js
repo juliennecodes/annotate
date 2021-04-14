@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Loading } from "./Loading";
-import "./Images.css";
+import "./ImagesPage.css";
 
-export function Images() {
+export function ImagesPage() {
   const [images, setImages] = useState(null);
 
   useEffect(() => {
@@ -13,14 +13,13 @@ export function Images() {
   }, []);
   
   return images ? (
-    <>
-      <h1>Images Page</h1>
+    <div className="images-page">
       <ul className="image-thumbnails">
         {images.map((image, index) => (
           <ImageThumbnail image={image} key={index} />
         ))}
       </ul>
-    </>
+    </div>
   ) : (
     <Loading />
   );

@@ -475,3 +475,13 @@
     - I set the position to fixed and when it scrolled, it maintained the position. Since the image scrolled and the canvas position was fixed, the canvas and image were no longer aligned.
     - I changed the image size to have a max-height so I don't have to scroll. I also didn't like overly large images.
 
+#I wanted to have uniform sizes for the image thumbnails. However, the images submitted are of variety of sizes. 
+    - one solution is to use div and pair it with background property
+    - however, I didn't want to use that because div isn't very meaningful
+    - if possible, I wanted to stick with the img element because it is an image
+    - luckily, there is a style that does what I want, which is object-fit: cover
+
+#I was having trouble styling the pages because they all the share the same grid.
+    - if I implement a layout for one page using the main grid, it will apply to all other pages since the other pages are under the main grid as well.
+    - I think the solution is to have divs for each page and have the main grid be 100% in width
+    - that way, I can divide up the space however I want on the divs and the other pages won't be affected since the main grid is 100% all across the pages.
