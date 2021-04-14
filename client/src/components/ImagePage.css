@@ -1,6 +1,5 @@
 .image-page {
   display: grid;
-  position: relative;
 }
 
 .image-page-view-image {
@@ -42,7 +41,7 @@
   "left middle right" ; */
   grid-template-columns: 150px 1fr;
   grid-template-areas:
-  "left middle" ;
+  "leftC middle" ;
 }
 
 /* .canvas-tools {
@@ -62,3 +61,14 @@
   justify-self: flex-start;
   align-self: flex-start;
 } */
+
+/* ---------------------------------------------------------------------------------------------------- */
+.image-page-view-annotations {
+  grid-template-columns: 150px 1fr;
+  grid-template-areas:
+  "leftB middle" ;
+}
+
+.close-view-annotations {
+  cursor: pointer;
+}

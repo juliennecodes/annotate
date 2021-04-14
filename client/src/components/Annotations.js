@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { Loading } from "./Loading";
 import "./Annotations.css";
 
-export function Annotations({ image }) {
+export function Annotations({ image, setState }) {
   const [annotations, setAnnotations] = useState(null);
   const [currentAnnotation, setCurrentAnnotation] = useState(null);
+  const imageInfo = document.querySelector(".image").getBoundingClientRect();
 
   useEffect(() => {
     fetch(`/images/${image.id}/annotations`)
@@ -12,17 +13,16 @@ export function Annotations({ image }) {
       .then((serverResponse) => setAnnotations(serverResponse.annotations));
   }, [image]);
 
-  return annotations ? (
-    <>
-      {currentAnnotation ? (
-        <>
-          <VisualAnnotation visualAnnotation={currentAnnotation.visual} />
-          <WrittenAnnotation annotation={currentAnnotation} />
-        </>
-      ) : (
-        <></>
-      )}
-      <div className="annotations-list-div">
+  const AnnotationsList = () => {
+    return (
+      <div
+        className="annotations-list-div"
+        style={{
+          position: "absolute",
+          top: imageInfo.top,
+          left: imageInfo.right + 24,
+        }}
+      >
         <h2>Annotations list</h2>
         <ul className="annotations-list">
           {annotations.map((annotation, index) => (
@@ -34,6 +34,57 @@ export function Annotations({ image }) {
           ))}
         </ul>
       </div>
+    );
+  };
+  // const CloseViewAnnotationsButton = () => {
+  //   return (
+  //     <button
+  // style={{
+  //   position: "absolute",
+  //   top: imageInfo.top,
+  //   left: imageInfo.right + 100,
+  // }}
+  // className="close-view-annotations"
+  // onClick={() => setState("viewing image")}
+  //     >
+  //       Close view annotations
+  //     </button>
+  //   );
+  // };
+
+  const CloseViewAnnotationsButton = () => {
+    return (
+      <svg
+        style={{
+          position: "absolute",
+          top: imageInfo.top,
+          left: imageInfo.right + 124,
+        }}
+        className="close-view-annotations"
+        onClick={() => setState("viewing image")}
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path d="M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z" />
+      </svg>
+    );
+  };
+
+  return annotations ? (
+    <>
+      {currentAnnotation ? (
+        <>
+          <VisualAnnotation visualAnnotation={currentAnnotation.visual} />
+          <WrittenAnnotation annotation={currentAnnotation} />
+        </>
+      ) : (
+        <></>
+      )}
+      <AnnotationsList />
+      <CloseViewAnnotationsButton />
     </>
   ) : (
     <Loading />
@@ -45,7 +96,13 @@ function VisualAnnotation({ visualAnnotation }) {
 
   return (
     <img
-      style={{ width: imageInfo.width, height: imageInfo.height }}
+      style={{
+        position: "absolute",
+        top: imageInfo.top,
+        left: imageInfo.left,
+        width: imageInfo.width,
+        height: imageInfo.height,
+      }}
       className="visual-annotation"
       src={visualAnnotation}
       alt="visual annotation"
@@ -54,6 +111,8 @@ function VisualAnnotation({ visualAnnotation }) {
 }
 
 function WrittenAnnotation({ annotation }) {
+  const imageInfo = document.querySelector(".image").getBoundingClientRect();
+
   const deleteAnnotation = (annotation) => {
     fetch(`/images/${annotation.image_id}/annotations/${annotation.id}`, {
       method: "DELETE",
@@ -63,7 +122,14 @@ function WrittenAnnotation({ annotation }) {
     }).then((res) => window.location.reload());
   };
   return (
-    <div className="written-annotation-div">
+    <div
+      className="written-annotation-div"
+      style={{
+        position: "absolute",
+        top: imageInfo.bottom,
+        left: imageInfo.left,
+      }}
+    >
       <p className="written-annotation">{annotation.written}</p>
       <svg
         className="written-annotation-delete-button"

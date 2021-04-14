@@ -30,16 +30,7 @@ export function ImagePage() {
     );
   };
 
-  const CloseViewAnnotationsButton = () => {
-    return (
-      <button
-        className="close-view-annotations"
-        onClick={() => setState("viewing image")}
-      >
-        Close view annotations
-      </button>
-    );
-  };
+
 
   const AnnotateButton = () => {
     return (
@@ -74,8 +65,7 @@ export function ImagePage() {
         <main className="main">
           <div className="image-page image-page-view-annotations">
             <FeatureImage image={image} />
-            <Annotations image={image} />
-            <CloseViewAnnotationsButton />
+            <Annotations image={image} setState={setState}/>
           </div>
         </main>
       </>
