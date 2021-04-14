@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Canvas } from "./Canvas";
 import "./Annotate.css";
 
-export function NewAnnotationForm({ image }) {
+export function Annotate({ image }) {
   const [writtenAnnotation, setWrittenAnnotation] = useState(null);
   const [visualAnnotation, setVisualAnnotation] = useState(null);
 
@@ -18,10 +18,8 @@ export function NewAnnotationForm({ image }) {
     }).then((res) => window.location.reload());
   };
 
-  return (
-    <>
-      <Canvas/>
-
+  const SetImageAnnotationButton = () => {
+    return (
       <button
         className="set-visual-annotation"
         onClick={() => {
@@ -32,7 +30,13 @@ export function NewAnnotationForm({ image }) {
       >
         Set Image Annotation
       </button>
+    );
+  };
 
+  return (
+    <>
+      <Canvas />
+      <SetImageAnnotationButton />
       <form
         className="annotate-form"
         aria-label="annotate-form"

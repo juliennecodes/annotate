@@ -26,21 +26,6 @@
     "content" ;
 }
 
-.new-image-form {
-    grid-area: content;
-    padding: 24px 36px;
-}
-
-.close-new-image-modal-button {
-    grid-area: content;
-    cursor: pointer;
-    justify-self: flex-end;
-    align-self: flex-start;
-    position: relative;
-    top: -24px;
-    left: 24px;
-}
-
 .add-image-button {
     cursor: pointer;
 }

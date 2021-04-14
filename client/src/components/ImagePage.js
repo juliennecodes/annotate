@@ -3,8 +3,8 @@ import "./ImagePage.css";
 import { useParams } from "react-router-dom";
 import { Loading } from "./Loading";
 import { Annotations } from "./Annotations";
-import { NewAnnotationForm } from "./Annotate";
-import { DeleteImageButton } from "./DeleteImageButton";
+import { Annotate } from "./Annotate";
+// import { DeleteImageButton } from "./DeleteImageButton";
 import {FeatureImage} from "./FeatureImage";
 
 export function ImagePage() {
@@ -24,7 +24,6 @@ export function ImagePage() {
         <FeatureImage image={image}/>
         <button className="view-annotations-button" onClick={() => setState("viewing annotations")}>View Annotations</button>
         <button className="annotate-button" onClick={() => setState("annotate mode")}>Annotate</button>
-        <DeleteImageButton image={image} />
       </div>
     );
   };
@@ -48,7 +47,7 @@ export function ImagePage() {
     return (
       <div className="image-page c">
         <FeatureImage image={image}/>
-        <NewAnnotationForm image={image} />
+        <Annotate image={image} />
         <button
           className="close-annotate"
           onClick={() => setState("viewing image")}

@@ -15,7 +15,7 @@
   align-self: flex-start;
 }
 
-.annotations-list {
+.annotations-list-div {
   grid-area: rightB;
 }
 
@@ -24,5 +24,39 @@
 }
 
 .annotation-list-item {
-  display: flex;
+  display: grid;
+  /* grid-template-columns: 1fr 24px; */
+  cursor: pointer;
+  /* align-items: flex-end; */
+}
+
+.annotations-list-div h2 {
+  font-size: 12px;
+}
+
+.annotations-list-div p {
+  font-size: 10px;
+}
+
+.annotations-list {
+  display: grid;
+  grid-template-columns: repeat(3, 24px);
+}
+
+.written-annotation-div {
+  grid-area: bottom;
+  display: grid;
+  grid-template-columns: 1fr 24px;
+  grid-template-areas: "text deleteButton";
+}
+
+.written-annotation {
+  grid-area: text;
+}
+
+.written-annotation-delete-button {
+  grid-area: deleteButton;
+  justify-self: flex-end;
+  align-self: flex-start;
+  cursor: pointer;
 }

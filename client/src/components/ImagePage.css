@@ -4,7 +4,7 @@
 
 .image-page {
   display: grid;
-  grid-template-columns: 100px 800px 100px;
+  grid-template-columns: 100px 800px 300px;
   grid-template-rows: 50px 150px 1fr;
 }
 
