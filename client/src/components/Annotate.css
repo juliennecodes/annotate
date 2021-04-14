@@ -16,3 +16,7 @@
 .annotate-form label {
   font-size: 12px;
 }
+
+.close-annotate {
+  cursor: pointer;
+}

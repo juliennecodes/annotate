@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Canvas } from "./Canvas";
 import "./Annotate.css";
 
-export function Annotate({ image }) {
+export function Annotate({ image, setState }) {
   const [writtenAnnotation, setWrittenAnnotation] = useState(null);
   const [visualAnnotation, setVisualAnnotation] = useState(null);
   const imageInfo = document.querySelector(".image").getBoundingClientRect();
@@ -22,7 +22,11 @@ export function Annotate({ image }) {
   const SetImageAnnotationButton = () => {
     return (
       <button
-      style={{position: "absolute", top: imageInfo.top, left: imageInfo.right + 16}}
+        style={{
+          position: "absolute",
+          top: imageInfo.top,
+          left: imageInfo.right + 16,
+        }}
         className="set-visual-annotation-button"
         onClick={() => {
           const canvas = document.querySelector(".canvas");
@@ -35,12 +39,49 @@ export function Annotate({ image }) {
     );
   };
 
+  // const CloseAnnotateButton = () => {
+  //   return (
+  //     <button
+  //       style={{position: "absolute", top: imageInfo.top - 36, left: imageInfo.right + 160}}
+  //       className="close-annotate"
+  //       onClick={() => setState("viewing image")}
+  //     >
+  //       Close annotate
+  //     </button>
+  //   );
+  // };
+
+  const CloseAnnotateButton = () => {
+    return (
+      <svg
+        style={{
+          position: "absolute",
+          top: imageInfo.top - 36,
+          left: imageInfo.right + 160,
+        }}
+        className="close-annotate"
+        onClick={() => setState("viewing image")}
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path d="M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z" />
+      </svg>
+    );
+  };
+
   return (
     <>
       <Canvas />
       <SetImageAnnotationButton />
       <form
-        style={{position: "absolute", top: imageInfo.top + 36, left: imageInfo.right + 16}}
+        style={{
+          position: "absolute",
+          top: imageInfo.top + 36,
+          left: imageInfo.right + 16,
+        }}
         className="annotate-form"
         aria-label="annotate-form"
         onSubmit={(e) => {
@@ -59,6 +100,7 @@ export function Annotate({ image }) {
 
         <button>Submit</button>
       </form>
+      <CloseAnnotateButton />
     </>
   );
 }

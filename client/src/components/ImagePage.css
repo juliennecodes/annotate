@@ -1,11 +1,15 @@
 .image-page {
   display: grid;
+  position: relative;
 }
 
 .image-page-view-image {
-  grid-template-columns: 150px 700px 150px;
+  /* grid-template-columns: 150px 700px 150px;
   grid-template-areas:
-  "leftA middle rightA" ;
+  "leftA middle rightA" ; */
+  grid-template-columns: 150px 1fr;
+  grid-template-areas:
+  "leftA middle" ;
 }
 
 .image {
@@ -33,9 +37,12 @@
 
 /* ---------------------------------------------------------------------------------------------------- */
 .image-page-annotate {
-  grid-template-columns: 150px 700px 150px;
+  /* grid-template-columns: 150px 700px 150px;
   grid-template-areas:
-  "left middle right" ;
+  "left middle right" ; */
+  grid-template-columns: 150px 1fr;
+  grid-template-areas:
+  "left middle" ;
 }
 
 /* .canvas-tools {
