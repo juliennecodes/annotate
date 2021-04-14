@@ -3,20 +3,20 @@
 }
 
 .image-page-view-image {
-  grid-template-columns: minmax(150px, 1fr) 700px minmax(150px, 1fr);
+  grid-template-columns: 150px 700px 150px;
   grid-template-areas:
-  "left image right" ;
+  "leftA middle rightA" ;
 }
 
 .image {
-  grid-area: image;
+  grid-area: middle;
   background-color: hsl(216, 15%, 52%);
   justify-self: center;
   align-self: center;
 }
 
 .view-annotations-button {
-  grid-area: left;
+  grid-area: leftA;
   justify-self: flex-end;
   align-self: flex-start;
   position: relative;
@@ -24,9 +24,34 @@
 }
 
 .annotate-button {
-  grid-area: left;
+  grid-area: leftA;
   justify-self: flex-end;
   align-self: flex-start;
   position: relative;
   top: 218px;
 }
+
+/* ---------------------------------------------------------------------------------------------------- */
+.image-page-annotate {
+  grid-template-columns: 150px 700px 150px;
+  grid-template-areas:
+  "left middle right" ;
+}
+
+/* .canvas-tools {
+  grid-area: left;
+  justify-self: flex-end;
+  align-self: flex-start;
+} */
+
+.canvas {
+  grid-area: middle;
+  justify-self: center;
+  align-self: center;
+}
+
+/* .annotate-form {
+  grid-area: right;
+  justify-self: flex-start;
+  align-self: flex-start;
+} */

@@ -5,6 +5,7 @@ import "./Annotate.css";
 export function Annotate({ image }) {
   const [writtenAnnotation, setWrittenAnnotation] = useState(null);
   const [visualAnnotation, setVisualAnnotation] = useState(null);
+  const imageInfo = document.querySelector(".image").getBoundingClientRect();
 
   const submitForm = (visual, written) => {
     const annotation = { visual, written };
@@ -21,7 +22,8 @@ export function Annotate({ image }) {
   const SetImageAnnotationButton = () => {
     return (
       <button
-        className="set-visual-annotation"
+      style={{position: "absolute", top: imageInfo.top, left: imageInfo.right + 16}}
+        className="set-visual-annotation-button"
         onClick={() => {
           const canvas = document.querySelector(".canvas");
           const currentCanvasState = canvas.toDataURL();
@@ -38,6 +40,7 @@ export function Annotate({ image }) {
       <Canvas />
       <SetImageAnnotationButton />
       <form
+        style={{position: "absolute", top: imageInfo.top + 36, left: imageInfo.right + 16}}
         className="annotate-form"
         aria-label="annotate-form"
         onSubmit={(e) => {
