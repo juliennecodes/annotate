@@ -1,33 +1,6 @@
-.b {
-  grid-template-areas:
-    "leftA heading rightA"
-    "leftB image rightB"
-    "leftC image rightC"
-    "leftD bottom rightD";
-}
-
-.visual-annotation {
-  grid-area: image;
-}
-
-.close-view-annotations {
-  grid-area: leftB;
-  align-self: flex-start;
-}
-
-.annotations-list-div {
-  grid-area: rightB;
-}
-
-.written-annotation {
-  grid-area: bottom;
-}
-
 .annotation-list-item {
   display: grid;
-  /* grid-template-columns: 1fr 24px; */
   cursor: pointer;
-  /* align-items: flex-end; */
 }
 
 .annotations-list-div h2 {

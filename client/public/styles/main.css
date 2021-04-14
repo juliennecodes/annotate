@@ -50,3 +50,8 @@ body {
 .image {
   max-height: 80vh;
 }
+
+button {
+  background-color: hsl(211, 25%, 84%);
+  font-size: 12px;
+}

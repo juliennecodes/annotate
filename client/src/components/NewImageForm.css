@@ -10,10 +10,6 @@
     align-self: flex-start;
 }
 
-/* .add-image-form-heading, .add-image-form {
-    padding: 0px 36px;
-} */
-
 .add-image-form {
     display: grid;
     grid-template-columns: 1fr;
@@ -36,4 +32,3 @@
     padding: 8px;
     margin-top: 16px;
 }
-

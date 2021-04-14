@@ -1,7 +1,7 @@
 .canvas {
-    border: 5px dotted grey;
+    border: 5px dotted hsl(216, 15%, 52%);
 }
 
 .active-brush {
-    border: 2px solid pink;
+    border: 2px solid hsl(216, 15%, 52%);
 }
