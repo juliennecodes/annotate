@@ -1,15 +1,20 @@
-.image-thumbnail {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+.images-page {
+    display: grid;
 }
 
 .image-thumbnails {
     display: grid;
-    grid-template-columns: repeat(3, 100px);
-    gap: 12px;
+    grid-template-columns: repeat(5, 100px);
+    gap: 16px;
+    justify-self: center;
+    align-self: center;
+    padding: 24px 36px;
+    background-color: hsl(211, 25%, 84%);
 }
 
-.images-page {
-    justify-self: center;
+.image-thumbnail {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid hsl(216, 15%, 52%);
 }

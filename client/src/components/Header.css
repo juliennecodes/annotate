@@ -1,0 +1,58 @@
+/* .header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.navigation {
+    justify-self: flex-start;
+    padding: 24px 36px;
+    background-color: hsl(211, 25%, 84%);
+}
+
+.navigation-link {
+    font-size: 12px;
+}
+
+.navigation-link:hover, .add-image:hover {
+    font-size: 14px;
+}
+
+.add-image-div {
+    font-size: 12px;
+    justify-self: flex-end;
+    align-self: center;
+    background-color: hsl(211, 25%, 84%);
+} */
+
+.header {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 12px;
+    padding: 24px;
+}
+
+.navigation {
+    justify-self: flex-start;
+    padding: 24px 36px;
+    background-color: hsl(211, 25%, 84%);
+}
+
+.navigation-link {
+    font-size: 12px;
+}
+
+.navigation-link:hover, .add-image:hover {
+    font-size: 14px;
+}
+
+.add-image-div {
+    justify-self: flex-start;
+    align-self: flex-start;
+    font-size: 12px;
+    background-color: hsl(211, 25%, 84%);
+}
+
+.add-image-div button {
+    background-color: hsl(211, 25%, 84%);
+    padding: 12px;
+}

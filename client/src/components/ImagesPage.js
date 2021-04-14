@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Loading } from "./Loading";
 import "./ImagesPage.css";
-import { Navigation } from "./Navigation";
-import { NewImageModalWrapper } from "./NewImageModal";
+import { Header } from "./Header";
 
 export function ImagesPage() {
   const [images, setImages] = useState(null);
@@ -16,12 +15,9 @@ export function ImagesPage() {
 
   return images ? (
     <>
-      <header className="header">
-        <Navigation />
-        <NewImageModalWrapper />
-      </header>
+      <Header />
 
-      <main>
+      <main className="main">
         <div className="images-page">
           <ul className="image-thumbnails">
             {images.map((image, index) => (
