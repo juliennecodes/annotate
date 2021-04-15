@@ -64,6 +64,7 @@ export function Annotate({ image, setState }) {
   return (
     <>
       <Canvas />
+      <h2 className="annotation-form-heading">Annotation Form</h2>
       <SetImageAnnotationButton />
       <form
         className="annotate-form"

@@ -39,10 +39,20 @@
   top: 218px;
 } */
 
+.view-image-button {
+  grid-area: left;
+  justify-self: flex-start;
+  align-self: flex-start;
+  font-size: 12px;
+  cursor: pointer;
+}
+
 .view-annotations-button {
   grid-area: left;
   justify-self: flex-start;
   align-self: flex-start;
+  position: relative;
+  top: 24px;
   font-size: 12px;
   cursor: pointer;
 }
@@ -52,7 +62,7 @@
   justify-self: flex-start;
   align-self: flex-start;
   position: relative;
-  top: 24px;
+  top: 48px;
   font-size: 12px;
   cursor: pointer;
 }
@@ -76,10 +86,20 @@
   align-self: flex-start;
 }
 
-.set-visual-annotation-button{
+.annotation-form-heading {
   grid-area: right;
   justify-self: flex-start;
   align-self: flex-start;
+  font-size: 12px;
+}
+
+.set-visual-annotation-button{
+  grid-area: right;
+  /* justify-self: flex-start; */
+  align-self: flex-start;
+  position: relative;
+  top: 28px;
+  width: 240px;
 }
 
 .annotate-form {
@@ -88,6 +108,7 @@
   align-self: flex-start;
   position: relative;
   top: 72px;
+  width: 240px;
 }
 
 .close-annotate {
@@ -95,6 +116,7 @@
   justify-self: flex-end;
   align-self: flex-start;
 }
+
 /* ---------------------------------------------------------------------------------------------------- */
 /* .image-page-view-annotations {
   display: grid;
@@ -129,4 +151,19 @@
   grid-area: right;
   justify-self: flex-start;
   align-self: flex-start;
+}
+
+.image-page-heading {
+  grid-area: top;
+  justify-self: center;
+  align-self: center;
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+.view-image-button, .view-annotations-button, .annotate-button {
+  font-size: 12px;
+}
+
+.view-image-button:hover, .view-annotations-button:hover, .annotate-button:hover {
+  font-size: 14px;
 }
