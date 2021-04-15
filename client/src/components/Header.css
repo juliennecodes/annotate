@@ -1,67 +1,7 @@
-/* .header {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.navigation {
-    justify-self: flex-start;
-    padding: 24px 36px;
-    background-color: hsl(211, 25%, 84%);
-}
-
-.navigation-link {
-    font-size: 12px;
-}
-
-.navigation-link:hover, .add-image:hover {
-    font-size: 14px;
-}
-
-.add-image-div {
-    font-size: 12px;
-    justify-self: flex-end;
-    align-self: center;
-    background-color: hsl(211, 25%, 84%);
-} */
-
-/* .header {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 24px;
-}
-
-.navigation {
-    justify-self: flex-start;
-    align-self: flex-start;
-    padding: 24px 36px;
-    background-color: hsl(211, 25%, 84%);
-}
-
-.navigation-link {
-    font-size: 12px;
-}
-
-.navigation-link:hover, .add-image:hover {
-    font-size: 14px;
-}
-
-.add-image-div {
-    justify-self: flex-start;
-    align-self: flex-start;
-    font-size: 12px;
-    background-color: hsl(211, 25%, 84%);
-}
-
-.add-image-div button {
-    background-color: hsl(211, 25%, 84%);
-    padding: 12px;
-} */
-
 /* same as image-page grid so I can align things even if they are not on the same grid */
 .header {
 display: grid;
-/* grid-template-columns: 150px 700px 150px; */
+grid-template-rows: 15vh;
 grid-template-areas:
 "left image right" ;
 }
@@ -70,10 +10,10 @@ grid-template-areas:
     grid-area: left;
     justify-self: flex-start;
     align-self: flex-start;
-    position: relative;
-    top: 24px;
-    padding: 16px 24px;
-    background-color: hsl(211, 25%, 84%);
+    /* position: relative;
+    top: 24px; */
+    /* padding: 16px 24px; */
+    /* background-color: hsl(211, 25%, 84%); */
     border-radius: 3px;
 }
 
@@ -88,11 +28,12 @@ grid-template-areas:
 .add-image-div {
     grid-area: left;
     justify-self: flex-start;
-    align-self: flex-start;
-    position: relative;
-    top: 110px;
+    align-self: flex-end;
+    /* position: relative;
+    top: 110px; */
     font-size: 12px;
-    background-color: hsl(211, 25%, 84%);
+    /* background-color: hsl(211, 25%, 84%); */
+    cursor: pointer;
 }
 
 .add-image-div button {

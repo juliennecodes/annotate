@@ -17,10 +17,13 @@
 }
 
 .written-annotation-div {
-  grid-area: bottom;
   display: grid;
-  grid-template-columns: 1fr 24px;
-  grid-template-areas: "text deleteButton";
+  /* grid-template-columns: 1fr 24px;
+  grid-template-areas: "text deleteButton"; */
+  grid-template-columns: 1fr;
+  grid-template-areas:
+  "deleteButton"
+  "text" ;
 }
 
 .written-annotation {
@@ -32,4 +35,6 @@
   justify-self: flex-end;
   align-self: flex-start;
   cursor: pointer;
+  position: relative;
+  left: 16px;
 }

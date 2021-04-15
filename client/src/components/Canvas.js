@@ -62,10 +62,7 @@ export function Canvas() {
 
   return (
     <>
-      <div
-        className="canvas-tools"
-        style={{ position: "relative", top: imageInfo.y }}
-      >
+      <div className="canvas-tools">
         <Brush drawMode={drawMode} setDrawMode={setDrawMode} />
         <ClearCanvas />
       </div>

@@ -49,9 +49,16 @@ body {
 
 .image {
   max-height: 80vh;
+
+  /* change this for mobile screens */
+  max-width: 50vw;
 }
 
 button {
   background-color: hsl(211, 25%, 84%);
   font-size: 12px;
+}
+
+p {
+  max-width: 35em;
 }

@@ -19,27 +19,49 @@ export function ImagePage() {
       .then((serverResponse) => setImage(serverResponse.image));
   }, [id]);
 
+  // const ViewAnnotationsButton = () => {
+  //   return (
+  //     <button
+  //       className="view-annotations-button"
+  //       onClick={() => setState("viewing annotations")}
+  //     >
+  //       View Annotations
+  //     </button>
+  //   );
+  // };
+
+  // const AnnotateButton = () => {
+  //   return (
+  //     <button
+  //       className="annotate-button"
+  //       onClick={() => setState("annotate mode")}
+  //     >
+  //       Annotate
+  //     </button>
+  //   );
+  // };
+
   const ViewAnnotationsButton = () => {
     return (
-      <button
+      <p
+        role="button"
         className="view-annotations-button"
         onClick={() => setState("viewing annotations")}
       >
         View Annotations
-      </button>
+      </p>
     );
   };
 
-
-
   const AnnotateButton = () => {
     return (
-      <button
+      <p
+        role="button"
         className="annotate-button"
         onClick={() => setState("annotate mode")}
       >
         Annotate
-      </button>
+      </p>
     );
   };
 
@@ -65,7 +87,7 @@ export function ImagePage() {
         <main className="main">
           <div className="image-page image-page-view-annotations">
             <FeatureImage image={image} />
-            <Annotations image={image} setState={setState}/>
+            <Annotations image={image} setState={setState} />
           </div>
         </main>
       </>
@@ -79,7 +101,7 @@ export function ImagePage() {
         <main className="main">
           <div className="image-page image-page-annotate">
             <FeatureImage image={image} />
-            <Annotate image={image} setState={setState}/>
+            <Annotate image={image} setState={setState} />
           </div>
         </main>
       </>

@@ -5,7 +5,6 @@ import "./Annotations.css";
 export function Annotations({ image, setState }) {
   const [annotations, setAnnotations] = useState(null);
   const [currentAnnotation, setCurrentAnnotation] = useState(null);
-  const imageInfo = document.querySelector(".image").getBoundingClientRect();
 
   useEffect(() => {
     fetch(`/images/${image.id}/annotations`)
@@ -17,12 +16,8 @@ export function Annotations({ image, setState }) {
     return (
       <div
         className="annotations-list-div"
-        style={{
-          position: "relative",
-          top: imageInfo.top,
-        }}
       >
-        <h2>Annotations list</h2>
+        <h2>Annotations</h2>
         <ul className="annotations-list">
           {annotations.map((annotation, index) => (
             <AnnotationListItem
@@ -149,6 +144,7 @@ function AnnotationListItem({ annotation, setCurrentAnnotation }) {
         height="24"
         viewBox="0 0 24 24"
         width="24"
+        fill="hsl(0, 0%, 0%)"
       >
         <path d="M0 0h24v24H0z" fill="none" />
         <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2z" />
