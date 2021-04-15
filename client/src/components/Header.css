@@ -61,14 +61,14 @@
 /* same as image-page grid so I can align things even if they are not on the same grid */
 .header {
 display: grid;
-grid-template-columns: 150px 700px 150px;
+/* grid-template-columns: 150px 700px 150px; */
 grid-template-areas:
 "left image right" ;
 }
 
 .navigation {
     grid-area: left;
-    justify-self: flex-end;
+    justify-self: flex-start;
     align-self: flex-start;
     position: relative;
     top: 24px;
@@ -87,7 +87,7 @@ grid-template-areas:
 
 .add-image-div {
     grid-area: left;
-    justify-self: flex-end;
+    justify-self: flex-start;
     align-self: flex-start;
     position: relative;
     top: 110px;

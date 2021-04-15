@@ -1,7 +1,7 @@
 .canvas-tools {
   display: grid;
-  grid-template-columns: 36px 36px;
-  grid-template-rows: 36px;
+  grid-template-columns: 36px;
+  grid-template-rows: 36px 36px;
   justify-items: center;
   align-items: center;
 }

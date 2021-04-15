@@ -485,3 +485,13 @@
     - if I implement a layout for one page using the main grid, it will apply to all other pages since the other pages are under the main grid as well.
     - I think the solution is to have divs for each page and have the main grid be 100% in width
     - that way, I can divide up the space however I want on the divs and the other pages won't be affected since the main grid is 100% all across the pages.
+
+#I styled the components so that the layouts are centred around the image.
+    - I started by using image info and positioning the elements according to the image info
+    - however, I was getting weird behaviour and the positioning wasn't consistent especially when the image scrolled
+    - I changed the layout by using grids
+    - I didn't use grids initially because the images varied in size. I didn't know what measurements to use for the center column.
+    - luckily, when I used - grid-template-columns: 1fr auto 1fr - the browser automatically used the image width as the value for auto.
+    - instead of dynamically setting positions using imageInfo.left, imageInfo.right, etc, the grid automatically sets the adjacent columns as the image's left and image's right
+    - there are no extra spaces
+    

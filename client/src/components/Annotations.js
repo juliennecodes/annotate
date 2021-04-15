@@ -18,9 +18,8 @@ export function Annotations({ image, setState }) {
       <div
         className="annotations-list-div"
         style={{
-          position: "absolute",
+          position: "relative",
           top: imageInfo.top,
-          left: imageInfo.right + 24,
         }}
       >
         <h2>Annotations list</h2>
@@ -55,11 +54,6 @@ export function Annotations({ image, setState }) {
   const CloseViewAnnotationsButton = () => {
     return (
       <svg
-        style={{
-          position: "absolute",
-          top: imageInfo.top,
-          left: imageInfo.right + 124,
-        }}
         className="close-view-annotations"
         onClick={() => setState("viewing image")}
         xmlns="http://www.w3.org/2000/svg"
@@ -97,9 +91,6 @@ function VisualAnnotation({ visualAnnotation }) {
   return (
     <img
       style={{
-        position: "absolute",
-        top: imageInfo.top,
-        left: imageInfo.left,
         width: imageInfo.width,
         height: imageInfo.height,
       }}
@@ -111,8 +102,6 @@ function VisualAnnotation({ visualAnnotation }) {
 }
 
 function WrittenAnnotation({ annotation }) {
-  const imageInfo = document.querySelector(".image").getBoundingClientRect();
-
   const deleteAnnotation = (annotation) => {
     fetch(`/images/${annotation.image_id}/annotations/${annotation.id}`, {
       method: "DELETE",
@@ -122,14 +111,7 @@ function WrittenAnnotation({ annotation }) {
     }).then((res) => window.location.reload());
   };
   return (
-    <div
-      className="written-annotation-div"
-      style={{
-        position: "absolute",
-        top: imageInfo.bottom,
-        left: imageInfo.left,
-      }}
-    >
+    <div className="written-annotation-div">
       <p className="written-annotation">{annotation.written}</p>
       <svg
         className="written-annotation-delete-button"
