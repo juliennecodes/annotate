@@ -28,19 +28,20 @@ img {
 
 button {
     background-color: hsl(0, 0%, 80%);
-    color: hsl(0, 0%, 10%);
+    color: hsl(218, 23%, 23%);
     border: none;
     padding: 8px;
     cursor: pointer;
 }
 
-button, input, div {
+button, input{
   border-radius: 3px;
 }
 /*  Typography */
 body {
   font-family: "Varela Round", sans-serif;
   line-height: 1.5;
+  color: hsl(218, 23%, 23%);
 }
 
 .set-visual-annotation-button, .annotate-form button, .add-image-form button, ::placeholder {
@@ -48,9 +49,9 @@ body {
 }
 
 /* Colour */
-body {
+/* body {
     background-color: hsl(204, 45%, 98%);
-}
+} */
 
 .image {
   max-height: 80vh;

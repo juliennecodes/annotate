@@ -1,5 +1,6 @@
 .images-page {
     display: grid;
+    background-color: hsl(210, 38%, 95%);
 }
 
 .image-thumbnails {
@@ -9,12 +10,12 @@
     justify-self: center;
     align-self: center;
     padding: 24px 36px;
-    background-color: hsl(211, 25%, 84%);
+    /* background-color: hsl(211, 25%, 84%); */
 }
 
 .image-thumbnail {
     width: 100px;
     height: 100px;
     object-fit: cover;
-    border: 2px solid hsl(216, 15%, 52%);
+    /* border: 2px solid hsl(216, 15%, 52%); */
 }

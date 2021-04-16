@@ -1,5 +1,6 @@
 .homepage-div {
-  background-color: pink;
+  background-color: hsl(218, 17%, 35%);
+  color: hsl(214, 20%, 69%);
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 500px 1fr;

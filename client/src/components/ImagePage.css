@@ -1,7 +1,7 @@
 .image-page {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  grid-template-rows: 15vh auto 1fr;
+  grid-template-rows: auto auto 1fr;
   grid-template-areas:
     "top top top"
     "left content right"
@@ -24,9 +24,11 @@
 }
 
 .close-view-annotations {
-  grid-area: top;
+  grid-area: right;
   justify-self: flex-end;
   align-self: flex-start;
+  position: relative;
+  top: -24px;
   cursor: pointer;
 }
 
@@ -40,12 +42,6 @@
   grid-area: right;
   justify-self: flex-start;
   align-self: flex-start;
-}
-
-.image-page-heading {
-  grid-area: top;
-  justify-self: center;
-  align-self: center;
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
@@ -73,17 +69,26 @@
 }
 
 .close-annotate {
-  grid-area: top;
+  grid-area: right;
   justify-self: flex-end;
   align-self: flex-start;
+  position: relative;
+  top: -24px;
+  cursor: pointer;
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
 .image-page-state-setters-div {
-  grid-area: left;
-  background-color: hsl(214, 20%, 69%);
-  justify-self: flex-start;
-  align-self: flex-start;
+  grid-area: top;
+  background-color: hsl(210, 38%, 95%);
+  /* justify-self: flex-start; */
+  /* align-self: flex-start; */
+  justify-self: stretch;
+  display: grid;
+  grid-template-columns: 1fr 800px 1fr;
+  grid-template-areas: 
+  "left content right";
+  /* padding: 8px 0px; */
 }
 
 .view-image-button,
@@ -91,10 +96,21 @@
 .annotate-button {
   font-size: 12px;
   cursor: pointer;
+  color: hsl(218, 23%, 23%);
+  padding: 8px;
 }
 
 .view-image-button:hover,
 .view-annotations-button:hover,
 .annotate-button:hover {
-  font-size: 14px;
+  /* font-size: 14px; */
+  background-color: hsl(214, 20%, 69%);
+}
+
+.image-page-state-setters {
+  grid-area: content;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 12px;
 }

@@ -17,7 +17,7 @@ export function NewImageModalWrapper() {
   return (
     <div className="add-image-div">
       {isToggled && <NewImageModal closeForm={() => setToggled(false)} />}
-      <p role="button" onClick={() => setToggled(!isToggled)}>Add new image</p>
+      <p role="button" className="add-image-button" onClick={() => setToggled(!isToggled)}>Add new image</p>
     </div>
   );
 }

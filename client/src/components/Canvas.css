@@ -9,4 +9,5 @@
 
 .active-brush {
     border: 2px solid hsl(216, 15%, 52%);
+    border-radius: 3px;
 }

@@ -28,4 +28,5 @@
 
 .add-image-button {
     cursor: pointer;
+    color: hsl(218, 23%, 23%);
 }
