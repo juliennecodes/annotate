@@ -106,7 +106,6 @@
   justify-self: left;
   display: grid;
   grid-template-columns: repeat(3, auto);
-  gap: 12px;
 }
 
 .view-image-button,
@@ -121,6 +120,10 @@
 .view-image-button:hover,
 .view-annotations-button:hover,
 .annotate-button:hover {
+  background-color: hsl(214, 20%, 69%);
+}
+
+.current-state {
   background-color: hsl(214, 20%, 69%);
 }
 
