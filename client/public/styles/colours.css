@@ -1,0 +1,99 @@
+body {
+  color: hsl(218, 23%, 23%);
+}
+
+button {
+  background-color: hsl(211, 25%, 84%);
+  color: hsl(218, 23%, 23%);
+}
+
+.annotate-form-textarea {
+  border-color: hsl(216, 15%, 52%);
+}
+
+.written-annotation-div {
+  background-color: hsl(214, 20%, 69%);
+}
+
+.canvas {
+  border: 5px dotted hsl(216, 15%, 52%);
+}
+
+.canvas-tools {
+  background-color: hsl(214, 20%, 69%);
+}
+
+.active-brush {
+  border: 2px solid hsl(216, 15%, 52%);
+}
+
+.header {
+  background-color: hsl(211, 25%, 84%);
+}
+
+.navigation-links li:hover {
+  background-color: hsl(214, 20%, 69%);
+}
+
+.navigation-link {
+  color: hsl(218, 23%, 23%);
+}
+
+.add-image-div:hover {
+  background-color: hsl(214, 20%, 69%);
+}
+
+.homepage-div {
+  background-color: hsl(218, 17%, 35%);
+  color: hsl(214, 20%, 69%);
+}
+
+.image-page {
+  background-color: hsl(204, 45%, 98%);
+}
+
+.annotation-form-div {
+  background-color: hsl(214, 20%, 69%);
+}
+
+.image-page-state-setters-div {
+  background-color: hsl(210, 38%, 95%);
+}
+
+.view-image-button,
+.view-annotations-button,
+.annotate-button {
+  color: hsl(218, 23%, 23%);
+}
+
+.view-image-button:hover,
+.view-annotations-button:hover,
+.annotate-button:hover {
+  background-color: hsl(214, 20%, 69%);
+}
+
+.current-state {
+  background-color: hsl(214, 20%, 69%);
+}
+
+.images-page {
+  display: grid;
+  background-color: hsl(210, 38%, 95%);
+}
+
+.add-image-form input {
+  background-color: hsl(211, 25%, 90%);
+}
+
+.new-image-modal {
+  background-color: hsla(0, 0%, 0%, 0.3);
+}
+
+.new-image-modal-card {
+  background-color: hsl(204, 45%, 98%);
+  box-shadow: 0 15px 35px hsla(0, 0%, 0%, 0.3);
+}
+
+.add-image-button {
+  color: hsl(218, 23%, 23%);
+}

@@ -9,16 +9,13 @@
     grid-template-areas:
     "left center right";
     align-items: center;
-    background-color: hsla(0, 0%, 0%, .3);
     z-index: 1;
 }
 
 .new-image-modal-card {
     grid-area: center;
-    background-color: white;
     align-self: center;
     border-radius: 6px;
-    box-shadow: 0 15px 35px hsla(0, 0%, 0%, .3);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -27,7 +24,6 @@
 
 .add-image-button {
     cursor: pointer;
-    color: hsl(218, 23%, 23%);
 }
 
 @media (min-width: 640px) {
