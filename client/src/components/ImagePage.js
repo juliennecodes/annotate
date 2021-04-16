@@ -27,7 +27,9 @@ export function ImagePage() {
         <main className="main">
           <div className="image-page image-page-view-image">
             <ImagePageStateSetters setState={setState} />
-            <FeatureImage image={image} />
+            <div className="image-page-content">
+              <FeatureImage image={image} />
+            </div>
           </div>
         </main>
       </>
@@ -41,8 +43,10 @@ export function ImagePage() {
         <main className="main">
           <div className="image-page image-page-view-annotations">
             <ImagePageStateSetters setState={setState} />
-            <FeatureImage image={image} />
-            <Annotations image={image} setState={setState} />
+            <div className="image-page-content">
+              <FeatureImage image={image} />
+              <Annotations image={image} setState={setState} />
+            </div>
           </div>
         </main>
       </>
@@ -56,8 +60,10 @@ export function ImagePage() {
         <main className="main">
           <div className="image-page image-page-annotate">
             <ImagePageStateSetters setState={setState} />
-            <FeatureImage image={image} />
-            <Annotate image={image} setState={setState} />
+            <div className="image-page-content">
+              <FeatureImage image={image} />
+              <Annotate image={image} setState={setState} />
+            </div>
           </div>
         </main>
       </>

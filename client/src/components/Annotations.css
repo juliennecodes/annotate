@@ -25,6 +25,7 @@
   justify-self: stretch;
   background-color: hsl(214, 20%, 69%);
   padding: 12px 16px;
+  border-radius: 3px;
 }
 
 .written-annotation {
