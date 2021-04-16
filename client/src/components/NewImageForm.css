@@ -18,6 +18,13 @@
 
 .add-image-form label {
     align-self: flex-end;
+    position: relative;
+    top: -8px;
+    font-size: 14px;
+}
+
+::placeholder {
+    font-size: 12px;
 }
 
 .add-image-form input {
@@ -31,4 +38,4 @@
     border-radius: 3px;
     padding: 8px;
     margin-top: 16px;
-}
+} 

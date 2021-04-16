@@ -517,3 +517,6 @@
     - all of these, navigation, add image, view image, display annotations, and annotate, are controls
     - however, they are distinct from one another and doesn't really make sense to put them all together except that they are all controls, which seems a bit flimsy as far as common logical grouping goes, so I don't know
     - I think, immediately, I will just do hierarchy styling for now, then I'll revisit this grouping problem
+
+#I was positioning individual elements using position relative, then changing their top position so the elements don't overlap. I don't know why it didn't occur to me earlier to make my life simpler and just use div. They were all assigned to the same grid area anyways.
+

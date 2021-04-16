@@ -52,27 +52,29 @@ export function Annotate({ image, setState }) {
   return (
     <>
       <Canvas />
-      <h2 className="annotation-form-heading">Annotation Form</h2>
-      <SetImageAnnotationButton />
-      <form
-        className="annotate-form"
-        aria-label="annotate-form"
-        onSubmit={(e) => {
-          e.preventDefault();
-          submitForm(visualAnnotation, writtenAnnotation);
-        }}
-      >
-        <label htmlFor="annotation">Write New Annotation</label>
+      <div className="annotation-form-div">
+        <h2 className="annotation-form-heading">Annotation Form</h2>
+        <SetImageAnnotationButton />
+        <form
+          className="annotate-form"
+          aria-label="annotate-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            submitForm(visualAnnotation, writtenAnnotation);
+          }}
+        >
+          <label htmlFor="annotation">Write New Annotation</label>
 
-        <textarea
-          type="text"
-          id="annotation"
-          aria-label="annotation-input"
-          onChange={(e) => setWrittenAnnotation(e.target.value)}
-        />
+          <textarea
+            type="text"
+            id="annotation"
+            aria-label="annotation-input"
+            onChange={(e) => setWrittenAnnotation(e.target.value)}
+          />
 
-        <button>Submit</button>
-      </form>
+          <button>Submit</button>
+        </form>
+      </div>
       <CloseAnnotateButton />
     </>
   );

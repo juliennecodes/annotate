@@ -6,6 +6,11 @@
   align-items: center;
 }
 
+.annotation-form-heading {
+  font-size: 14px;
+  font-weight: 400;
+}
+
 .annotate-form {
   display: grid;
   grid-template-columns: 1fr;
@@ -15,8 +20,10 @@
 
 .annotate-form label {
   font-size: 12px;
+  position: relative;
+  top: 8px;
 }
 
 .close-annotate {
   cursor: pointer;
-}
+} 

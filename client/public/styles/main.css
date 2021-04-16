@@ -40,6 +40,11 @@ button, input, div {
 /*  Typography */
 body {
   font-family: "Varela Round", sans-serif;
+  line-height: 1.5;
+}
+
+.set-visual-annotation-button, .annotate-form button, .add-image-form button, ::placeholder {
+  font-family: "Varela Round", sans-serif;
 }
 
 /* Colour */
