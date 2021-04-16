@@ -11,3 +11,13 @@
     border: 2px solid hsl(216, 15%, 52%);
     border-radius: 3px;
 }
+
+.colour-choices {
+    display: grid;
+    padding: 2px 0px;
+}
+
+.colour-choice {
+    justify-self: center;
+    padding: 2px;
+}

@@ -1,5 +1,6 @@
 import "./Canvas.css";
 import { useState } from "react";
+import {ColourChoices} from "./ColourChoices";
 
 export function Canvas() {
   const [drawMode, setDrawMode] = useState(false);
@@ -8,6 +9,7 @@ export function Canvas() {
   const imageInfo = document.querySelector(".image").getBoundingClientRect();
   const canvasWidth = imageInfo.width;
   const canvasHeight = imageInfo.height;
+  const [currentColour, setCurrentColour] = useState("hsl(0, 0%, 0%)")
 
   const getCoordinates = (e) => {
     const viewportXCoordinate = e.clientX;
@@ -30,7 +32,7 @@ export function Canvas() {
     const canvas = document.querySelector(".canvas");
     const ctx = canvas.getContext("2d");
     ctx.beginPath();
-    ctx.strokeStyle = "black";
+    ctx.strokeStyle = currentColour;
     ctx.lineWidth = 3;
     ctx.moveTo(coordinates.x, coordinates.y);
     ctx.lineTo(x, y);
@@ -65,6 +67,7 @@ export function Canvas() {
       <div className="canvas-tools">
         <Brush drawMode={drawMode} setDrawMode={setDrawMode} />
         <ClearCanvas />
+        <ColourChoices setCurrentColour={setCurrentColour}/>
       </div>
       <canvas
         className="canvas"
