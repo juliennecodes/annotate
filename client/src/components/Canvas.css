@@ -1,23 +1,36 @@
 .canvas {
-    border: 5px dotted hsl(216, 15%, 52%);
+  position: relative;
+  top: -5px;
+  border: 5px dotted hsl(216, 15%, 52%);
 }
 
 .canvas-tools {
-    background-color: hsl(214, 20%, 69%);
-    padding: 2px;
+  background-color: hsl(214, 20%, 69%);
+  padding: 2px;
 }
 
 .active-brush {
-    border: 2px solid hsl(216, 15%, 52%);
-    border-radius: 3px;
+  border: 2px solid hsl(216, 15%, 52%);
+  border-radius: 3px;
 }
 
 .colour-choices {
-    display: grid;
-    padding: 2px 0px;
+  display: flex;
+  flex-direction: row;
+  padding: 2px 0px;
 }
 
 .colour-choice {
-    justify-self: center;
-    padding: 2px;
+  justify-self: center;
+  padding: 2px;
+}
+
+@media (min-width: 900px) {
+  .canvas {
+    position: relative;
+    top: 0;
+  }
+  .colour-choices {
+    flex-direction: column;
+  }
 }

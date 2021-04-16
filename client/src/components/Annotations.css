@@ -7,8 +7,8 @@
 }
 
 .annotations-list {
-  display: grid;
-  grid-template-columns: repeat(3, 24px);
+  display: flex;
+  flex-direction: row;
 }
 
 .annotation-list-item {
@@ -37,4 +37,11 @@
   justify-self: flex-end;
   align-self: flex-start;
   cursor: pointer;
+}
+
+@media (min-width: 900px) {
+  .annotations-list {
+    display: grid;
+    grid-template-columns: repeat(3, 24px);
+  }
 }

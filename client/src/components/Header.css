@@ -1,6 +1,6 @@
 .header {
   display: grid;
-  grid-template-columns: 1fr 800px 1fr;
+  grid-template-columns: 1fr 500px 1fr;
   grid-template-areas: "left content right";
   background-color: hsl(211, 25%, 84%);
 }
@@ -47,3 +47,10 @@
 .add-image-button {
   align-self: center;
 }
+
+@media (min-width: 900px) {
+  .header {
+    grid-template-columns: 1fr 800px 1fr;
+  }
+}
+ 
