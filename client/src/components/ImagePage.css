@@ -3,9 +3,9 @@
   grid-template-columns: 1fr auto 1fr;
   grid-template-rows: 15vh auto 1fr;
   grid-template-areas:
-  "top top top"
-  "left content right"
-  "bottom bottom right";
+    "top top top"
+    "left content right"
+    "bottom bottom right";
   gap: 24px;
 }
 
@@ -79,38 +79,22 @@
 }
 
 /* ---------------------------------------------------------------------------------------------------- */
-.view-image-button {
+.image-page-state-setters-div {
   grid-area: left;
+  background-color: hsl(214, 20%, 69%);
   justify-self: flex-start;
   align-self: flex-start;
-  font-size: 12px;
-  cursor: pointer;
 }
 
-.view-annotations-button {
-  grid-area: left;
-  justify-self: flex-start;
-  align-self: flex-start;
-  position: relative;
-  top: 24px;
-  font-size: 12px;
-  cursor: pointer;
-}
-
+.view-image-button,
+.view-annotations-button,
 .annotate-button {
-  grid-area: left;
-  justify-self: flex-start;
-  align-self: flex-start;
-  position: relative;
-  top: 48px;
   font-size: 12px;
   cursor: pointer;
 }
 
-.view-image-button, .view-annotations-button, .annotate-button {
-  font-size: 12px;
-}
-
-.view-image-button:hover, .view-annotations-button:hover, .annotate-button:hover {
+.view-image-button:hover,
+.view-annotations-button:hover,
+.annotate-button:hover {
   font-size: 14px;
 }

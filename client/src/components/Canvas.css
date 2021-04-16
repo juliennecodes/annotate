@@ -2,6 +2,11 @@
     border: 5px dotted hsl(216, 15%, 52%);
 }
 
+.canvas-tools {
+    background-color: hsl(214, 20%, 69%);
+    padding: 2px;
+}
+
 .active-brush {
     border: 2px solid hsl(216, 15%, 52%);
 }

@@ -7,6 +7,7 @@ import { Annotate } from "./Annotate";
 // import { DeleteImageButton } from "./DeleteImageButton";
 import { FeatureImage } from "./FeatureImage";
 import { Header } from "./Header";
+import { ImagePageStateSetters } from "./ImagePageStateSetters";
 
 export function ImagePage() {
   const [state, setState] = useState("viewing image");
@@ -19,42 +20,6 @@ export function ImagePage() {
       .then((serverResponse) => setImage(serverResponse.image));
   }, [id]);
 
-  const ViewImageButton = () => {
-    return (
-      <p
-        role="button"
-        className="view-image-button"
-        onClick={() => setState("viewing image")}
-      >
-        View Image
-      </p>
-    );
-  };
-
-  const ViewAnnotationsButton = () => {
-    return (
-      <p
-        role="button"
-        className="view-annotations-button"
-        onClick={() => setState("viewing annotations")}
-      >
-        View Annotations
-      </p>
-    );
-  };
-
-  const AnnotateButton = () => {
-    return (
-      <p
-        role="button"
-        className="annotate-button"
-        onClick={() => setState("annotate mode")}
-      >
-        Annotate
-      </p>
-    );
-  };
-
   const ViewingImage = () => {
     return (
       <>
@@ -63,9 +28,7 @@ export function ImagePage() {
           <div className="image-page image-page-view-image">
             <h1 className="image-page-heading">Viewing Image</h1>
             <FeatureImage image={image} />
-            <ViewImageButton />
-            <ViewAnnotationsButton />
-            <AnnotateButton />
+            <ImagePageStateSetters setState={setState} />
           </div>
         </main>
       </>
@@ -80,9 +43,7 @@ export function ImagePage() {
           <div className="image-page image-page-view-annotations">
             <h1 className="image-page-heading">Viewing Annotations</h1>
             <FeatureImage image={image} />
-            <ViewImageButton />
-            <ViewAnnotationsButton />
-            <AnnotateButton />
+            <ImagePageStateSetters setState={setState} />
             <Annotations image={image} setState={setState} />
           </div>
         </main>
@@ -98,9 +59,7 @@ export function ImagePage() {
           <div className="image-page image-page-annotate">
             <h1 className="image-page-heading">Annotate Mode</h1>
             <FeatureImage image={image} />
-            <ViewImageButton />
-            <ViewAnnotationsButton />
-            <AnnotateButton />
+            <ImagePageStateSetters setState={setState} />
             <Annotate image={image} setState={setState} />
           </div>
         </main>
