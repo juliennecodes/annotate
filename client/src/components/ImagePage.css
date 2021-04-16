@@ -11,7 +11,7 @@
 .image-page-content {
   grid-area: content;
   display: grid;
-  grid-template-columns: 500px;
+  grid-template-columns: 100%;
   grid-template-rows: 64px auto auto;
   grid-template-areas:
     "top"
@@ -105,8 +105,8 @@
   justify-self: stretch;
   align-self: flex-start;
   display: grid;
-  grid-template-columns: 1fr 500px 1fr;
-  grid-template-areas: "left content right";
+  grid-template-columns: 100%;
+  grid-template-areas: "content";
 }
 
 .image-page-state-setters {
@@ -133,6 +133,27 @@
 
 .current-state {
   background-color: hsl(214, 20%, 69%);
+}
+
+@media (min-width: 640px){
+  .image-page-content {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 500px;
+    grid-template-rows: 64px auto auto;
+    grid-template-areas:
+      "top"
+      "content"
+      "bottom";
+    gap: 24px;
+    padding: 24px 36px;
+    justify-self: center;
+  }
+
+  .image-page-state-setters-div {
+    grid-template-columns: 1fr 500px 1fr;
+    grid-template-areas: "left content right";
+  }
 }
 
 @media (min-width: 900px) {

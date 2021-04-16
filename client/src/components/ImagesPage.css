@@ -1,19 +1,41 @@
 .images-page {
-    display: grid;
-    background-color: hsl(210, 38%, 95%);
+  display: grid;
+  background-color: hsl(210, 38%, 95%);
 }
 
 .image-thumbnails {
-    display: grid;
-    grid-template-columns: repeat(5, 100px);
-    gap: 16px;
-    justify-self: center;
-    align-self: center;
-    padding: 24px 36px;
+  display: grid;
+  grid-template-columns: repeat(3, 75px);
+  gap: 16px;
+  justify-self: center;
+  align-self: center;
+  padding: 24px 36px;
 }
 
 .image-thumbnail {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+}
+
+@media (min-width: 400px) {
+  .image-thumbnails {
+    grid-template-columns: repeat(3, 100px);
+  }
+
+  .image-thumbnail {
     width: 100px;
     height: 100px;
-    object-fit: cover;
+  }
+}
+
+@media (min-width: 640px) {
+  .image-thumbnails {
+    grid-template-columns: repeat(5, 100px);
+  }
+
+  .image-thumbnail {
+    width: 100px;
+    height: 100px;
+  }
 }
