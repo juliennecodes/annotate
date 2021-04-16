@@ -26,6 +26,13 @@
   align-self: center;
 }
 
+.delete-image-button {
+  grid-area: bottom;
+  justify-self: flex-start;
+  align-self: flex-end;
+  font-family: "Varela Round";
+}
+
 /* ---------------------------------------------------------------------------------------------------- */
 /* Display annotations */
 .annotations-list-div {
@@ -97,8 +104,7 @@
   align-self: flex-start;
   display: grid;
   grid-template-columns: 1fr 800px 1fr;
-  grid-template-areas: 
-  "left content right";
+  grid-template-areas: "left content right";
 }
 
 .image-page-state-setters {
@@ -126,4 +132,3 @@
 .current-state {
   background-color: hsl(214, 20%, 69%);
 }
-

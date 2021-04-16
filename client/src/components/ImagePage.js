@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Loading } from "./Loading";
 import { Annotations } from "./Annotations";
 import { Annotate } from "./Annotate";
-// import { DeleteImageButton } from "./DeleteImageButton";
+import { DeleteImageButton } from "./DeleteImageButton";
 import { FeatureImage } from "./FeatureImage";
 import { Header } from "./Header";
 import { ImagePageStateSetters } from "./ImagePageStateSetters";
@@ -29,6 +29,7 @@ export function ImagePage() {
             <ImagePageStateSetters state={state} setState={setState} />
             <div className="image-page-content">
               <FeatureImage image={image} />
+              <DeleteImageButton />
             </div>
           </div>
         </main>
