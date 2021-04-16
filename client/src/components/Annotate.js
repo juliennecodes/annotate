@@ -33,18 +33,6 @@ export function Annotate({ image, setState }) {
     );
   };
 
-  // const CloseAnnotateButton = () => {
-  //   return (
-  //     <button
-  //       style={{position: "absolute", top: imageInfo.top - 36, left: imageInfo.right + 160}}
-  //       className="close-annotate"
-  //       onClick={() => setState("viewing image")}
-  //     >
-  //       Close annotate
-  //     </button>
-  //   );
-  // };
-
   const CloseAnnotateButton = () => {
     return (
       <svg

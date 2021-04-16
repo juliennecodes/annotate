@@ -1,7 +1,6 @@
 .image-page {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  /* grid-template-columns: 1fr auto 1.5fr; */
   grid-template-rows: 15vh auto 1fr;
   grid-template-areas:
   "top top top"
@@ -10,35 +9,90 @@
   gap: 24px;
 }
 
-/* .image-page-view-image {
-  grid-template-columns: 1fr;
-  grid-template-areas:
-  "content";
-} */
-
 .image {
   grid-area: content;
-  background-color: hsl(216, 15%, 52%);
   justify-self: center;
   align-self: center;
 }
 
-/* .view-annotations-button {
+/* ---------------------------------------------------------------------------------------------------- */
+/* Display annotations */
+.annotations-list-div {
   grid-area: left;
-  justify-self: flex-start;
+  justify-self: flex-end;
   align-self: flex-start;
-  position: relative;
-  top: 176px;
 }
 
-.annotate-button {
+.close-view-annotations {
+  grid-area: top;
+  justify-self: flex-end;
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.visual-annotation {
+  grid-area: content;
+  justify-self: center;
+  align-self: center;
+}
+
+.written-annotation-div {
+  grid-area: right;
+  justify-self: flex-start;
+  align-self: flex-start;
+}
+
+.image-page-heading {
+  grid-area: top;
+  justify-self: center;
+  align-self: center;
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* Annotate */
+.canvas {
+  grid-area: content;
+  justify-self: center;
+  align-self: center;
+}
+
+.canvas-tools {
   grid-area: left;
+  justify-self: flex-end;
+  align-self: flex-start;
+}
+
+.annotation-form-heading {
+  grid-area: right;
+  justify-self: flex-start;
+  align-self: flex-start;
+  font-size: 12px;
+}
+
+.set-visual-annotation-button{
+  grid-area: right;
+  align-self: flex-start;
+  position: relative;
+  top: 28px;
+  width: 240px;
+}
+
+.annotate-form {
+  grid-area: right;
   justify-self: flex-start;
   align-self: flex-start;
   position: relative;
-  top: 218px;
-} */
+  top: 72px;
+  width: 240px;
+}
 
+.close-annotate {
+  grid-area: top;
+  justify-self: flex-end;
+  align-self: flex-start;
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
 .view-image-button {
   grid-area: left;
   justify-self: flex-start;
@@ -67,99 +121,6 @@
   cursor: pointer;
 }
 
-/* ---------------------------------------------------------------------------------------------------- */
-/* .image-page-annotate {
-  grid-template-columns: 150px 1fr;
-  grid-template-areas:
-  "leftC middle" ;
-} */
-
-.canvas {
-  grid-area: content;
-  justify-self: center;
-  align-self: center;
-}
-
-.canvas-tools {
-  grid-area: left;
-  justify-self: flex-end;
-  align-self: flex-start;
-}
-
-.annotation-form-heading {
-  grid-area: right;
-  justify-self: flex-start;
-  align-self: flex-start;
-  font-size: 12px;
-}
-
-.set-visual-annotation-button{
-  grid-area: right;
-  /* justify-self: flex-start; */
-  align-self: flex-start;
-  position: relative;
-  top: 28px;
-  width: 240px;
-}
-
-.annotate-form {
-  grid-area: right;
-  justify-self: flex-start;
-  align-self: flex-start;
-  position: relative;
-  top: 72px;
-  width: 240px;
-}
-
-.close-annotate {
-  grid-area: top;
-  justify-self: flex-end;
-  align-self: flex-start;
-}
-
-/* ---------------------------------------------------------------------------------------------------- */
-/* .image-page-view-annotations {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  grid-template-areas:
-  "left content right"
-  "bottom bottom bottom";
-  gap: 24px;
-} */
-
-.annotations-list-div {
-  grid-area: left;
-  justify-self: flex-end;
-  align-self: flex-start;
-}
-
-.close-view-annotations {
-  grid-area: top;
-  justify-self: flex-end;
-  align-self: flex-start;
-  cursor: pointer;
-}
-
-.visual-annotation {
-  grid-area: content;
-  justify-self: center;
-  align-self: center;
-}
-.written-annotation-div {
-  /* grid-row: 1/4; */
-  /* grid-area: content; */
-  grid-area: right;
-  justify-self: flex-start;
-  align-self: flex-start;
-}
-
-.image-page-heading {
-  grid-area: top;
-  justify-self: center;
-  align-self: center;
-}
-
-/* ---------------------------------------------------------------------------------------------------- */
 .view-image-button, .view-annotations-button, .annotate-button {
   font-size: 12px;
 }

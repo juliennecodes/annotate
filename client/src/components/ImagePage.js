@@ -19,28 +19,6 @@ export function ImagePage() {
       .then((serverResponse) => setImage(serverResponse.image));
   }, [id]);
 
-  // const ViewAnnotationsButton = () => {
-  //   return (
-  //     <button
-  //       className="view-annotations-button"
-  //       onClick={() => setState("viewing annotations")}
-  //     >
-  //       View Annotations
-  //     </button>
-  //   );
-  // };
-
-  // const AnnotateButton = () => {
-  //   return (
-  //     <button
-  //       className="annotate-button"
-  //       onClick={() => setState("annotate mode")}
-  //     >
-  //       Annotate
-  //     </button>
-  //   );
-  // };
-
   const ViewImageButton = () => {
     return (
       <p

@@ -1,4 +1,3 @@
-/* same as image-page grid so I can align things even if they are not on the same grid */
 .header {
 display: grid;
 grid-template-rows: 15vh;
@@ -10,11 +9,6 @@ grid-template-areas:
     grid-area: left;
     justify-self: flex-start;
     align-self: flex-start;
-    /* position: relative;
-    top: 24px; */
-    /* padding: 16px 24px; */
-    /* background-color: hsl(211, 25%, 84%); */
-    border-radius: 3px;
 }
 
 .navigation-link {
@@ -29,14 +23,7 @@ grid-template-areas:
     grid-area: left;
     justify-self: flex-start;
     align-self: flex-end;
-    /* position: relative;
-    top: 110px; */
     font-size: 12px;
-    /* background-color: hsl(211, 25%, 84%); */
     cursor: pointer;
 }
 
-.add-image-div button {
-    background-color: hsl(211, 25%, 84%);
-    padding: 8px;
-}

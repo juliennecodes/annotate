@@ -495,3 +495,25 @@
     - instead of dynamically setting positions using imageInfo.left, imageInfo.right, etc, the grid automatically sets the adjacent columns as the image's left and image's right
     - there are no extra spaces
     
+#I'm having trouble with the controls. I mean it's there but the way it is being presented feels a little off.
+    - the whole app feels like an information website and I want more of an interactive feel
+    - with regards to the controls, I don't know what to do with it.
+    - it doesn't feel right to put them all together because they are different logically. 
+    - one is for navigation, which doesn't make sense much at this stage. I don't really need a landing page if it's just one user. I can just go straight to images. 
+    - I think it makes more sense when I have users, in which the landing page becomes where the user logs in.
+    - then the user, in the homepage, have a variety of links to explore afterwards
+    - right now, it doesn't make much sense
+    - I think the only relevant navigation is between images and image page
+    - then there is another control, which is the add an image
+    - it makes sense to have it every page, which is why I put it in the header
+    - however, I don't really know where to place it
+    - should I place it in the top right
+    - should I have icons?
+    - what do I even use for images
+    - then there is the state changes for the image page
+    - one is viewing image, which displays the image alone
+    - one is displaying the annotations, which displays the annotations with the image
+    - one is annotate, which lets the user annotate the image
+    - all of these, navigation, add image, view image, display annotations, and annotate, are controls
+    - however, they are distinct from one another and doesn't really make sense to put them all together except that they are all controls, which seems a bit flimsy as far as common logical grouping goes, so I don't know
+    - I think, immediately, I will just do hierarchy styling for now, then I'll revisit this grouping problem

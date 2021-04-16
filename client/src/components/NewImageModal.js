@@ -12,26 +12,6 @@ export function NewImageModal({ closeForm }) {
   );
 }
 
-// export function NewImageModalWrapper() {
-//   const [isToggled, setToggled] = useState(false);
-//   return (
-//     <div>
-//       {isToggled && <NewImageModal closeModal={() => setToggled(false)} />}
-//       <button onClick={() => setToggled(!isToggled)}>Add new image</button>
-//     </div>
-//   );
-// }
-
-// export function NewImageModalWrapper() {
-//   const [isToggled, setToggled] = useState(false);
-//   return (
-//     <div className="add-image-div">
-//       {isToggled && <NewImageModal closeForm={() => setToggled(false)} />}
-//       <button onClick={() => setToggled(!isToggled)}>Add new image</button>
-//     </div>
-//   );
-// }
-
 export function NewImageModalWrapper() {
   const [isToggled, setToggled] = useState(false);
   return (
