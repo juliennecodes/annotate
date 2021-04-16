@@ -16,7 +16,6 @@
 .new-image-modal-card {
     grid-area: center;
     background-color: white;
-    /* height: 67%; */
     align-self: center;
     border-radius: 6px;
     box-shadow: 0 15px 35px hsla(0, 0%, 0%, .3);

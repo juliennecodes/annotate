@@ -1,20 +1,13 @@
 .header {
   display: grid;
-  /* grid-template-rows: 15vh; */
-  /* grid-template-areas:
-"left image right" ; */
   grid-template-columns: 1fr 800px 1fr;
   grid-template-areas: "left content right";
   background-color: hsl(211, 25%, 84%);
-  /* padding: 8px 36px; */
-  /* padding: 0px 36px; */
 }
 
 .navigation {
-  /* grid-area: left; */
   grid-area: content;
   justify-self: flex-start;
-  /* align-self: flex-start; */
   align-self: stretch;
   display: grid;
 }
@@ -37,12 +30,7 @@
   color: hsl(218, 23%, 23%);
 }
 
-/* .navigation-link:hover, .add-image:hover {
-    font-size: 14px;
-} */
-
 .add-image-div {
-  /* grid-area: left; */
   grid-area: content;
   justify-self: flex-end;
   align-self: stretch;
