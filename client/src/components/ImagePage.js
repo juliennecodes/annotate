@@ -29,7 +29,7 @@ export function ImagePage() {
             <ImagePageStateSetters state={state} setState={setState} />
             <div className="image-page-content">
               <FeatureImage image={image} />
-              <DeleteImageButton />
+              <DeleteImageButton image={image}/>
             </div>
           </div>
         </main>
