@@ -7,7 +7,7 @@
   grid-template-columns: repeat(3, 75px);
   gap: 16px;
   justify-self: center;
-  align-self: center;
+  align-self: flex-start;
   padding: 24px 36px;
 }
 
