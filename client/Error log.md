@@ -520,3 +520,9 @@
 
 #I was positioning individual elements using position relative, then changing their top position so the elements don't overlap. I don't know why it didn't occur to me earlier to make my life simpler and just use div. They were all assigned to the same grid area anyways.
 
+#I had an error in drawDot where the default colour was always black despite picking white or grey on the colour picker. I didn't set the colour.
+    - at first I used strokeStyle but that didn't work
+    - it didn't work because I was using fillRect to draw the dot
+    - strokeStyle for drawing lines
+    - fillStyle for fillRect
+    - I guess fillStyle applies to other shapes as well

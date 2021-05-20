@@ -43,6 +43,7 @@ export function Canvas() {
   const drawDot = () => {
     const canvas = document.querySelector(".canvas");
     const ctx = canvas.getContext("2d");
+    ctx.fillStyle = currentColour;
     ctx.fillRect(coordinates.x, coordinates.y, 3, 3);
   };
 
