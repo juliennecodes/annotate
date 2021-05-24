@@ -53,7 +53,7 @@ The goal of this project was to apply the lessons learned from All Aboard Bootca
 - copy the contents of build folder
 - paste the contents of build folder in the public folder
   - project folder > server > app > public
-- go to https://localhost:8000/ to check if the server is serving up the minified react app
+- go to http://localhost:8000/ to check if the server is serving up the minified react app
 - commit changes to GitHub
 - push changes to GitHub
 - go to project folder
