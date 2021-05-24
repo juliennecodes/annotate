@@ -5,6 +5,9 @@ Annotate is an app where a user can annotate images. The user adds an image to t
 ## Goals and Objectives
 The goal of this project was to apply the lessons learned from All Aboard Bootcamp to make an app. Annotate put together skills I have learned from past projects and new tools I have learned from the bootcamp. Previous knowledge of client-server communication was combined with Rails server and database resulting in the beginnings of a working app.
 
+## View Annotate App
+demo - https://gentle-everglades-42381.herokuapp.com/
+
 ## Setup
 
 ### Set up server
