@@ -1,0 +1,11 @@
+# List of things to do before adding users feature
+- write tests for client-side
+- write tests for server-side
+- change colour scheme
+- figure out if the images are cached or if a new request is made each time
+- indicate currently selected colour
+- change mouse icon to brush when hovering over the canvas
+- figure out how to support annotation in mobile, currently, the implementation is mousemove, which mobile doesn't have?
+- add click to show image info, credit, artist name, link?
+- decide whether image should continue as links or be uploaded
+    - oh maybe, if it is uploaded, maybe as base64, maybe the server can process it so it is smaller in size?
