@@ -1,0 +1,44 @@
+.images-page {
+  display: grid;
+  grid-template-columns: 1fr 672px 1fr;
+  grid-template-rows: 1fr 400px 1fr;
+  grid-template-areas:
+    "left heading right"
+    "left images right"
+    "left addImage right";
+  gap: 12px;
+}
+
+
+.image-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(5, 100px);
+  gap: 20px;
+  justify-self: center;
+  align-self: flex-end;
+  padding: 24px 36px;
+
+  border: 4px solid hsl(215, 88%, 28%);
+  height: 400px;
+  width: 672px;
+  overflow-y: scroll;
+  border-radius: 3px;
+
+  grid-area: images;
+}
+
+.image-thumbnail {
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+}
+
+.image-thumbnail:hover {
+  transform: scale(1.2);
+}
+
+.add-image-div {
+  grid-area: addImage;
+  justify-self: flex-end;
+  align-self: flex-start;
+}

@@ -1,7 +1,6 @@
 .homepage-div {
-  height: 100vh;
   display: grid;
-  grid-template-columns: 10% 80% 10%;
+  grid-template-columns: 1fr 500px 1fr;
   grid-template-rows: 55vh 1fr;
   grid-template-areas:
     "left heading right"
@@ -12,7 +11,8 @@
   grid-area: heading;
   justify-self: center;
   align-self: flex-end;
-  font-size: 50px;
+  font-size: 100px;
+  font-family: 'Fredoka One', sans-serif;
 }
 
 .homepage-get-started {
@@ -25,18 +25,3 @@
   font-size: 17px;
 }
 
-@media (min-width: 400px) {
-  .homepage-heading {
-    font-size: 70px;
-  }
-}
-
-@media (min-width: 640px) {
-  .homepage-div {
-    grid-template-columns: 1fr 500px 1fr;
-  }
-
-  .homepage-heading {
-    font-size: 100px;
-  }
-}

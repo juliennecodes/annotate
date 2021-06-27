@@ -7,10 +7,13 @@
   border-radius: 3px;
 }
 
-.annotation-form-div {
+.annotate-form-div {
   border-radius: 3px;
+  align-self: flex-start;
+  padding: 12px 16px;
 }
-.annotation-form-heading {
+
+.annotate-form-heading {
   font-size: 14px;
   font-weight: 400;
 }
@@ -32,13 +35,3 @@
   border-radius: 3px;
 }
 
-.close-annotate {
-  cursor: pointer;
-}
-
-@media (min-width: 900px) {
-  .canvas-tools {
-    grid-template-columns: 36px;
-    grid-template-rows: 36px 36px auto;
-  }
-}

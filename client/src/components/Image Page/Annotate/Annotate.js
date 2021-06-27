@@ -37,7 +37,7 @@ export function Annotate({ image, setState }) {
     return (
       <svg
         className="close-annotate"
-        onClick={() => setState("viewing image")}
+        onClick={() => setState("display image")}
         xmlns="http://www.w3.org/2000/svg"
         height="24"
         viewBox="0 0 24 24"
@@ -53,8 +53,8 @@ export function Annotate({ image, setState }) {
   return (
     <>
       <Canvas />
-      <div className="annotation-form-div">
-        <h2 className="annotation-form-heading">Annotation Form</h2>
+      <div className="annotate-form-div">
+        <h2 className="annotate-form-heading">Annotation Form</h2>
         <SetImageAnnotationButton />
         <form
           className="annotate-form"
@@ -64,20 +64,19 @@ export function Annotate({ image, setState }) {
             submitForm(visualAnnotation, writtenAnnotation);
           }}
         >
-          <label htmlFor="annotation">Write New Annotation</label>
+          <label htmlFor="written-annotation-input">Write New Annotation</label>
 
           <textarea
           className="annotate-form-textarea"
             type="text"
-            id="annotation"
-            aria-label="annotation-input"
+            id="written-annotation-input"
+            aria-label="written-annotation-input"
             onChange={(e) => setWrittenAnnotation(e.target.value)}
           />
 
           <button>Submit</button>
         </form>
       </div>
-      <CloseAnnotateButton />
     </>
   );
 }

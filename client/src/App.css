@@ -1,19 +1,8 @@
 .App {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: minmax(1fr, 15vh) 1fr;
-  grid-template-areas:
-  "header"
-  "main" ;
+    width: 1280px;
+    height: 100vh;
+    display: grid;
+    padding: 24px 36px;
+    box-sizing: border-box;
 }
 
-.header {
-  grid-area: header;
-}
-
-.main {
-  display: grid;
-  grid-template-columns: 1fr;
-  height: 100vh;
-  grid-area: main;
-}

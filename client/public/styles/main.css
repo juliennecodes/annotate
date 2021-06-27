@@ -49,22 +49,31 @@ body {
   font-family: "Varela Round", sans-serif;
 }
 
-.image {
-  max-height: 80vh;
-  max-width: 100%;
-}
-
-@media (min-width: 900px) {
-  .image {
-    max-height: 80vh;
-    max-width: 50vw;
-  }
-}
-
 button {
   font-size: 12px;
 }
 
 p {
   max-width: 35em;
+}
+
+.navigation {
+  font-size: 10px;
+  transform: rotate(90deg);
+  position: fixed;
+  top: 50px;
+  left: -36px;
+}
+
+.navigation-link {
+  cursor: pointer;
+  border-radius: 15px;
+  padding: 12px 8px 24px 8px;
+}
+
+footer {
+  position: fixed;
+  left: 8px;
+  bottom: 8px;
+  font-size: 10px;
 }

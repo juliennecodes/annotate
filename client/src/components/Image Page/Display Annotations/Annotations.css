@@ -12,7 +12,6 @@
 }
 
 .annotation-list-item {
-  display: grid;
   cursor: pointer;
 }
 
@@ -23,6 +22,7 @@
     "space deleteButton"
     "text spaceB";
   justify-self: stretch;
+  align-self: flex-start;
   padding: 12px 16px;
   border-radius: 3px;
 }
@@ -36,11 +36,4 @@
   justify-self: flex-end;
   align-self: flex-start;
   cursor: pointer;
-}
-
-@media (min-width: 900px) {
-  .annotations-list {
-    display: grid;
-    grid-template-columns: repeat(3, 24px);
-  }
 }

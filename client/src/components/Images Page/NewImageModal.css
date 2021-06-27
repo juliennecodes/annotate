@@ -5,7 +5,7 @@
     top: 0;
     left: 0;
     display: grid;
-    grid-template-columns: 10% 80% 10%;
+    grid-template-columns: 1fr 500px 1fr;
     grid-template-areas:
     "left center right";
     align-items: center;
@@ -23,11 +23,5 @@
 }
 
 .add-image-button {
-    cursor: pointer;
-}
-
-@media (min-width: 640px) {
-    .new-image-modal {
-        grid-template-columns: 1fr 500px 1fr;
-    }
+    border-radius: 15px;
 }

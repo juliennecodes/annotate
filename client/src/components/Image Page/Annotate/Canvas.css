@@ -1,10 +1,7 @@
-.canvas {
-  position: relative;
-  top: -5px;
-}
-
 .canvas-tools {
   padding: 2px;
+  justify-self: flex-start;
+  align-self: flex-start;
 }
 
 .active-brush {
@@ -22,12 +19,4 @@
   padding: 2px;
 }
 
-@media (min-width: 900px) {
-  .canvas {
-    position: relative;
-    top: 0;
-  }
-  .colour-choices {
-    flex-direction: column;
-  }
-}
+

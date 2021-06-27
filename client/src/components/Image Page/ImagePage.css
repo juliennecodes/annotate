@@ -1,0 +1,54 @@
+.image-page {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 25px auto 1fr;
+  grid-template-areas: 
+  "stateSetters stateSetters"
+  "image topRight"
+  "image right"
+  ;
+  gap: 12px;
+}
+
+.state-setters {
+  grid-area: stateSetters;
+}
+
+.image {
+  max-width: 600px;
+  max-height: 80vh;
+}
+
+.image, .visual-annotation, .canvas {
+  grid-area: image;
+  justify-self: center;
+  align-self: center;
+}
+
+.image-details {
+  grid-row: 2/4;
+}
+
+.annotations-list-div, .canvas-tools {
+  grid-area: topRight;
+}
+
+.written-annotation-div, .annotate-form-div {
+  grid-area: right;
+}
+
+.state-setters{
+  font-size: 10px;
+  cursor: pointer;
+  justify-self: center;
+  align-self: flex-start;
+  display: flex;
+}
+
+.state-setters li {
+  padding: 4px 8px;
+}
+
+.center {
+  grid-column: 1/3;
+}
