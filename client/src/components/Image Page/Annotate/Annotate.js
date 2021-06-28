@@ -15,7 +15,7 @@ export function Annotate({ image, setState }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ annotation }),
-    }).then((res) => window.location.reload());
+    }).then((res) => setState("display annotations"));
   };
 
   const SetImageAnnotationButton = () => {

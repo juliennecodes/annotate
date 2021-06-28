@@ -10,7 +10,7 @@ export function Annotations({ image, setState }) {
     fetch(`/images/${image.id}/annotations`)
       .then((res) => res.json())
       .then((serverResponse) => {setAnnotations(serverResponse.annotations);
-      setCurrentAnnotation(serverResponse.annotations[0])});
+      setCurrentAnnotation(serverResponse.annotations[serverResponse.annotations.length - 1])});
   }, [image]);
 
   const AnnotationsList = () => {
