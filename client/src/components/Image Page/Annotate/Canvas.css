@@ -19,6 +19,7 @@
   justify-items: center;
   align-items: center;
   gap: 12px;
+  border-radius: 3px;
 }
 
 .brush {
@@ -35,6 +36,7 @@
   grid-template-columns: repeat(6, 36px);
   grid-template-rows: 1fr;
   padding: 8px;
+  border-radius: 3px;
 }
 
 .colour-swatch {
