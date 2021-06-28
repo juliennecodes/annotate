@@ -1,115 +1,150 @@
 body {
-  color: hsl(218, 23%, 23%);
+  color: hsl(215, 66%, 40%);
 }
 
 button {
-  background-color: hsl(211, 25%, 84%);
-  color: hsl(218, 23%, 23%);
+  background-color: hsl(215, 72%, 82%);
+  color: hsl(215, 66%, 40%);
 }
 
-/* homepage */
-.homepage-div {
-  background-color: hsl(210, 38%, 95%);
-  color: hsl(218, 17%, 35%);
-}
-/* header */
-.header {
-  background-color: hsl(211, 25%, 84%);
+/* ---------------------------------------------------------------------------------------------------- */
+.App {
+  background-color: hsl(0, 0%, 100%);
 }
 
-.navigation-links li:hover {
-  background-color: hsl(214, 20%, 69%);
-}
-
+/* ---------------------------------------------------------------------------------------------------- */
+/* Header */
+/* ---------------------------------------------------------------------------------------------------- */
 .navigation-link {
-  color: hsl(218, 23%, 23%);
+  background-color: hsl(215, 73%, 73%);
+  color: hsl(0, 0%, 100%);
 }
 
-.add-image-div:hover {
-  background-color: hsl(214, 20%, 69%);
+.navigation-link:hover{
+  background-color: hsl(215, 66%, 40%);
 }
 
-/* images page */
-.images-page {
-  display: grid;
-  background-color: hsl(210, 38%, 95%);
+/* ---------------------------------------------------------------------------------------------------- */
+/* Homepage */
+/* ---------------------------------------------------------------------------------------------------- */
+.homepage-div {
+  color: hsl(215, 100%, 38%);
+}
+/* ---------------------------------------------------------------------------------------------------- */
+/* Images Page */
+/* ---------------------------------------------------------------------------------------------------- */
+.add-image-button {
+  background-color: hsl(359, 100%, 80%);
+  color: hsl(358, 100%, 99%);
+}
+/* ---------------------------------------------------------------------------------------------------- */
+/* Add New Image Form */
+/* ---------------------------------------------------------------------------------------------------- */
+.add-image-form-heading {
+  color: hsl(215, 66%, 40%);
 }
 
-/* add image */
+.add-image-form {
+  color: hsl(215, 60%, 53%);
+}
+
+::placeholder {
+  color: hsl(215, 72%, 82%);
+}
+
 .add-image-form input {
-  background-color: hsl(211, 25%, 90%);
+  background-color: hsl(215, 95%, 97%);
+}
+
+.add-image-form button {
+  background-color: hsl(215, 66%, 40%);
+  color: hsl(0, 0%, 100%);
 }
 
 .new-image-modal {
-  background-color: hsla(0, 0%, 0%, 0.3);
+  background-color: hsla(215, 88%, 28%, 0.3);
 }
 
 .new-image-modal-card {
-  background-color: hsl(204, 45%, 98%);
-  box-shadow: 0 15px 35px hsla(0, 0%, 0%, 0.3);
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 15px 35px hsla(215, 88%, 18%, 0.3);
 }
 
-.add-image-button {
-  color: hsl(218, 23%, 23%);
+/* ---------------------------------------------------------------------------------------------------- */
+/* Image Page */
+/* ---------------------------------------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* Display Image Details */
+/* ---------------------------------------------------------------------------------------------------- */
+.image-details {
+  background-color: hsl(215, 70%, 91%);
 }
 
-/* image page */
-.image-page {
-  background-color: hsl(204, 45%, 98%);
+.delete-image-button {
+    background-color: hsl(0, 0%, 100%);
+    border: 2px solid hsl(215, 70%, 91%);
+    color: hsl(215, 73%, 73%);
 }
 
-/* image page state */
-.image-page-state-setters-div {
-  background-color: hsl(210, 38%, 95%);
+.delete-image-button:hover {
+    background-color: hsl(215, 70%, 91%);
 }
 
-.view-image-button,
-.view-annotations-button,
-.annotate-button {
-  color: hsl(218, 23%, 23%);
-}
-
-.view-image-button:hover,
-.view-annotations-button:hover,
-.annotate-button:hover {
-  background-color: hsl(211, 25%, 84%);
-}
-
-.current-state {
-  background-color: hsl(214, 20%, 69%);
-}
-
-/* view annotations */
+/* ---------------------------------------------------------------------------------------------------- */
+/* Display Annotations*/
+/* ---------------------------------------------------------------------------------------------------- */
 .written-annotation-div {
-  background-color: hsl(211, 25%, 84%);
+  background-color: hsl(215, 70%, 91%);
 }
 
-/* annotate mode */
+/* ---------------------------------------------------------------------------------------------------- */
+/* Annotate */
+/* ---------------------------------------------------------------------------------------------------- */
+.annotate-form-div {
+  background-color: hsl(215, 70%, 91%);
+}
+
+.tools, .colour-swatches {
+  background-color: hsl(215, 70%, 91%);
+}
+
 .annotate-form-textarea {
-  border-color: hsl(216, 15%, 52%);
+  border-color: hsl(215, 72%, 63%);
 }
 
 .canvas {
-  border: 5px dotted hsl(216, 15%, 52%);
+  border: 5px dotted hsl(215, 72%, 63%);
 }
 
-.canvas-tools {
-  background-color: hsl(211, 25%, 84%);
-}
-
-.active-brush {
-  border: 2px solid hsl(216, 15%, 52%);
-}
-
-.annotation-form-div {
-  background-color: hsl(211, 25%, 84%);
+.active-brush, .current-swatch {
+  border: 2px solid hsl(215, 72%, 63%);
 }
 
 .set-visual-annotation-button {
-  background-color: none;
-  border: 2px solid hsl(214, 20%, 69%);
+  background-color: hsl(215, 72%, 82%);
+  border: 2px solid hsl(215, 72%, 82%);
 }
 
 .annotate-form button {
-  background-color: hsl(214, 20%, 69%);
+  background-color: hsl(215, 72%, 82%);
 }
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* State Setters */
+/* ---------------------------------------------------------------------------------------------------- */
+
+.state-setters{
+  color: hsl(215, 100%, 38%);
+}
+
+.state-setters li:hover {
+  cursor: pointer;
+  background-color: hsl(215, 70%, 91%);
+}
+
+/* ---------------------------------------------------------------------------------------------------- */
+footer {
+  color: hsl(215, 73%, 73%);
+}
+
