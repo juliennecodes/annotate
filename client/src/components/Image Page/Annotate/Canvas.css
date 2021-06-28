@@ -1,22 +1,51 @@
 .canvas-tools {
-  padding: 2px;
-  justify-self: flex-start;
-  align-self: flex-start;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 52px auto;
+  grid-template-areas:
+  "tools"
+  "colours"
+   ;
+  border-radius: 3px;
+  gap: 12px;
 }
 
-.active-brush {
+.tools {
+  grid-area: tools;
+  padding: 8px;
+  justify-self: flex-start;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.brush {
+  padding: 4px;
+}
+.active-brush, .current-swatch {
   border-radius: 3px;
 }
 
-.colour-choices {
-  display: flex;
-  flex-direction: row;
-  padding: 2px 0px;
+.colour-swatches {
+  grid-area: colours;
+  justify-self: flex-start;
+  display: grid;
+  grid-template-columns: repeat(6, 36px);
+  grid-template-rows: 1fr;
+  padding: 8px;
 }
 
-.colour-choice {
-  justify-self: center;
-  padding: 2px;
+.colour-swatch {
+  cursor: pointer;
+  padding: 4px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
 }
 
+.colour-swatch svg {
+  pointer-events: none;
+}
 

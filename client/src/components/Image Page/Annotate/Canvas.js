@@ -1,6 +1,6 @@
 import "./Canvas.css";
 import { useState } from "react";
-import {ColourChoices} from "./ColourChoices";
+import { ColourSwatches} from "./ColourSwatches";
 
 export function Canvas() {
   const [drawMode, setDrawMode] = useState(false);
@@ -66,9 +66,12 @@ export function Canvas() {
   return (
     <>
       <div className="canvas-tools">
-        <Brush drawMode={drawMode} setDrawMode={setDrawMode} />
-        <ClearCanvas />
-        <ColourChoices setCurrentColour={setCurrentColour}/>
+        <div className="tools">
+          <Brush drawMode={drawMode} setDrawMode={setDrawMode} />
+          <ClearCanvas />
+        </div>
+        
+        <ColourSwatches setCurrentColour={setCurrentColour}/>
       </div>
       <canvas
         className="canvas"

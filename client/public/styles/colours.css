@@ -105,7 +105,7 @@ button {
   background-color: hsl(215, 70%, 91%);
 }
 
-.canvas-tools {
+.tools, .colour-swatches {
   background-color: hsl(215, 70%, 91%);
 }
 
@@ -117,7 +117,7 @@ button {
   border: 5px dotted hsl(215, 72%, 63%);
 }
 
-.active-brush {
+.active-brush, .current-swatch {
   border: 2px solid hsl(215, 72%, 63%);
 }
 
