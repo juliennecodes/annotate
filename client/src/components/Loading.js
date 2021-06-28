@@ -1,6 +1,6 @@
 export function Loading() {
   return (
-    <div>
+    <div style={{justifySelf: "center", alignSelf: "center"}}>
       <p>Loading</p>
     </div>
   );

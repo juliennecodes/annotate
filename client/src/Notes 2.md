@@ -36,3 +36,9 @@ When you click on display image, it adds the class.
 - separate canvas tools with colour swatches, or maybe, have current swatch in canvas tools?
 - add next and previous link to images
 - change column name in images table from name to title
+- add more fields to form, some mandatory, some not, and render data in UI
+- change where the requests are being directed
+    - annotate, direct the request to annotation controller instead of going through image
+    - use useParams to get image id
+    - hmm have to reorganize a lot
+    - write tests first

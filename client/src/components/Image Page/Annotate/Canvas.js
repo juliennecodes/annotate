@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ColourSwatches} from "./ColourSwatches";
 
 export function Canvas() {
-  const [drawMode, setDrawMode] = useState(false);
+  const [drawMode, setDrawMode] = useState(true);
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
   const imageInfo = document.querySelector(".image").getBoundingClientRect();

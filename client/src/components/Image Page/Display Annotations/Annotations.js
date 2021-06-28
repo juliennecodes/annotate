@@ -105,7 +105,6 @@ export function Annotations({ image, setState }) {
           <WrittenAnnotation />
         </>
       )}
-      
     </>
   ) : (
     <Loading />

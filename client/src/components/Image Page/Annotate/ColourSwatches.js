@@ -6,7 +6,6 @@ export function ColourSwatches({ setCurrentColour }) {
     "hsl(0, 0%, 100%)",
     "hsl(0, 0%, 50%)",
     "hsl(0, 0%, 0%)",
-
   ];
 
   return (
