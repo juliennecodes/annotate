@@ -35,7 +35,6 @@ export function ColourSwatches({ setCurrentColour }) {
 }
 
 function setAsCurrentSwatch(element){
-  console.log(element);
   document.querySelector(".current-swatch").classList.remove("current-swatch");
   element.classList.add("current-swatch");
 }
