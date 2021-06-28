@@ -9,7 +9,7 @@ export function Canvas() {
   const imageInfo = document.querySelector(".image").getBoundingClientRect();
   const canvasWidth = imageInfo.width;
   const canvasHeight = imageInfo.height;
-  const [currentColour, setCurrentColour] = useState("hsl(0, 0%, 0%)")
+  const [currentColour, setCurrentColour] = useState("hsl(352, 100%, 65%)")
 
   const getCoordinates = (e) => {
     const viewportXCoordinate = e.clientX;

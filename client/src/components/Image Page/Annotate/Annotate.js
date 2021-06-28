@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Canvas } from "./Canvas";
 import "./Annotate.css";
 
-export function Annotate({ image, setState }) {
+export function Annotate({ image, setState, addIndicatorForCurrentStateSetter }) {
   const [writtenAnnotation, setWrittenAnnotation] = useState(null);
   const [visualAnnotation, setVisualAnnotation] = useState(null);
 
@@ -15,7 +15,9 @@ export function Annotate({ image, setState }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ annotation }),
-    }).then((res) => setState("display annotations"));
+    }).then((res) => {
+      addIndicatorForCurrentStateSetter(document.querySelector(".display-annotations-button"));
+      setState("display annotations");});
   };
 
   const SetImageAnnotationButton = () => {
@@ -50,7 +52,7 @@ export function Annotate({ image, setState }) {
           <label htmlFor="written-annotation-input">Write New Annotation</label>
 
           <textarea
-          className="annotate-form-textarea"
+            className="annotate-form-textarea"
             type="text"
             id="written-annotation-input"
             aria-label="written-annotation-input"

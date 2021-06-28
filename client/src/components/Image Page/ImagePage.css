@@ -50,6 +50,10 @@
   padding: 4px 8px;
 }
 
+.active-state-setter {
+  border-bottom: 2px solid hsl(215, 66%, 40%);
+}
+
 .center {
   grid-column: 1/3;
 }
