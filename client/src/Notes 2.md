@@ -25,3 +25,14 @@ So I guess I will do that with toggling class name and that class name will come
 So when you click on display annotations and annotate, you remove that class.
 
 When you click on display image, it adds the class.
+
+# To do
+- use react spring for animating changing position of image
+- add current state indicator
+- add more variety to colour
+- do display image details
+- modify loading component
+- use an array for colour swatches
+- separate canvas tools with colour swatches, or maybe, have current swatch in canvas tools?
+- add next and previous link to images
+- change column name in images table from name to title

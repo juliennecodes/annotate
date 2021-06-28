@@ -5,12 +5,12 @@ import { Loading } from "../Loading";
 import { Annotations } from "./Display Annotations/Annotations";
 import { Annotate } from "./Annotate/Annotate";
 import { FeatureImage } from "./FeatureImage";
+import { ImageDetails } from "./Display Image Info/ImageDetails";
 
 export function ImagePage() {
   const { id } = useParams();
   const [image, setImage] = useState(null);
   const [state, setState] = useState("display image");
-  const imageDetails = {title: "Fry"}
 
   useEffect(() => {
     fetch(`/images/${id}`)
@@ -30,7 +30,7 @@ export function ImagePage() {
                 <li onClick={()=> {setState("annotate"); moveImageToLeft();}}>Annotate</li>
             </ul>
             {image && <FeatureImage image={image} />}
-            {state === "display image details" && <ImageDetails imageDetails={imageDetails}/>}
+            {state === "display image details" && <ImageDetails image={image}/>}
             {state === "display annotations" && <Annotations image={image} setState={setState}/>}
             {state === "annotate" && <Annotate image={image} setState={setState}/>}
 
@@ -44,15 +44,7 @@ export function ImagePage() {
 }
 
 
-function ImageDetails({imageDetails}){
-    // maybe go through the whole object
-    // maybe map if I end up sending the data to the client as an array 
-    return (
-        <div className="image-details">
-            <p>{imageDetails.title}</p>
-        </div>
-    )
-}
+
 
 function moveImageToMiddle(){
   const image = document.querySelector(".image");
