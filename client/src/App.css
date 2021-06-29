@@ -6,3 +6,10 @@
     box-sizing: border-box;
 }
 
+.page-heading {
+    position: fixed;
+    transform: rotate(270deg);
+    bottom: 120px;
+    left: -72px;
+    color: hsl(215, 95%, 97%);
+}

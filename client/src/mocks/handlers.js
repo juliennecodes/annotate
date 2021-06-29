@@ -13,8 +13,8 @@ export const handlers = [
   }),
 
   rest.post("/images", (req, res, ctx) => {
-    const imageName = req.body.newImageName;
-    const imageUrl = req.body.newImageUrl;
+    const imageName = req.body.image.name;
+    const imageUrl = req.body.image.url;
 
     const newImage = {
       id: 1,
@@ -30,9 +30,11 @@ export const handlers = [
     return res(ctx.status(200), ctx.json({ images: images }));
   }),
 
-  rest.get("/resetServer", (req, res, ctx) => {
+  rest.get("/reset", (req, res, ctx) => {
     images = [];
+    console.log("reset server is requested");
+    // return res(ctx.status(200), ctx.json({images: images}));
+    return res(ctx.status(200), ctx.json({images: images}));
 
-    return res(ctx.status(200), ctx.json({}));
   }),
 ];

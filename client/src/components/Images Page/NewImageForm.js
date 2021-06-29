@@ -1,9 +1,18 @@
 import { useState } from "react";
 import "./NewImageForm.css";
 
-export function NewImageForm({ closeForm }) {
+export function NewImageForm({ closeForm, setImages }) {
   const [newImageName, setNewImageName] = useState(null);
   const [newImageUrl, setNewImageUrl] = useState(null);
+
+  const fetchImages = () => {
+    fetch(`/images`)
+      .then((res) => res.json())
+      .then((serverResponse) => {
+        closeForm();
+        setImages(serverResponse.images);
+      });
+  };
 
   const submitForm = (name, url) => {
     const image = { name: name, url: url };
@@ -13,7 +22,7 @@ export function NewImageForm({ closeForm }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ image }),
-    }).then((res) => window.location.reload());
+    }).then((res) => fetchImages());
   };
 
   return (

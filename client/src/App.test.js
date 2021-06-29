@@ -1,5 +1,4 @@
 import {
-  fireEvent,
   render,
   screen,
   waitFor,
@@ -11,206 +10,68 @@ import "@testing-library/jest-dom/extend-expect";
 import { server } from "./mocks/mock-server";
 
 beforeAll(() => server.listen());
-
-afterEach(() => {
-  resetServer();
-  server.resetHandlers();
-});
-
+afterEach(() => {resetServer(); server.resetHandlers();});
 afterAll(() => server.close());
 
-test("user clicks on homepage and goes to homepage", async () => {
-  render(<App />);
-
-  goToHomepage();
-
-  expect(screen.getByRole("heading", { name: "Homepage" })).toBeInTheDocument();
-});
-
-test("user clicks on images link and goes to images page", async () => {
-  render(<App />);
-
-  await goToImagesPage();
-
-  expect(screen.getByText("Images Page")).toBeInTheDocument();
-});
-
-test("user clicks on add new image and sees the form for adding new image", async () => {
-  render(<App />);
-  await openAddNewImageForm();
-  expect(screen.getByText(/form for new image/i)).toBeInTheDocument();
-});
-
-test("user adds a new image and image is added", async () => {
-  render(<App />);
-  await goToImagesPage();
-
-  expect(screen.queryByAltText("Fry")).not.toBeInTheDocument();
-
-  await addNewImage();
-  await goToImagesPage();
-  await waitFor(() => screen.findByAltText("Fry"));
-
-  expect(screen.getByAltText("Fry")).toBeInTheDocument();
-});
-
-test("user clicks on image thumbnail and goes to image page", async () => {
-  render(<App />);
-
-  await addNewImage();
-
-  await goToImagesPage();
-
-  await goToImagePage();
-
-  expect(screen.getByAltText("Fry")).toBeInTheDocument();
-});
-
-test.skip("user deletes image, image is deleted", async () => {
-  render(<App />);
-  await openAddNewImageForm();
-  await addNewImage();
-  await goToImagesPage();
-  expect(screen.getByAltText("Fry")).toBeInTheDocument();
-  await goToImagePage();
-  await deleteImage();
-  await goToImagesPage();
-  expect(screen.queryByAltText("Fry")).not.toBeInTheDocument();
-});
-
-
-test("user clicks on annotate, form for annotation appears", async () => {
-  render(<App />);
-  // add new image
-  // go to image page
-  // decide to annotate
-  // expect pencil icon to be in the document
-  // expect canvas to be in the document
-  // expect annotation form to be in the document
-});
-
-
-test("user adds annotation, new annotation is added", async () => {
-  render(<App />);
-  // add new image
-  // go to image page
-  // annotate
-  // show annotations
-  // expect drawing to be on the image
-  // expect annotation to be in the document
-});
-
-test("user deletes annotation, annotation is deleted", async () => {
-  render(<App />);
-  // add new image
-  // annotate
-  // show annotations
-  // prove that annotation is in the document
-  // delete annotation
-  // prove that annotation is not in the document
-});
-
-test("user clicks display annotation, list of annotations are displayed", ()=>{
-  // write new annotations
-  // show annotations
-  // prove that annotations are displayed
-});
-
-test("user closes display annotation, list of annotations are not displayed", ()=>{
-  // write new annotation
-  // show annotations
-  // prove that annotations are displayed
-  // click to close annotations
-  // prove that annotations are not displayed
-})
 // ----------------------------------------------------------------------------------------------------
-function resetServer() {
-  fetch("/resetServer")
-    .then((res) => res.json())
-    .then((x) => console.log("Server reset"));
-}
+// test("clicking get started leads to images page", async () => {
+//   render(<App />);
+//   await goToImagesPage();
+//   expect(screen.getByText(/images/i)).toBeInTheDocument();
+// });
 
-function goToHomepage() {
-  const linkToHomepage = screen.getByRole("link", { name: "Homepage" });
-  userEvent.click(linkToHomepage);
-}
+test("image can be added", async()=> {
+  render(<App />);
+  await goToImagesPage();
+  expect(screen.queryByAltText(/fry/i)).not.toBeInTheDocument();
+  await addNewImage();
+  expect(screen.getByAltText(/fry/i)).toBeInTheDocument();
 
+})
+
+// test("clicking on image thumbnail leads to image page", async()=> {
+//   render(<App />);
+//   await goToImagesPage();
+
+
+//   await addNewImage();
+// })
+
+// ----------------------------------------------------------------------------------------------------
 async function goToImagesPage() {
-  const linkToImages = screen.getByRole("link", { name: "Images" });
+  await waitFor(() => screen.getByRole("link", {name: "get started"}));
+  const linkToImages = screen.getByRole("link", {name: "get started"});
   userEvent.click(linkToImages);
-  await waitFor(() => screen.findByText("Images Page"));
+  await waitFor(() => screen.getByText(/images/i));
 }
 
-async function openAddNewImageForm() {
-  const linkToAddNewImage = screen.getByRole("link", { name: "Add new image" });
-  userEvent.click(linkToAddNewImage);
-  await waitFor(() => screen.findByText("Form For New Image"));
-}
+// async function clickOnImage(){
+//   await waitFor(()=> screen.getByAltText(/fry/i));
+//   const image = screen.getByAltText(/fry/i);
+//   userEvent.click(image);
+// }
 
-async function addNewImage() {
-  await openAddNewImageForm();
-  const nameInputField = screen.getByLabelText("name-input");
-  const urlInputField = screen.getByLabelText("url-input");
-  const formElement = screen.getByRole("form");
+async function addNewImage(){
+  await waitFor(()=> screen.getByRole("button", {name: "Add New Image"}));
+  const addNewImageButton = screen.getByRole("button", {name: "Add New Image"});
+  userEvent.click(addNewImageButton);
+  
+  await waitFor(()=> screen.getByRole("heading", {name: "Add New Image"}));
+
+  const nameInputField = screen.getByRole("textbox", {name: "name-input"});
+  const urlInputField = screen.getByRole("textbox", {name: "url-input"});
+  const submitButton = screen.getByRole("button", {name: "Submit"});
 
   userEvent.type(nameInputField, "Fry");
   userEvent.type(urlInputField, "image-url");
-  fireEvent.submit(formElement);
+  userEvent.click(submitButton);
+
+  await waitForElementToBeRemoved(()=> screen.queryByRole("button", {name: "Submit"}));
+  await waitFor(()=> screen.getByAltText(/fry/i));
 }
 
-async function goToImagePage() {
-  await waitFor(() => screen.findByAltText("Fry"));
-  const image = screen.getByAltText("Fry");
-  userEvent.click(image);
-  await waitFor(() => screen.findByAltText("Fry"));
-}
-
-async function openNewAnnotationForm() {
-  await waitFor(() => screen.findByRole("button", { name: "Annotate" }));
-
-  const annotateButton = screen.getByRole("button", { name: "Annotate" });
-  userEvent.click(annotateButton);
-
-  await waitFor(() => screen.findByText("Annotation Form"));
-}
-
-async function writeNewAnnotation() {
-  const annotationInputField = screen.getByLabelText("annotation-input");
-  const formElement = screen.getByRole("form");
-
-  userEvent.type(annotationInputField, "Shut up and take my money");
-  fireEvent.submit(formElement);
-  // should have an indicator that form is completed
-}
-
-async function showAnnotations() {
-  const showAnnotationsButton = screen.getByRole("button", {
-    name: "Show annotations",
-  });
-  userEvent.click(showAnnotationsButton);
-  await waitFor(() => screen.findByText("Shut up and take my money"));
-}
-
-async function deleteAnnotation() {
-  await waitFor(() => screen.findByText("Shut up and take my money"));
-  await waitFor(() =>
-    screen.findByRole("button", { name: "Delete annotation" })
-  );
-  const deleteAnnotationButton = screen.getByRole("button", {
-    name: "Delete annotation",
-  });
-  userEvent.click(deleteAnnotationButton);
-  await waitForElementToBeRemoved(() =>
-    screen.getByText("Shut up and take my money")
-  );
-}
-
-async function deleteImage() {
-  await waitFor(() => screen.findByAltText("Fry"));
-  await waitFor(() => screen.findByRole("button", { name: "Delete image" }));
-  const deleteImageButton = screen.getByRole("button", {
-    name: "Delete image",
-  });
-  userEvent.click(deleteImageButton);
-  await waitForElementToBeRemoved(() => screen.getByAltText("Fry"));
+function resetServer() {
+  fetch(`/reset`)
+  .then(res => res.json())
+  .then(serverResponse => serverResponse);
 }

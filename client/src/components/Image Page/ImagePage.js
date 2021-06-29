@@ -20,6 +20,7 @@ export function ImagePage() {
   return (
     <>
       <div className="image-page">
+        <h1 className="page-heading">Image Page</h1>
         {image ? (
           <>
             <StateSetters setState={setState}/>

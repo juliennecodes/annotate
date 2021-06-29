@@ -16,12 +16,13 @@ export function ImagesPage() {
   return images ? (
     <>
         <div className="images-page">
+          <h1 className="page-heading" style={{left: "-80px"}}>Images Page</h1>
           <ul className="image-thumbnails">
             {images.map((image, index) => (
               <ImageThumbnail image={image} key={index} />
             ))}
           </ul>
-          <NewImageModalWrapper/>
+          <NewImageModalWrapper setImages={setImages}/>
         </div>
     </>
   ) : (
