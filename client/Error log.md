@@ -554,3 +554,21 @@
 
 # Also, I had trouble with overlapping calls
 - make sure you await every async function
+
+# Mmm, I'm having trouble with the msw server. 
+- I don't know why but the tests individually pass on their own. 
+- However, when they are all tested at the same time, they fail.
+- I think it's because the pages are picking up from the previous test. By that I mean, when I end at images page from the first test, when the second test starts, it's supposed to start at the homepage but it starts at images page. So, I don't know. 
+- I thought server.resetHandlers() would take care of it.
+- I looked at other projects that reset every test and they seem to be working.
+- I set it up the same way so I don't know why it's happening.
+
+# Unable to find an element with the text: /display image/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+- I had 
+        await waitFor(()=> screen.getByText(/display image/i));
+        await waitFor(()=> screen.getByText(/display image details/i));
+- they're two different things but regex display image gets both of them
+- my solution was to use the exact names
+        await waitFor(()=> screen.getByText("Display Image"));
+        await waitFor(()=> screen.getByText("Display Image Details"));
+- just making a note in case I wonder why I use exact names here and regex in others

@@ -23,11 +23,23 @@ export function ImagePage() {
         <h1 className="page-heading">Image Page</h1>
         {image ? (
           <>
-            <StateSetters setState={setState}/>
+            <StateSetters setState={setState} />
             {image && <FeatureImage image={image} />}
-            {state === "display image details" && (<ImageDetails image={image} />)}
-            {state === "display annotations" && (<Annotations image={image} setState={setState} />)}
-            {state === "annotate" && (<Annotate image={image} setState={setState} addIndicatorForCurrentStateSetter={addIndicatorForCurrentStateSetter}/>)}
+            {state === "display image details" && (
+              <ImageDetails image={image} />
+            )}
+            {state === "display annotations" && (
+              <Annotations image={image} setState={setState} />
+            )}
+            {state === "annotate" && (
+              <Annotate
+                image={image}
+                setState={setState}
+                addIndicatorForCurrentStateSetter={
+                  addIndicatorForCurrentStateSetter
+                }
+              />
+            )}
           </>
         ) : (
           <Loading />
@@ -45,49 +57,53 @@ function FeatureImage({ image }) {
   );
 }
 
-function StateSetters({setState}){
-  return(
+function StateSetters({ setState }) {
+  return (
     <ul className="state-setters">
-    <li
-      className="active-state-setter"
-      onClick={(e) => {
-        setState("display image");
-        moveImageToMiddle();
-        addIndicatorForCurrentStateSetter(e.target);
-      }}
-    >
-      Display Image
-    </li>
-    <li
-      onClick={(e) => {
-        setState("display image details");
-        moveImageToLeft();
-        addIndicatorForCurrentStateSetter(e.target);
-      }}
-    >
-      Display Image Details
-    </li>
-    <li
-    className="display-annotations-button"
-      onClick={(e) => {
-        setState("display annotations");
-        moveImageToLeft();
-        addIndicatorForCurrentStateSetter(e.target);
-      }}
-    >
-      Display Annotations
-    </li>
-    <li
-      onClick={(e) => {
-        setState("annotate");
-        moveImageToLeft();
-        addIndicatorForCurrentStateSetter(e.target);
-      }}
-    >
-      Annotate
-    </li>
-  </ul>
-  )
+      <li
+        role="button"
+        className="active-state-setter"
+        onClick={(e) => {
+          setState("display image");
+          moveImageToMiddle();
+          addIndicatorForCurrentStateSetter(e.target);
+        }}
+      >
+        Display Image
+      </li>
+      <li
+        role="button"
+        onClick={(e) => {
+          setState("display image details");
+          moveImageToLeft();
+          addIndicatorForCurrentStateSetter(e.target);
+        }}
+      >
+        Display Image Details
+      </li>
+      <li
+        role="button"
+        className="display-annotations-button"
+        onClick={(e) => {
+          setState("display annotations");
+          moveImageToLeft();
+          addIndicatorForCurrentStateSetter(e.target);
+        }}
+      >
+        Display Annotations
+      </li>
+      <li
+        role="button"
+        onClick={(e) => {
+          setState("annotate");
+          moveImageToLeft();
+          addIndicatorForCurrentStateSetter(e.target);
+        }}
+      >
+        Annotate
+      </li>
+    </ul>
+  );
 }
 
 function moveImageToMiddle() {
@@ -100,9 +116,9 @@ function moveImageToLeft() {
   image.classList.remove("center");
 }
 
-function addIndicatorForCurrentStateSetter(element){
+function addIndicatorForCurrentStateSetter(element) {
   document
-  .querySelector(".active-state-setter")
-  .classList.remove("active-state-setter");
-element.classList.add("active-state-setter");
+    .querySelector(".active-state-setter")
+    .classList.remove("active-state-setter");
+  element.classList.add("active-state-setter");
 }

@@ -61,7 +61,7 @@ export function Annotations({ image, setState }) {
         }}
         className="visual-annotation"
         src={currentAnnotation.visual}
-        alt="visual annotation"
+        alt={`${image.name} visual annotation`}
       ></img>
     );
   };
