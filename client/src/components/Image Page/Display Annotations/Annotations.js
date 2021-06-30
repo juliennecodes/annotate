@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+import { CircleIcon } from "../../Icons/CircleIcon";
+import { DeleteIcon } from "../../Icons/DeleteIcon";
 import "./Annotations.css";
 
 export function Annotations({ annotations, updateAnnotations }) {
-  const [currentAnnotation, setCurrentAnnotation] = useState(annotations[annotations.length - 1]);
+  const [currentAnnotation, setCurrentAnnotation] = useState(
+    annotations[annotations.length - 1]
+  );
 
   const deleteAnnotation = (annotation) => {
     fetch(`/annotations/${annotation.id}`, {
@@ -13,8 +17,8 @@ export function Annotations({ annotations, updateAnnotations }) {
     }).then((res) => updateAnnotations());
   };
 
-  useEffect(()=> {
-    setCurrentAnnotation(annotations[annotations.length - 1])
+  useEffect(() => {
+    setCurrentAnnotation(annotations[annotations.length - 1]);
   }, [annotations]);
   // This makes it so current annotation is updated when a new annotation is made
   // Without it, the current annotation remains the last item of the initial annotations
@@ -46,16 +50,7 @@ export function Annotations({ annotations, updateAnnotations }) {
         className="annotation-list-item"
         onClick={() => setCurrentAnnotation(annotation)}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-          fill="hsl(215, 70%, 91%)"
-        >
-          <path d="M0 0h24v24H0z" fill="none" />
-          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2z" />
-        </svg>
+        <CircleIcon />
       </li>
     );
   };
@@ -79,19 +74,12 @@ export function Annotations({ annotations, updateAnnotations }) {
   const WrittenAnnotation = () => {
     return (
       <div className="written-annotation-div">
-        <p className="written-annotation">{currentAnnotation.written}</p>
-        <svg
+        <DeleteIcon
           className="written-annotation-delete-button"
-          onClick={() => deleteAnnotation(currentAnnotation)}
-          xmlns="http://www.w3.org/2000/svg"
-          height="16"
-          viewBox="0 0 24 24"
-          width="16"
-          fill="hsl(215, 66%, 40%)"
-        >
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path d="M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z" />
-        </svg>
+          onClickCallback={() => deleteAnnotation(currentAnnotation)}
+          size={16}
+        />
+        <p className="written-annotation">{currentAnnotation.written}</p>
       </div>
     );
   };
