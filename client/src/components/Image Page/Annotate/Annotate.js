@@ -2,20 +2,21 @@ import { useState } from "react";
 import { Canvas } from "./Canvas";
 import "./Annotate.css";
 
-export function Annotate({ image, setState, addIndicatorForCurrentStateSetter }) {
+export function Annotate({ image, setState, addIndicatorForCurrentStateSetter, updateAnnotations }) {
   const [writtenAnnotation, setWrittenAnnotation] = useState(null);
   const [visualAnnotation, setVisualAnnotation] = useState(null);
 
   const submitForm = (visual, written) => {
     const annotation = { visual, written };
 
-    fetch(`/images/${image.id}/annotations`, {
+    fetch(`/annotations`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ annotation }),
+      body: JSON.stringify({ imageId: image.id, annotation: annotation }),
     }).then((res) => {
+      updateAnnotations();
       addIndicatorForCurrentStateSetter(document.querySelector(".display-annotations-button"));
       setState("display annotations");});
   };

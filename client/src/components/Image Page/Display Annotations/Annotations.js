@@ -1,17 +1,25 @@
 import { useEffect, useState } from "react";
-import { Loading } from "../../Loading";
 import "./Annotations.css";
 
-export function Annotations({ image, setState }) {
-  const [annotations, setAnnotations] = useState(null);
-  const [currentAnnotation, setCurrentAnnotation] = useState(null);
+export function Annotations({ annotations, updateAnnotations }) {
+  const [currentAnnotation, setCurrentAnnotation] = useState(annotations[annotations.length - 1]);
 
-  useEffect(() => {
-    fetch(`/images/${image.id}/annotations`)
-      .then((res) => res.json())
-      .then((serverResponse) => {setAnnotations(serverResponse.annotations);
-      setCurrentAnnotation(serverResponse.annotations[serverResponse.annotations.length - 1])});
-  }, [image]);
+  const deleteAnnotation = (annotation) => {
+    fetch(`/annotations/${annotation.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => updateAnnotations());
+  };
+
+  useEffect(()=> {
+    setCurrentAnnotation(annotations[annotations.length - 1])
+  }, [annotations]);
+  // This makes it so current annotation is updated when a new annotation is made
+  // Without it, the current annotation remains the last item of the initial annotations
+  // The annotations in the image page gets updated but it seems the current annotations remained
+  // This code basically says if annotations changed, change currentAnnotation as well
 
   const AnnotationsList = () => {
     return (
@@ -19,11 +27,13 @@ export function Annotations({ image, setState }) {
         <h2>Annotations</h2>
         <ul className="annotations-list">
           {annotations.map((annotation, index) => {
-            return <AnnotationListItem
-            annotation={annotation}
-            setCurrentAnnotation={setCurrentAnnotation}
-            key={index}
-          />
+            return (
+              <AnnotationListItem
+                annotation={annotation}
+                setCurrentAnnotation={setCurrentAnnotation}
+                key={index}
+              />
+            );
           })}
         </ul>
       </div>
@@ -61,21 +71,12 @@ export function Annotations({ image, setState }) {
         }}
         className="visual-annotation"
         src={currentAnnotation.visual}
-        alt={`${image.name} visual annotation`}
+        alt={`visual annotation`}
       ></img>
     );
   };
 
   const WrittenAnnotation = () => {
-    const deleteAnnotation = (annotation) => {
-      fetch(`/images/${annotation.image_id}/annotations/${annotation.id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }).then((res) => window.location.reload());
-    };
-
     return (
       <div className="written-annotation-div">
         <p className="written-annotation">{currentAnnotation.written}</p>
@@ -95,10 +96,9 @@ export function Annotations({ image, setState }) {
     );
   };
 
-  return annotations ? (
+  return (
     <>
       <AnnotationsList />
-      
       {currentAnnotation && (
         <>
           <VisualAnnotation />
@@ -106,7 +106,5 @@ export function Annotations({ image, setState }) {
         </>
       )}
     </>
-  ) : (
-    <Loading />
   );
 }

@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./NewImageForm.css";
 
 export function NewImageForm({ closeForm, setImages }) {
-  const [newImageName, setNewImageName] = useState(null);
+  const [newImageTitle, setNewImageTitle] = useState(null);
   const [newImageUrl, setNewImageUrl] = useState(null);
 
   const fetchImages = () => {
@@ -14,8 +14,8 @@ export function NewImageForm({ closeForm, setImages }) {
       });
   };
 
-  const submitForm = (name, url) => {
-    const image = { name: name, url: url };
+  const submitForm = (title, url) => {
+    const image = { title: title, url: url };
     fetch("/images", {
       method: "POST",
       headers: {
@@ -45,16 +45,16 @@ export function NewImageForm({ closeForm, setImages }) {
         aria-label="add-image-form"
         onSubmit={(e) => {
           e.preventDefault();
-          submitForm(newImageName, newImageUrl);
+          submitForm(newImageTitle, newImageUrl);
         }}
       >
-        <label htmlFor="name">Name</label>
+        <label htmlFor="title">Title</label>
         <input
           type="text"
-          id="name"
-          aria-label="name-input"
-          placeholder="Name..."
-          onChange={(e) => setNewImageName(e.target.value)}
+          id="title"
+          aria-label="title-input"
+          placeholder="Title..."
+          onChange={(e) => setNewImageTitle(e.target.value)}
         />
 
         <label htmlFor="url">Url</label>

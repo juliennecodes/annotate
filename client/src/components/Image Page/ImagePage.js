@@ -9,13 +9,22 @@ import { ImageDetails } from "./Display Image Info/ImageDetails";
 export function ImagePage() {
   const { id } = useParams();
   const [image, setImage] = useState(null);
+  const [annotations, setAnnotations] = useState(null);
   const [state, setState] = useState("display image");
 
   useEffect(() => {
     fetch(`/images/${id}`)
       .then((res) => res.json())
-      .then((serverResponse) => setImage(serverResponse.image));
+      .then((serverResponse) => {
+        setImage(serverResponse.image);
+      setAnnotations(serverResponse.annotations)});
   }, [id]);
+
+  const updateAnnotations = () => {
+      fetch(`/annotations?imageId=${id}`)
+        .then((res) => res.json())
+        .then((serverResponse) =>  setAnnotations(serverResponse.annotations));
+  }
 
   return (
     <>
@@ -29,11 +38,12 @@ export function ImagePage() {
               <ImageDetails image={image} />
             )}
             {state === "display annotations" && (
-              <Annotations image={image} setState={setState} />
+              <Annotations annotations={annotations} updateAnnotations={updateAnnotations}/>
             )}
             {state === "annotate" && (
               <Annotate
                 image={image}
+                updateAnnotations={updateAnnotations}
                 setState={setState}
                 addIndicatorForCurrentStateSetter={
                   addIndicatorForCurrentStateSetter

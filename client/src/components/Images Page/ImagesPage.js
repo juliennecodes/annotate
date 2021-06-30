@@ -34,7 +34,7 @@ function ImageThumbnail({ image }) {
   return (
     <li>
       <Link to={`/images/${image.id}`}>
-        <img className="image-thumbnail" src={image.url} alt={image.name}></img>
+        <img className="image-thumbnail" src={image.url} alt={image.title}></img>
       </Link>
     </li>
   );

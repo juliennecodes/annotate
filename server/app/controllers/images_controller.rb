@@ -1,23 +1,29 @@
 class ImagesController < ApplicationController
-    # handles get requests to /images
     def index
         images = Image.all
         render json: {images: images}
     end
     
-    # handles post requests to /images
     def create
         Image.create(image_params)
         head :no_content
     end
     
-    # handles get requests to /images/:id
     def show
-        current_image = Image.find(params[:id])
-        render json: {image: current_image}
+        image = Image.find(params[:id])
+
+        if(image.annotations.length > 0) 
+            annotations = Annotation.where(image: image)
+        else
+            annotations = []
+        end
+
+        render json: {
+            image: image,
+            annotations: annotations
+        }
     end
     
-    #handles delete requests to images/:id
     def destroy
         current_image = Image.find(params[:id])
         current_image.destroy
@@ -26,6 +32,6 @@ class ImagesController < ApplicationController
 
     private
     def image_params
-        params.require(:image).permit(:name, :url)
+        params.require(:image).permit(:title, :url)
     end
 end

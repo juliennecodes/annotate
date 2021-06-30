@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :images do
-    resources :annotations
-  end
+  # resources :images do
+  #   resources :annotations
+  # end
+  resources :images 
+  resources :annotations
 end
 
 # rails routes

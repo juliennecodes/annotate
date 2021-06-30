@@ -103,6 +103,9 @@ async function annotate() {
   userEvent.click(submitButton);
 
   await waitForElementToBeRemoved(()=> screen.queryByRole("button", {name: "Submit"}));
+  await waitFor(()=> screen.getByRole("heading", {name: "Annotations"}));
+  await waitFor(()=> screen.getByText("This is a written annotation"));
+  await waitFor(()=> screen.getByAltText("Fry visual annotation"));
 }
 
 // ----------------------------------------------------------------------------------------------------
